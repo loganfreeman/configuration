@@ -14,7 +14,8 @@ VBoxManage controlvm <name|uuid> poweroff
 ```
 vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate
 ```
-Command Explained:
+###Command Explained:
+
 vboxmanage list runningvms | -- gets a list of all running vms under VirtualBox
 
 sed -r 's/.*\{(.*)\}/\1/' | -- strips the string down to id number
