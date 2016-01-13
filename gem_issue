@@ -1,0 +1,4 @@
+* eventmachine openssl issue
+```sh
+gem install eventmachine -- --with-cppflags=-I/usr/local/opt/openssl/include 
+```
