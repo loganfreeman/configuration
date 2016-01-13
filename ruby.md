@@ -3,3 +3,6 @@ This page ["How Do I Know Whether My Rails App Is Thread-safe or Not?"](https://
 
 ### Nobody understands the GIL
 MRI has something called a [global interpreter lock (GIL)](http://www.jstorimer.com/blogs/workingwithcode/8085491-nobody-understands-the-gil). It's a lock around the execution of Ruby code. This means that in a multi-threaded context, only one thread can execute Ruby code at any one time.
+
+### Non-native methods
+methods implemented with Ruby code have no atomicity guarantees on MRI. Only methods implemented with native C code have this guarantee.
