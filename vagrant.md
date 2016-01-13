@@ -14,6 +14,7 @@ vagrant global-status | grep virtualbox | cut -c 1-9 | while read line; do echo 
 - filter that for lines containing virtualbox (Filters out the help text, will break if you're using some other provider)
 - Filter that to display only the first 9 characters (the global unique ID)
 - While we can still read a line from that input, read it as the variable $line then:
+
 -- Print out that $line
 -- run vagrant halt $line halting the vagrant for that global unique ID
 * Poweroff running VMs (not recommended because we may lose data in the guest)
