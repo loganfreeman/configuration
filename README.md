@@ -20,7 +20,7 @@ $ sudo chown myappuser: /var/www/myapp
 $ cd /var/www/myapp
 $ sudo -u myappuser -H git clone git://github.com/username/myapp.git code
 ```
-## Login as the app's user
+#### Login as the app's user
 ```shell
 $ sudo -u myappuser -H bash -l
 $ rvm use ruby-2.2.3
