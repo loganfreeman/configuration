@@ -30,6 +30,11 @@ $ rvm use ruby-2.2.3
 ```
 #### Install dependencies
 ```shell
-cd /var/www/myapp/code
+$ cd /var/www/myapp/code
 $ bundle install --deployment --without development test
+```
+
+#### compile assets and run the database migration
+```shell
+$ bundle exec rake assets:precompile db:migrate RAILS_ENV=production
 ```
