@@ -1,6 +1,7 @@
 * List running machines (returns name and UUID):
 ```shell
 VBoxManage list runningvms
+vagrant global-status | awk '/running/{print $1}'
 ```
 * Stop running VMs by "hibernating" them (reommended to avoid data loss)
 ```shell
