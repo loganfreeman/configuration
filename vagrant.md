@@ -16,13 +16,13 @@ vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxMan
 ```
 **Command Explained**:
 
-vboxmanage list runningvms | -- gets a list of all running vms under VirtualBox
+- vboxmanage list runningvms | -- gets a list of all running vms under VirtualBox
 
-sed -r 's/.*\{(.*)\}/\1/' | -- strips the string down to id number
+- sed -r 's/.*\{(.*)\}/\1/' | -- strips the string down to id number
 
-xargs -L1 -I {} VBoxManage controlvm {} savestate -- runs the save state command on each box that's open.
+- xargs -L1 -I {} VBoxManage controlvm {} savestate -- runs the save state command on each box that's open.
 
-On xargs
+***On xargs***
 
 -L1 - take one line at a time
 -I {} - uses {} as a place holder for the next command
