@@ -15,4 +15,13 @@ $ sudo sh -c "cat $HOME/.ssh/authorized_keys >> ~myappuser/.ssh/authorized_keys"
 $ sudo chown -R myappuser: ~myappuser/.ssh
 $ sudo chmod 700 ~myappuser/.ssh
 $ sudo sh -c "chmod 600 ~myappuser/.ssh/*"
+$ sudo mkdir -p /var/www/myapp
+$ sudo chown myappuser: /var/www/myapp
+$ cd /var/www/myapp
+$ sudo -u myappuser -H git clone git://github.com/username/myapp.git code
+```
+## Login as the app's user
+```shell
+$ sudo -u myappuser -H bash -l
+$ rvm use ruby-2.2.3
 ```
