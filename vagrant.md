@@ -34,5 +34,5 @@ vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxMan
 
 ***On xargs***
 
--L1 - take one line at a time
--I {} - uses {} as a place holder for the next command
+ - -L1 - take one line at a time
+ - -I {} - uses {} as a place holder for the next command
