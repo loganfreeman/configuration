@@ -1,5 +1,3 @@
 * eventmachine openssl issue
 
-```
 gem install eventmachine -- --with-cppflags=-I/usr/local/opt/openssl/include 
-```
