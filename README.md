@@ -25,3 +25,8 @@ $ sudo -u myappuser -H git clone git://github.com/username/myapp.git code
 $ sudo -u myappuser -H bash -l
 $ rvm use ruby-2.2.3
 ```
+#### Install dependencies
+```shell
+cd /var/www/myapp/code
+$ bundle install --deployment --without development test
+```
