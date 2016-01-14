@@ -21,6 +21,11 @@ Essential configuration
 ```shell
 passenger-config --ruby-command
 ```
+
+**application group**
+
+Sets the name of the application group that the current application should belong to. Its default value is the application root, plus (if it is explicitly set), the application environment name.
+
 Spawn methods explained
 ---
 At its core, [Passenger is an HTTP proxy and process manager](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/)
