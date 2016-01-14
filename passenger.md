@@ -1,5 +1,6 @@
 * Spawn methods explained
 > At its core, [Passenger is an HTTP proxy and process manager](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/)
+
 * Relevant Pages in the Passenger Docs
 > [The Apache version of the Passenger user’s guide](http://www.modrails.com/documentation/Users%20guide%20Apache.html) covers the Passenger-specific configuration directives we use below in much greater detail.
 
