@@ -17,6 +17,10 @@ Essential configuration
 2. PassengerAppType – Tells Passenger what kind of application it is.
 3. PassengerStartupFile – Tells Passenger where your application's entry point file is.
 
+**If you are not sure what ruby passenger is using by default**
+```shell
+passenger-config --ruby-command
+```
 Spawn methods explained
 ---
 At its core, [Passenger is an HTTP proxy and process manager](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/)
