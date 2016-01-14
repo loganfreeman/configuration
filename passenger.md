@@ -1,3 +1,9 @@
+[Passenger Standalone](https://www.phusionpassenger.com/library/config/standalone/intro.html)
+---
+```shell
+passenger start --port 4000
+```
+
 Essential configuration
 ---
 1. The LoadModule passenger_module ... option must exist in the Apache configuration. This option tells Apache to load the Passenger module from the given filename. 
