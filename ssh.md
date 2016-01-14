@@ -38,3 +38,8 @@ You can find a full list of available options by typing:
 ```shell
 man ssh_config
 ```
+
+SSH agent forwarding
+```shell
+env | grep SSH_AUTH_SOCK
+```
