@@ -1,3 +1,9 @@
+Essential configuration
+---
+1. The LoadModule passenger_module ... option must exist in the Apache configuration. This option tells Apache to load the Passenger module from the given filename. 
+2. The PassengerRoot option must exist in the Apache configuration. This option tells Passenger where to find its own resource files.
+3. The PassengerDefaultRuby option does not have to exist, but it is strongly recommended that you set it.
+
 ### [How Passenger + Apache autodetects applications](https://www.phusionpassenger.com/library/indepth/ruby/app_autodetection/apache/)
 ---
 1. First, it extracts the directory name from the virtual host root, like this: dirname(DocumentRoot). For example, if you set DocumentRoot /webapps/foo/public , then Passenger extracts the /webapps/foo portion of it. We call this the "application root".
