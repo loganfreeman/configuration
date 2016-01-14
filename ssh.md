@@ -1,4 +1,4 @@
-How To Configure Custom Connection Options for your SSH Client
+[How To Configure Custom Connection Options for your SSH Client](https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client)
 ---
 ```shell
 touch ~/.ssh/config
