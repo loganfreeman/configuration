@@ -4,8 +4,9 @@ At its core, [Passenger is an HTTP proxy and process manager](https://www.phusio
 
 ### Smart spawning hooks
 ---
- - If you want any code to be executed before the preloader has forked any child processes, then call that code in config.ru (or from any code called while loading config.ru, such as config/application.rb).
- - If you want any code to be executed after the preloader has forked a child process, and you want that code to be run in the context of the child process, then use the :starting_worker_process hook that Passenger provides. Put the following code in config.ru (or from any code called while loading config.ru, such as config/application.rb):
+If you want any code to be executed before the preloader has forked any child processes, then call that code in config.ru (or from any code called while loading config.ru, such as config/application.rb).
+
+If you want any code to be executed after the preloader has forked a child process, and you want that code to be run in the context of the child process, then use the :starting_worker_process hook that Passenger provides. Put the following code in config.ru (or from any code called while loading config.ru, such as config/application.rb):
 ```rb
 if defined?(PhusionPassenger)
   PhusionPassenger.on_event(:starting_worker_process) do |forked|
