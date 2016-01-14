@@ -4,6 +4,12 @@
 passenger start --port 4000
 ```
 
+Configuration sources are respected in the following precedence (ordered from most to least precedence):
+
+- Command line options.
+- Environment variables (only since 5.0.22).
+- Passengerfile.json.
+
 Essential configuration
 ---
 1. The LoadModule passenger_module ... option must exist in the Apache configuration. This option tells Apache to load the Passenger module from the given filename. 
