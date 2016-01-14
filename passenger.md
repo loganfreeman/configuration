@@ -6,6 +6,7 @@
 4. If Passenger does not detect an application inside the application root, then Passenger will let Apache serve the virtual host root as if Passenger is not activated.
 
 Overwrite autodetection
+---
 1. PassengerAppRoot – Tells Passenger where your application root is.
 2. PassengerAppType – Tells Passenger what kind of application it is.
 3. PassengerStartupFile – Tells Passenger where your application's entry point file is.
