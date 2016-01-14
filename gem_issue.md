@@ -13,7 +13,6 @@ bundle install
 
 sqlite3 1.3.7 implicit declaration of function 'RBIGNUM' is invalid in C99
 ---
----
 ```shell
 gem install sqlite3
 ```
