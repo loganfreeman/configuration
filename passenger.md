@@ -5,8 +5,7 @@
 3. Passenger does not resolve any symlinks in the DocumentRoot path by default since version 2.2.0. If you need the old symlink-resolving behavior for whatever reason, then you can turn on PassengerResolveSymlinksInDocumentRoot. Another way to solve this situation is to explicitly tell Passenger what the correct application root is through the PassengerAppRoot option.
 4. If Passenger does not detect an application inside the application root, then Passenger will let Apache serve the virtual host root as if Passenger is not activated.
 
-**Overwrite autodetection**
-
+**Overwrite autodetection**\s
 1. PassengerAppRoot – Tells Passenger where your application root is.
 2. PassengerAppType – Tells Passenger what kind of application it is.
 3. PassengerStartupFile – Tells Passenger where your application's entry point file is.
