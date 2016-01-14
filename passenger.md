@@ -1,3 +1,4 @@
+### [How Passenger + Apache autodetects applications](https://www.phusionpassenger.com/library/indepth/ruby/app_autodetection/apache/)
 ### Spawn methods explained
 ---
 At its core, [Passenger is an HTTP proxy and process manager](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/)
