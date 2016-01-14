@@ -2,8 +2,8 @@
 > At its core, [Passenger is an HTTP proxy and process manager](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/)
 
 * Smart spawning hooks
-> If you want any code to be executed before the preloader has forked any child processes, then call that code in config.ru (or from any code called while loading config.ru, such as config/application.rb).
-If you want any code to be executed after the preloader has forked a child process, and you want that code to be run in the context of the child process, then use the :starting_worker_process hook that Passenger provides. Put the following code in config.ru (or from any code called while loading config.ru, such as config/application.rb):
+ - If you want any code to be executed before the preloader has forked any child processes, then call that code in config.ru (or from any code called while loading config.ru, such as config/application.rb).
+ - If you want any code to be executed after the preloader has forked a child process, and you want that code to be run in the context of the child process, then use the :starting_worker_process hook that Passenger provides. Put the following code in config.ru (or from any code called while loading config.ru, such as config/application.rb):
 
 * Relevant Pages in the Passenger Docs
 > [The Apache version of the Passenger user’s guide](http://www.modrails.com/documentation/Users%20guide%20Apache.html) covers the Passenger-specific configuration directives we use below in much greater detail.
