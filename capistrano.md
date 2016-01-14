@@ -71,6 +71,7 @@ To create deploy user
 ---
 ```shell
 adduser deploy
-# this locks the user, it changes the user's password to an untypable string, guaranteeing that the user has no password which can be used to log in
+# this locks the user, it changes the user's password to an untypable string, 
+# guaranteeing that the user has no password which can be used to log in
 passwd -l deploy
 ```
