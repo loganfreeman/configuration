@@ -75,3 +75,8 @@ adduser deploy
 # guaranteeing that the user has no password which can be used to log in
 passwd -l deploy
 ```
+
+Authentication
+---
+1. From our workstation/notebook/etc to our servers. We do this with SSH keys, passphrase protected, ideally, using a key agent.
+2. From our servers to the repository host. We do this so that our servers can check out our application code from Github, or similar and install it to the servers. This is usually done using SSH agent forwarding, HTTP authentication, or with deploy keys.
