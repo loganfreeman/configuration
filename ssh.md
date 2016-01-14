@@ -51,3 +51,7 @@ SSH key generating
 ```shell
 ssh-keygen -t rsa -C 'me@my_email_address.com'
 ```
+We can see which keys are loaded in the SSH agent by running ssh-add -l
+```shell
+ssh-add -l
+```
