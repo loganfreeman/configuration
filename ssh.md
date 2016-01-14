@@ -44,3 +44,4 @@ SSH agent forwarding
 ```shell
 env | grep SSH_AUTH_SOCK
 ```
+To test that agent forwarding is working with your server, you can SSH into your server and run ssh -T git@github.com once more.
