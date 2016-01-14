@@ -5,7 +5,8 @@ ssh deploy@remote 'ls -lR /var/www/my-application'
 ```
 Writing our first cap task to formalize this into a check!
 ---
-```shell
+```ruby
+# /lib/capistrano/tasks/access_check.rake
 desc "Check that we can access everything"
 task :check_write_permissions do
   on roles(:all) do |host|
