@@ -23,3 +23,18 @@ Host *host
 Host *
     CHANGE_DEFAULT custom_value
 ```
+
+Basic Connection Options
+---
+To connect as a user named apollo to a host called example.com that runs its SSH daemon on port 4567 from the command line, we could give the variable information in a variety of ways. The most common would probably be:
+```shell
+ssh -p 4567 apollo@example.com
+```
+However, we could also use the full option names with the -o flag, like this:
+```shell
+ssh -o "User=apollo" -o "Port=4567" -o "HostName=example.com" 
+```
+You can find a full list of available options by typing:
+```shell
+man ssh_config
+```
