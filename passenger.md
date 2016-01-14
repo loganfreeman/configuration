@@ -1,8 +1,8 @@
 * Relevant Pages in the Passenger Docs
-[The Apache version of the Passenger user’s guide](http://www.modrails.com/documentation/Users%20guide%20Apache.html) covers the Passenger-specific configuration directives we use below in much greater detail.
+ [The Apache version of the Passenger user’s guide](http://www.modrails.com/documentation/Users%20guide%20Apache.html) covers the Passenger-specific configuration directives we use below in much greater detail.
 
 * Deploying a Ruby app on an AWS production server
-This page describes [the deployment of a Ruby app](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/aws/apache/oss/osx/deploy_app.html), assuming that Passenger was installed through the following operating system configuration: Mac OS X. 
+ This page describes [the deployment of a Ruby app](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/aws/apache/oss/osx/deploy_app.html), assuming that Passenger was installed through the following operating system configuration: Mac OS X. 
 
 * create a user for the app
 ```shell
