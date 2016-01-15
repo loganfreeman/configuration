@@ -98,3 +98,16 @@ compile assets and run the database migration
 ```shell
 $ bundle exec rake assets:precompile db:migrate RAILS_ENV=production
 ```
+vhost
+---
+```
+<VirtualHost *:80>
+    ServerName www.foo.com
+    DocumentRoot /apps/foo/public
+    <Directory /apps/foo/public/wordpress>
+        PassengerEnabled off
+        # Makes Wordpress's .htaccess file work
+        AllowOverride all
+    </Directory>
+</VirtualHost>
+```
