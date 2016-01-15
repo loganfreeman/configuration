@@ -10,3 +10,10 @@ Get a list of all virtual hosts which are defined in all apache configuration fi
 ```shell
 apachectl -S
 ```
+
+Get the configuration of apache or httpd
+---
+```shell
+apache -V
+httpd -V
+```
