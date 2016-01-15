@@ -22,3 +22,7 @@ UPDATE mysql.user SET authentication_string=PASSWORD('my-new-password') WHERE Us
 FLUSH PRIVILEGES;  
 \q
 ```
+Now again restart the mysql server
+```shell
+sudo /usr/local/mysql/support-files/mysql.server start
+```
