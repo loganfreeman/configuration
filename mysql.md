@@ -32,3 +32,11 @@ create database
 ```sql
 create database database_name;
 ```
+
+create user and grant privilidges
+---
+```mysql
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost'; # The asterisks in this command refer to the database and table (respectively)
+FLUSH PRIVILEGES;
+```
