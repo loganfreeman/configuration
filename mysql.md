@@ -17,7 +17,7 @@ FLUSH PRIVILEGES;
 
 if you are using MySQL 5.7 then you have to do this instead of the commands stated above. Because in MySQL 5.7, the password field in mysql.user table is removed, now the field name is 'authentication_string'.
 
-```mysql
+```sql
 UPDATE mysql.user SET authentication_string=PASSWORD('my-new-password') WHERE User='root';  
 FLUSH PRIVILEGES;  
 \q
@@ -25,4 +25,10 @@ FLUSH PRIVILEGES;
 Now again restart the mysql server
 ```shell
 sudo /usr/local/mysql/support-files/mysql.server start
+```
+
+create database
+---
+```sql
+create database database_name;
 ```
