@@ -17,3 +17,13 @@ Get the configuration of apache or httpd
 apache -V
 httpd -V
 ```
+
+Start or stop apache
+---
+```shell
+apachectl -k stop 
+apachectl -k graceful-stop # graceful stop
+apachectl -k graceful # graceful restart
+apachectl -k restart
+```
+
