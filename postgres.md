@@ -23,6 +23,8 @@ How to Create Roles in PostgreSQL
 ```sql
 CREATE ROLE new_role_name;
 ALTER ROLE demo_role WITH LOGIN;
+# give the new role a password
+\password test_user
 ```
 The postgres Linux account, being associated with the Postgres administrative role, has access to some utilities to create users and databases.
 ```shell
