@@ -13,3 +13,7 @@ To
 ```
 gem 'pg'
 ```
+Now do
+```
+bundle install
+```
