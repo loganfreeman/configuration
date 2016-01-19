@@ -28,6 +28,7 @@ Docker basic
 - docker build -t ouruser/sinatra:v2 . - build an image from a local Dockerfile
 - docker tag 5db5f8471261 ouruser/sinatra:devel - set tag on an image
 - docker rmi training/sinatra - remove an image not used anymore, not the same as removing a container that is based on an image
+- docker exec -it your_container_name_or_id bash - open a shell to your container
 
 Docker network
 ---
