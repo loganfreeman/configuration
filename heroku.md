@@ -48,7 +48,7 @@ default:
  gem 'rails_12factor', group: :production
  ```
 Make sure you are in the directory that contains your Rails app, then create an app on Heroku:
-```
+```shell
 heroku create
 # You can verify that the remote was added to your project by running
 git config --list | grep heroku
