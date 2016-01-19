@@ -23,3 +23,4 @@ Docker basic
 - docker images - list images
 - docker run -t -i ubuntu:14.04 /bin/bash - run an image
 - docker pull centos - pull an image
+- docker search sinatra - search for an image
