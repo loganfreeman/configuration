@@ -78,3 +78,28 @@ if false # the code below will not run
 end
 p a # nil, since that code didn't execute, thus the variable wasn't initialized
 ```
+Local Variable Naming Conflicts
+---
+In Ruby, methods can be called without an explicit receiver and any parentheses, just like local variables. 
+
+If you have a local variable being initialized and a method call with a same name in the same scope ,the local variable will “shadow” the method and take precedence. That doesn’t mean that the method is gone and cannot be accessed at all. You can easily get access to it by adding either parentheses at the end (with something()) or adding an explicit self receiver before it (with self.something).
+```ruby
+def something
+  'hello'
+end
+
+p something
+==> hello
+something= 'Ruby'
+p something
+==> Ruby #'hello' is not printed
+```
+
+```ruby
+def some_var; 'I am a method'; end
+public :some_var # Because all methods defined at the top level are private by default
+some_var = 'I am a variable'
+p some_var # I am a variable
+p some_var() # I am a method
+p self.some_var # I am a method
+```
