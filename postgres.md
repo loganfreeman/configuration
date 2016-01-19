@@ -25,5 +25,7 @@ CREATE ROLE new_role_name;
 ```
 The postgres Linux account, being associated with the Postgres administrative role, has access to some utilities to create users and databases.
 ```shell
+sudo -i -u postgres
 createuser --interactive
+createdb test1
 ```
