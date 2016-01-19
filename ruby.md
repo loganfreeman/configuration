@@ -189,8 +189,8 @@ end
 ```
 A closure is simply code containing behavior that can:
 
-be passed around like an object (which can be called later)
-remember the variables that were in scope when the closure (lambda in this example) was defined.
+- be passed around like an object (which can be called later)
+- remember the variables that were in scope when the closure (lambda in this example) was defined.
 ```ruby
 def foo
   x = 1
