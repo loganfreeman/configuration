@@ -73,3 +73,11 @@ docker run -v /Users/<path>:/<container path> ...
 # on Windows
 docker run -v /c/Users/<path>:/<container path> ...
 ```
+Let’s create a new named container with a volume to share.
+```shell
+docker create -v /dbdata --name dbdata training/postgres /bin/true
+```
+You can then use the --volumes-from flag to mount the /dbdata volume in another container.
+```shell
+docker run -d --volumes-from dbdata --name db1 training/postgres
+```
