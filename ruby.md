@@ -150,3 +150,15 @@ some_class = SomeClass.new
 some_class.some_method
 ```
 After you run this, you’ll see 2 lines printed: [:v1, :v0, :some_class] and [:v2, :v1, :v0, :some_class]. We successfully broke each and every scope gate and made the outside variables available. 
+Are Blocks Scope Gates?
+---
+```ruby
+sample_list = [1,2,3]
+hi = '123'
+sample_list.each do |item| # the block scope begins here
+  puts hi # will this print 123 or produce an error?
+  hello = 'hello' # declaring and initializing a variable
+end
+
+p hello # undefined local variable or method "hello"
+```
