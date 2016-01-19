@@ -16,3 +16,4 @@ Docker basic
 - docker logs - Shows us the standard output of a container.
 - docker stop - Stops running containers.
 - docker-machine ip my_vm_name - get the IP of the virtual host 
+- docker port container_id - get the port mapping 
