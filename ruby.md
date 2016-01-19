@@ -103,3 +103,10 @@ p some_var # I am a variable
 p some_var() # I am a method
 p self.some_var # I am a method
 ```
+Scope Gates: An Essential Concept to Understanding Scope
+---
+1. Define a class (with class SomeClass)
+2. Define a module (with module SomeModule)
+3. Define a method (with def some_method)?
+
+Every time you do any of these three things, you enter a new scope. It’s like Ruby opening a gate for you and taking you to an entirely different context with entirely different variables.
