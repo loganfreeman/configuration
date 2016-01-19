@@ -57,4 +57,7 @@ git push heroku master
 heroku run rake db:migrate # Any commands after the heroku run will be executed on a Heroku dyno
 # You can obtain an interactive shell session by running
 heroku run bash
+# Let’s ensure we have one dyno running the web process type:
+heroku ps:scale web=1
+heroku ps # The heroku ps command lists the running dynos of your application
 ```
