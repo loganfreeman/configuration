@@ -52,3 +52,11 @@ Docker networking allows you to attach a container to as many networks as you li
 ```shell
 docker network connect my-bridge-network web
 ```
+Data volumes
+---
+Data volumes are designed to persist data, independent of the container’s life cycle. Docker therefore never automatically delete volumes when you remove a container, nor will it “garbage collect” volumes that are no longer referenced by a container.
+
+To add a data volume
+```shell
+docker run -d -P --name web -v /webapp training/webapp python app.py
+```
