@@ -19,7 +19,7 @@ bundle install
 ```
 In addition to using the pg gem, you’ll also need to ensure the config/database.yml is using the postgresql adapter.
 The development section of your **config/database.yml** file should look something like this:
-```
+```yml
 # PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
