@@ -116,11 +116,11 @@ Every method/module/class definition is known as a scope gate, because a new sco
 v0 = 0
 class SomeClass # Scope gate
   v1 = 1
-  p local_variables # As the name says, it gives you all local variables in scope
+  p local_variables # As the name says, it gives you all local variables in scope. this prints out [:v1]
 
   def some_method # Scope gate
     v2 = 2
-    p local_variables
+    p local_variables # this prints out [:v2]
   end # end of def scope gate
 end # end of class scope gate
 
@@ -138,11 +138,11 @@ The key to this is simple: Replace scope gates with method calls. More specifica
 v0 = 0
 SomeClass = Class.new do
   v1 = 1
-  p local_variables
+  p local_variables # this prints out [:v1, :v0, :some_class]
 
   define_method(:some_method) do
     v2 = 2
-    p local_variables
+    p local_variables # this prints out [:v2, :v1, :v0, :some_class]
   end
 end
 
