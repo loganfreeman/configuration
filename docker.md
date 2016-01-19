@@ -21,3 +21,4 @@ Docker basic
 - docker port container_id - get the port mapping 
 - docker top container_id - examine the running process 
 - docker images - list images
+- docker run -t -i ubuntu:14.04 /bin/bash - run an image
