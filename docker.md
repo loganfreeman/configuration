@@ -36,5 +36,5 @@ Docker Engine natively supports both bridge networks and overlay networks. A bri
 docker network create -d bridge my-bridge-network
 docker network ls
 ```
-The -d flag tells Docker to use the bridge driver for the new network. You could have left this flag off as bridge is the default value for this flag.
+The *-d* flag tells Docker to use the bridge driver for the new network. You could have left this flag off as bridge is the default value for this flag.
 
