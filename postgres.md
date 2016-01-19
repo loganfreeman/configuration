@@ -10,3 +10,7 @@ development:
   username: blog
   password:
 ```
+Prepared Statements are enabled by default on PostgreSQL. You can be disable prepared statements by setting prepared_statements to false:
+```
+prepared_statements: false
+```
