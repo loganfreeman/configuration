@@ -162,3 +162,17 @@ end
 
 p hello # undefined local variable or method "hello"
 ```
+Not only can you access outside variables, but change their content as well! Try putting hi = '456' inside do/end and its content will be changed.
+
+What if you don’t want blocks to modify outside variables? Block-local variables can help. To define block-local variables, put a semicolon at the end of the block’s parameters (the block below has only 1 parameter, i) and then just list them:
+```ruby
+hi = 'hi'
+hello ='hello'
+3.times do |i; hi, hello|
+  p i
+  hi = 'hi again'
+  hello = 'hello again'
+end
+p hi # "hi"
+p hello # "hello"
+```
