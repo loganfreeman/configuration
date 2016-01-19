@@ -24,3 +24,4 @@ Docker basic
 - docker run -t -i ubuntu:14.04 /bin/bash - run an image
 - docker pull centos - pull an image
 - docker search sinatra - search for an image
+- docker commit -m "Added json gem" -a "Kate Smith" 0b2616b0e5a8 ouruser/sinatra:v2 - create a new image
