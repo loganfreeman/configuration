@@ -28,3 +28,13 @@ Docker basic
 - docker build -t ouruser/sinatra:v2 . - build an image from a local Dockerfile
 - docker tag 5db5f8471261 ouruser/sinatra:devel - set tag on an image
 - docker rmi training/sinatra - remove an image not used anymore, not the same as removing a container that is based on an image
+
+Docker network
+---
+Docker Engine natively supports both bridge networks and overlay networks. A bridge network is limited to a single host running Docker Engine. An overlay network can include multiple hosts and is a more advanced topic.
+```
+docker network create -d bridge my-bridge-network
+docker network ls
+```
+The -d flag tells Docker to use the bridge driver for the new network. You could have left this flag off as bridge is the default value for this flag.
+
