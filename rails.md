@@ -63,3 +63,23 @@ class AddCurrentToVendor < ActiveRecord::Migration
   end
 end
 ```
+* Use helpers methods from the database adapter
+```ruby
+class AddCurrentToVendor < ActiveRecord::Migration
+
+  def up
+    articles = select_all('SELECT * FROM articles')
+    articles.each do |article|
+      first_vendor = select_one("SELECT * FROM vendors WHERE article_id = #{article['id']}")
+      if first_vendor
+        update("UPDATE vendors SET current=#{quoted_true} WHERE id=#{first_vendor['id']}")
+      end
+    end
+  end
+
+  def down
+    remove_column :vendors, :current
+  end
+  
+end
+```
