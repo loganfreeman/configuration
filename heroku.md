@@ -96,9 +96,10 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection
 end
 ```
-Puma forks multiple OS processes within each dyno to allow a Rails app to support multiple concurrent requests. In Puma terminology these are referred to as worker processes (not to be confused with Heroku worker processes which run in their own dynos). Worker processes are isolated from one another at the OS level, therefore not needing to be thread safe.
+Puma forks multiple OS processes within each dyno to allow a Rails app to support multiple concurrent requests. In Puma terminology these are referred to as worker processes. Worker processes are isolated from one another at the OS level, therefore not needing to be thread safe.
 
 If your app is not thread safe, you will only be able to use workers. Set your min and max threads to 1:
 ```
 heroku config:set MAX_THREADS=1
 ```
+Puma can serve each request in a thread from an internal thread pool. This allows Puma to provide additional concurrency for your web application. Loosely speaking, workers consume more RAM and threads consume more CPU, and both provide more concurrency.
