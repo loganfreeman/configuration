@@ -178,3 +178,12 @@ end
 p hi # "hi"
 p hello # "hello"
 ```
+
+```ruby
+2.times do
+  i ||= 1
+  print "#{i} "
+  i += 1
+  print "#{i} "
+end
+```
