@@ -89,5 +89,7 @@ To delete the volume from disk, you must explicitly call **docker rm -v** agains
 Backup, restore, or migrate data volumes
 ```shell
 docker run --volumes-from dbdata -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
+# to extract the data
+docker run --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf /backup/backup.tar"
 ```
 Here we’ve launched a new container and mounted the volume from the dbdata container. We’ve then mounted a local host directory as /backup. Finally, we’ve passed a command that uses tar to backup the contents of the dbdata volume to a backup.tar file inside our /backup directory.
