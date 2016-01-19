@@ -73,6 +73,8 @@ First, add Puma to your application Gemfile:
 gem 'puma'
 ```
 Change the command used to launch your web process by creating a file called Procfile, in Procfile write:
-```
+```shell
 web: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
+# However a config file is recommended 
+web: bundle exec puma -C config/puma.rb
 ```
