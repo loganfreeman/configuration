@@ -1,7 +1,7 @@
 How to write complex migrations in Rails
 ---
 - Use the full power of SQL
-```sql
+```ruby
 class AddFollowersCountToPosts < ActiveRecord::Migration
 
   def up
@@ -16,7 +16,7 @@ class AddFollowersCountToPosts < ActiveRecord::Migration
 end
 ```
 
-```sql
+```ruby
 class MoveCategoriesFromProjectToActivity < ActiveRecord::Migration
 
   def up
@@ -33,5 +33,33 @@ class MoveCategoriesFromProjectToActivity < ActiveRecord::Migration
     # not implemented
   end
 
+end
+```
+* Embed models into your migrations
+```ruby
+class AddCurrentToVendor < ActiveRecord::Migration
+
+  class Vendor < ActiveRecord::Base
+  end
+
+  class Article < ActiveRecord::Base
+    has_many :vendors, :class_name => 'AddCurrentToVendor::Vendor', :order => 'created_at'
+  end
+
+  def up
+    add_column :vendors, :current, :boolean
+    Vendor.reset_column_information
+    Vendor.update_all(:current => false)
+    Article.all.each do |article|
+      first_vendor = article.vendors.first
+      if first_vendor
+        first_vendor.update_attributes!(:current => true)
+      end
+    end
+  end
+
+  def down
+    remove_column :vendors, :current
+  end
 end
 ```
