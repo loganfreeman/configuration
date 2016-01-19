@@ -83,3 +83,5 @@ docker run -d --volumes-from dbdata --name db1 training/postgres
 docker run -d --name db3 --volumes-from db1 training/postgres
 ```
 To delete the volume from disk, you must explicitly call **docker rm -v** against the last container with a reference to the volume. 
+
+[Top Level Volume Management](https://github.com/docker/docker/issues/14214)
