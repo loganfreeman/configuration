@@ -61,6 +61,8 @@ To add a data volume
 docker run -d -P --name web -v /webapp training/webapp python app.py
 # to set a volume readonly 
 docker run -d -P --name web -v /opt/webapp:ro training/webapp python app.py
+# mount a directory from your virtual machine's file system into the container
+docker run -d -P --name web -v /src/webapp:/opt/webapp:ro training/webapp python app.py
 ```
 If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows filesystem. Docker Machine tries to auto-share your **/Users** (OS X) or **C:\Users** (Windows) directory.
 
