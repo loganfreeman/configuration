@@ -188,7 +188,6 @@ Did you expect 1 2 2 2? The answer is: 1 2 1 2. Each iteration using times is a 
 end
 ```
 A closure is simply code containing behavior that can:
-
 - be passed around like an object (which can be called later)
 - remember the variables that were in scope when the closure (lambda in this example) was defined.
 ```ruby
