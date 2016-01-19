@@ -62,3 +62,10 @@ docker run -d -P --name web -v /webapp training/webapp python app.py
 # to set a volume readonly 
 docker run -d -P --name web -v /opt/webapp:ro training/webapp python app.py
 ```
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows filesystem. Docker Machine tries to auto-share your **/Users** (OS X) or **C:\Users** (Windows) directory.
+```shell
+# OS X
+docker run -v /Users/<path>:/<container path> ...
+# on Windows
+docker run -v /c/Users/<path>:/<container path> ...
+```
