@@ -60,4 +60,8 @@ heroku run bash
 # Let’s ensure we have one dyno running the web process type:
 heroku ps:scale web=1
 heroku ps # The heroku ps command lists the running dynos of your application
+# We can now visit the app in our browser with
+heroku open
+# You can view information about your running app using one of the logging commands:
+heroku logs --tail
 ```
