@@ -138,3 +138,5 @@ on_worker_boot do
   end
 end
 ```
+#### Connection Pool
+By default Rails (Active Record) will only create a connection when a new thread or process attempts to talk to the database through a SQL query. Active Record limits the total number of connections per application through a database setting pool; this is the maximum size of the connections your app can have to the database. The default maximum size of the database connection pool is 5. If you try to use more connections than are available, Active Record will block and wait for a connection from the pool.
