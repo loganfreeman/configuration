@@ -48,3 +48,7 @@ Launch a container running a PostgreSQL database and pass it the --net=my-bridge
  # get the IP address 
  docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' web
  ```
+Docker networking allows you to attach a container to as many networks as you like.
+```shell
+docker network connect my-bridge-network web
+```
