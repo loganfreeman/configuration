@@ -14,7 +14,7 @@ To
 gem 'pg'
 ```
 Now do
-```
+```shell
 bundle install
 ```
 In addition to using the pg gem, you’ll also need to ensure the config/database.yml is using the postgresql adapter.
