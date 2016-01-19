@@ -134,3 +134,19 @@ The key to this is simple: Replace scope gates with method calls. More specifica
 1. class definitions with **Class.new**
 2. module definitions with **Module.new**
 3. method definitions with **define_method**
+```ruby
+v0 = 0
+SomeClass = Class.new do
+  v1 = 1
+  p local_variables
+
+  define_method(:some_method) do
+    v2 = 2
+    p local_variables
+  end
+end
+
+some_class = SomeClass.new
+some_class.some_method
+```
+After you run this, you’ll see 2 lines printed: [:v1, :v0, :some_class] and [:v2, :v1, :v0, :some_class]. We successfully broke each and every scope gate and made the outside variables available. 
