@@ -201,3 +201,15 @@ x = 2
 p foo.call # The answer is 1. 
 # The reason for this is, blocks and block objects (procs, lambdas) see the scope in their definition and not in their invocation.
 ```
+This can come in handy in various cases, like defining an infinite number generator:
+```ruby
+def increase_by(i)
+  start = 0
+  lambda { start += i }
+end
+
+increase = increase_by(3)
+start = 453534534 # won't affect anything
+p increase.call # 3
+p increase.call # 6
+```
