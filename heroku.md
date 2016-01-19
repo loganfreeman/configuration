@@ -107,3 +107,34 @@ If your app is not thread safe, you will only be able to use workers. Set your m
 heroku config:set MAX_THREADS=1
 ```
 
+#### On Worker Boot
+The on_worker_boot block is run after a worker is spawned, but before it begins to accept requests. This block is especially useful for connecting to different services as connections cannot be shared between multiple processes.
+
+If you are using Rails 4.1+ you can use the database.yml to set your connection pool size and this is all you need to do:
+```ruby
+on_worker_boot do
+  # Valid on Rails 4.1+ using the `config/database.yml` method of setting `pool` size
+  ActiveRecord::Base.establish_connection
+end
+```
+Otherwise you must be very specific with the reconnection code:
+```ruby
+on_worker_boot do
+  # Valid on Rails up to 4.1 the initializer method of setting `pool` size
+  ActiveSupport.on_load(:active_record) do
+    config = ActiveRecord::Base.configurations[Rails.env] ||
+                Rails.application.config.database_configuration[Rails.env]
+    config['pool'] = ENV['MAX_THREADS'] || 5
+    ActiveRecord::Base.establish_connection(config)
+  end
+end
+```
+You will need to re-connect to any datastore such as Postgres, Redis, or memcache. 
+```ruby
+on_worker_boot do
+  # ...
+  if defined?(Resque)
+     Resque.redis = ENV["<redis-uri>"] || "redis://127.0.0.1:6379"
+  end
+end
+```
