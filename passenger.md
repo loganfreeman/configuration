@@ -111,3 +111,10 @@ vhost
     </Directory>
 </VirtualHost>
 ```
+Apache conf
+---
+```
+LoadModule passenger_module /usr/local/opt/passenger/libexec/buildout/apache2/mod_passenger.so
+PassengerRoot /usr/local/opt/passenger/libexec/src/ruby_supportlib/phusion_passenger/locations.ini
+PassengerDefaultRuby /usr/bin/ruby
+```
