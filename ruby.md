@@ -127,3 +127,10 @@ end # end of class scope gate
 some_class = SomeClass.new
 some_class.some_method
 ```
+Module/method/class definitions, as we’ve seen previously, limit the visibility of variables. If you have local variables in a class, when a new method is defined in the class the local variables in the class are no longer available, as we’ve seen. What if you wanted to still have access to these variables despite the method definition? How can you “break” those scope gates?
+
+The key to this is simple: Replace scope gates with method calls. More specifically, replace:
+
+1. class definitions with **Class.new**
+2. module definitions with **Module.new**
+3. method definitions with **define_method**
