@@ -15,6 +15,8 @@ Docker basic
 - docker ps - Lists containers.
 - docker logs -f - Shows us the standard output of a container. -f acts like tail -f
 - docker stop - Stops running containers.
+- docker start - start the container
+- docker rm - remove the container
 - docker-machine ip my_vm_name - get the IP of the virtual host 
 - docker port container_id - get the port mapping 
 - docker top container_id - examine the running process 
