@@ -18,4 +18,8 @@ adapter: postgresql
 prepared_statements: false
 statement_limit: 200
 ```
-
+How to Create Roles in PostgreSQL
+---
+```sql
+CREATE ROLE new_role_name;
+```
