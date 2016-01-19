@@ -47,3 +47,7 @@ default:
  ```
  gem 'rails_12factor', group: :production
  ```
+Make sure you are in the directory that contains your Rails app, then create an app on Heroku:
+```
+heroku create
+```
