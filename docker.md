@@ -59,4 +59,6 @@ Data volumes are designed to persist data, independent of the container’s life
 To add a data volume
 ```shell
 docker run -d -P --name web -v /webapp training/webapp python app.py
+# to set a volume readonly 
+docker run -d -P --name web -v /opt/webapp:ro training/webapp python app.py
 ```
