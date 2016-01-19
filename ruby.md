@@ -178,7 +178,7 @@ end
 p hi # "hi"
 p hello # "hello"
 ```
-
+Did you expect 1 2 2 2? The answer is: 1 2 1 2. Each iteration using times is a new block definition that resets the local variables inside it. 
 ```ruby
 2.times do
   i ||= 1
