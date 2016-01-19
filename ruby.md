@@ -39,3 +39,31 @@ sheep = Sheep.new
   end
 end.each(&:join)
 ```
+Ruby Strings - Creation and Basics
+---
+* Quoting Ruby Strings
+```ruby
+myString = "This is also my string.\nGet your own string"
+```
+* General Delimited Strings
+Ruby allows you to define any character you want as a string delimiter simply by prefixing the desired character with a %. For example, we could use the ampersand to delimit our string:
+```ruby
+myString = %&This is my String&
+```
+* Ruby Here Documents
+A Here Document (or heredoc as it is more commonly referred to) provides a mechanism for creating free format strings, preserving special characters such as new lines and tabs.
+
+A here document is created by preceding the text with << followed by the delimiter string you wish to use to mark the end of the text. The following example uses the string "DOC" as the delimiter:
+```ruby
+myText = <<DOC
+Please Detach and return this coupon with your payment.
+Do not send cash or coins.
+
+Please write your name and account number on the check and
+make checks payable to:
+
+        Acme Corporation
+
+Thank you for your business.
+DOC
+```
