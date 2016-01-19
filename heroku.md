@@ -67,6 +67,7 @@ heroku logs --tail
 ```
 By default, your app’s web process runs rails server, which uses Webrick.
 Regardless of the webserver you choose, production apps should always specify the webserver explicitly in the Procfile.
+
 First, add Puma to your application Gemfile:
 ```ruby
 gem 'puma'
