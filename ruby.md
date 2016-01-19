@@ -187,7 +187,10 @@ Did you expect 1 2 2 2? The answer is: 1 2 1 2. Each iteration using times is a 
   print "#{i} "
 end
 ```
-The answer is 1. The reason for this is, blocks and block objects (procs, lambdas) see the scope in their definition and not in their invocation.
+A closure is simply code containing behavior that can:
+
+be passed around like an object (which can be called later)
+remember the variables that were in scope when the closure (lambda in this example) was defined.
 ```ruby
 def foo
   x = 1
@@ -196,5 +199,6 @@ end
 
 x = 2
 
-p foo.call
+p foo.call # The answer is 1. 
+# The reason for this is, blocks and block objects (procs, lambdas) see the scope in their definition and not in their invocation.
 ```
