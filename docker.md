@@ -63,6 +63,8 @@ docker run -d -P --name web -v /webapp training/webapp python app.py
 docker run -d -P --name web -v /opt/webapp:ro training/webapp python app.py
 ```
 If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows filesystem. Docker Machine tries to auto-share your **/Users** (OS X) or **C:\Users** (Windows) directory.
+
+All other paths come from your virtual machine’s filesystem. For example, if you are using VirtualBox some other folder available for sharing, you need to do additional work. In the case of VirtualBox you need to make the host folder available as a shared folder in VirtualBox. Then, you can mount it using the Docker -v flag.
 ```shell
 # OS X
 docker run -v /Users/<path>:/<container path> ...
