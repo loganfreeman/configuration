@@ -83,3 +83,10 @@ class AddCurrentToVendor < ActiveRecord::Migration
   
 end
 ```
+* How do I check the Database type in a Rails Migration?
+```ruby
+ActiveRecord::Base.connection.instance_of? 
+  ActiveRecord::ConnectionAdapters::MysqlAdapter 
+# Even more shorted form
+ActiveRecord::Base.connection.adapter_name == 'MySQL'
+```
