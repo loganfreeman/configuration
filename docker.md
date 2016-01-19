@@ -20,3 +20,4 @@ Docker basic
 - docker-machine ip my_vm_name - get the IP of the virtual host 
 - docker port container_id - get the port mapping 
 - docker top container_id - examine the running process 
+- docker images - list images
