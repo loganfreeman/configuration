@@ -98,6 +98,8 @@ end
 ```
 Puma forks multiple OS processes within each dyno to allow a Rails app to support multiple concurrent requests. In Puma terminology these are referred to as worker processes. Worker processes are isolated from one another at the OS level, therefore not needing to be thread safe.
 
+On MRI, there is a Global Interpreter Lock (GIL) that ensures only one thread can be run at any time. IO operations such as database calls, interacting with the file system, or making external http calls will not lock the GIL. Most Rails applications heavily use IO, so adding additional threads will allow Puma to process multiple threads, gaining you more throughput.
+
 If your app is not thread safe, you will only be able to use workers. Set your min and max threads to 1:
 ```
 heroku config:set MAX_THREADS=1
