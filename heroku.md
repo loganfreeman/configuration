@@ -50,4 +50,6 @@ default:
 Make sure you are in the directory that contains your Rails app, then create an app on Heroku:
 ```
 heroku create
+# You can verify that the remote was added to your project by running
+git config --list | grep heroku
 ```
