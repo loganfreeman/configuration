@@ -52,4 +52,9 @@ Make sure you are in the directory that contains your Rails app, then create an 
 heroku create
 # You can verify that the remote was added to your project by running
 git config --list | grep heroku
+git push heroku master
+# If you are using the database in your application you need to manually migrate the database by running:
+heroku run rake db:migrate # Any commands after the heroku run will be executed on a Heroku dyno
+# You can obtain an interactive shell session by running
+heroku run bash
 ```
