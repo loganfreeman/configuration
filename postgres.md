@@ -19,4 +19,3 @@ prepared_statements: false
 statement_limit: 200
 ```
 
-### DigitalOcean [How To Setup Ruby on Rails with Postgres](https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres)
