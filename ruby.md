@@ -162,6 +162,8 @@ end
 
 p hello # undefined local variable or method "hello"
 ```
+As you can see with “hello”, variables inside a particular block are local to that block and are not available anywhere else.
+
 Not only can you access outside variables, but change their content as well! Try putting hi = '456' inside do/end and its content will be changed.
 
 What if you don’t want blocks to modify outside variables? Block-local variables can help. To define block-local variables, put a semicolon at the end of the block’s parameters (the block below has only 1 parameter, i) and then just list them:
