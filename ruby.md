@@ -67,3 +67,14 @@ make checks payable to:
 Thank you for your business.
 DOC
 ```
+Local Variable
+---
+The Ruby interpreter will put a local variable in scope whenever it sees it being assigned to something.
+
+It doesn’t matter if the code is not executed, the moment the interpreter sees an assignment a local variable, it puts it in scope:
+```ruby
+if false # the code below will not run
+  a = 'hello' # the interpreter saw this, so the local var. is in scope from now on
+end
+p a # nil, since that code didn't execute, thus the variable wasn't initialized
+```
