@@ -80,4 +80,6 @@ docker create -v /dbdata --name dbdata training/postgres /bin/true
 You can then use the --volumes-from flag to mount the /dbdata volume in another container.
 ```shell
 docker run -d --volumes-from dbdata --name db1 training/postgres
+docker run -d --name db3 --volumes-from db1 training/postgres
 ```
+To delete the volume from disk, you must explicitly call **docker rm -v** against the last container with a reference to the volume. 
