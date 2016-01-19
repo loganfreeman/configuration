@@ -35,6 +35,15 @@ Docker Engine natively supports both bridge networks and overlay networks. A bri
 ```
 docker network create -d bridge my-bridge-network
 docker network ls
+docker network inspect my-bridge-network
 ```
 The **-d** flag tells Docker to use the bridge driver for the new network. You could have left this flag off as bridge is the default value for this flag.
 
+You can add containers to a network when you first run a container.
+Launch a container running a PostgreSQL database and pass it the --net=my-bridge-network flag to connect it to your new network:
+```shell
+ docker run -d --net=my-bridge-network --name db training/postgres
+ docker inspect --format='{{json .NetworkSettings.Networks}}'  db
+ # get the IP address 
+ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' web
+ ```
