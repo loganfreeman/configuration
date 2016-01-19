@@ -26,3 +26,4 @@ Docker basic
 - docker search sinatra - search for an image
 - docker commit -m "Added json gem" -a "Kate Smith" 0b2616b0e5a8 ouruser/sinatra:v2 - create a new image
 - docker build -t ouruser/sinatra:v2 . - build an image from a local Dockerfile
+- docker tag 5db5f8471261 ouruser/sinatra:devel - set tag on an image
