@@ -43,3 +43,7 @@ default:
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 ```
+ To enable features such as static asset serving and logging on Heroku please add rails_12factor gem to your Gemfile
+ ```
+ gem 'rails_12factor', group: :production
+ ```
