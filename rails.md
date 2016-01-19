@@ -89,4 +89,17 @@ ActiveRecord::Base.connection.instance_of?
   ActiveRecord::ConnectionAdapters::MysqlAdapter 
 # Even more shorted form
 ActiveRecord::Base.connection.adapter_name == 'MySQL'
+
+# There is an adapter_name in AbstractAdapter
+adapter_type = connection.adapter_name.downcase.to_sym
+case adapter_type
+when :mysql
+  # do the MySQL part
+when :sqlite
+  # do the SQLite3 part
+when :postgresql
+  # etc.
+else
+  raise NotImplementedError, "Unknown adapter type '#{adapter_type}'"
+end
 ```
