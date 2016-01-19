@@ -9,3 +9,9 @@ If you'd prefer not to have to run this eval statement on every terminal session
 #Docker
 eval "$(docker-machine env default)"
 ```
+
+Docker basic
+---
+- docker ps - Lists containers.
+- docker logs - Shows us the standard output of a container.
+- docker stop - Stops running containers.
