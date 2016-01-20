@@ -244,3 +244,22 @@ In Ruby, everything is an object. Even when you’re at the top-level, you are i
 p self # main
 p self.class # Object
 ```
+Lambda vs. Proc
+---
+A block created with lambda behaves like a method when you use return and simply exits the block, handing control back to the calling method.
+
+A block created with Proc.new behaves like it’s a part of the calling method when return is used within it, and returns from both the block itself as well as the calling method.
+```ruby
+def a_method
+ lambda { return "we just returned from the block" }.call
+ return "we just returned from the calling method"
+end
+```
+Output: we just returned from the calling method
+```ruby
+def a_method
+ Proc.new { return "we just returned from the block" }.call
+ return "we just returned from the calling method"
+end
+```
+Output: we just returned from the block
