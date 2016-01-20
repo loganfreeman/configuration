@@ -150,6 +150,27 @@ some_class = SomeClass.new
 some_class.some_method
 ```
 After you run this, you’ll see 2 lines printed: [:v1, :v0, :some_class] and [:v2, :v1, :v0, :some_class]. We successfully broke each and every scope gate and made the outside variables available. 
+
+How Can Two Methods Share the Same Variable?
+```ruby
+def let_us_define_methods
+  shared_variable = 0
+
+  Kernel.send(:define_method, :increase_var) do
+    shared_variable += 1
+  end
+
+  Kernel.send(:define_method, :decrease_var) do
+    shared_variable -= 1
+  end
+end
+
+let_us_define_methods # methods defined now!
+p increase_var # 1
+p increase_var # 2
+p decrease_var # 1
+```
+
 Are Blocks Scope Gates?
 ---
 ```ruby
