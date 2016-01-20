@@ -263,3 +263,52 @@ def a_method
 end
 ```
 Output: we just returned from the block
+Exception
+---
+Exception is the root of Ruby's exception hierarchy, so when you rescue Exception you rescue from everything, including subclasses such as SyntaxError, LoadError, and Interrupt.
+
+Rescuing Interrupt prevents the user from using CTRLC to exit the program.
+
+Rescuing SignalException prevents the program from responding correctly to signals. It will be unkillable except by kill -9.
+
+Rescuing SyntaxError means that evals that fail will do so silently.
+
+All of these can be shown by running this program, and trying to CTRLC or kill it:
+```ruby
+loop do
+  begin
+    sleep 1
+    eval "djsakru3924r9eiuorwju3498 += 5u84fior8u8t4ruyf8ihiure"
+  rescue Exception
+    puts "I refuse to fail or be stopped!"
+  end
+end
+```
+Rescuing from Exception isn't even the default. Doing
+```ruby
+begin
+  # iceberg!
+rescue
+  # lifeboats
+end
+```
+does not rescue from Exception, it rescues from StandardError. 
+
+If you have a situation where you do want to rescue from StandardError and you need a variable with the exception, you can use this form:
+```ruby
+begin
+  # iceberg!
+rescue => e
+  # lifeboats
+end
+```
+One of the few common cases where it’s sane to rescue from Exception is for logging/reporting purposes, in which case you should immediately re-raise the exception:
+
+```ruby
+begin
+  # iceberg?
+rescue Exception => e
+  # do some logging
+  raise e  # not enough lifeboats ;)
+end
+```
