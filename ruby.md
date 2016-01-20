@@ -236,3 +236,11 @@ start = 453534534 # won't affect anything
 p increase.call # 3
 p increase.call # 6
 ```
+
+The Top-Level Scope
+---
+In Ruby, everything is an object. Even when you’re at the top-level, you are in an object (called main, belonging to an Object class).
+```ruby
+p self # main
+p self.class # Object
+```
