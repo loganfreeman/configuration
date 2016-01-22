@@ -78,3 +78,16 @@ __Class Initialization__
 
 When a Class or Module is Instantiated,  it needs to be initialized.  In the case of user defined Classes and Modules,  the "Initialization" method handles this chore.  Built-in Classes and Modules must also be initialized and they all have a init_xxxx()  function that performs the initialization task.
 
+__Rb_define_singleton_method__
+
+```c
+void 
+rb_define_singleton_method(VALUE obj, const char *name, VALUE(*func), int argc);
+{
+    rb_define_method(rb_singleton_class(obj), name, func, argc);
+}
+```
+
+As explained,  rb_define_method  is the normal method definition function.  The difference is the replacement of the Class Name parameter with the rb_singleton_class  function.  Briefly,  this function creates a Singleton Class for the indicated Class,  providing it does not already exist,  then populates it with the method specified.
+
+A Unique Class  is formally referred to as a Singleton Class.  It should be understood that it is a virtual class,  it can not be sub-classed or instatiated.   It's only purpose is to provide a place to mount methods  and instance variables  that are uniquely associated with the specified Class Name.
