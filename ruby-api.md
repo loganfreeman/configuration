@@ -9,7 +9,7 @@ The following six C functions constitute to principle API for defining Classes, 
 5. rb_define_method
 6. rb_define_singleton_method
 
-__Defining of a Class__
+__Defining a Class__
 
 Rb_define_class defines a new Top-Level Class with the a given name and superclass.   
 Classes and Superclasses for built-in types are of the form:  _rb_cXxxxxx_,  _rb_mXxxxxx_ and _rb_eXxxxxx_.   
@@ -46,3 +46,16 @@ and xx->flags is set to "T_CLASS".
 8. The Constant  "__attached__"  is inserted into the 
 Singleton's iv_tbl.  It's value is the ID of the associated class.
 9. Return address of created Metaclass.
+
+__Defining a module__
+
+- The first task is to request a Object Sized (20 Bytes)  block
+of memory in ObjectSpace.
+- The block is set to zero.
+- The Class Object is initalized: xx->klass is set to "rb_cModule" 
+and xx->flags is set to "T_MODULE".
+- The xx->super entry is set to zero.
+- xx->iv_tbl into is set to zero.
+- xx->m_tbl is initialized as empty numeric Hash Table.
+- Set "__classid__" in xx->iv_tbl with the value of rb_id2name(id).
+- Add name/id pair to rb_class_tbl and rb_cObject's iv_tbl.
