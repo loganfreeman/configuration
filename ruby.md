@@ -465,3 +465,53 @@ puts BusDriver.new.can_drive_from
 # => [BusDriver, Insurable, Person, Object, Kernel, BasicObject]
 # => Can drive from 18, with life insurance of $150000
 ```
+__const_missing method__
+```ruby
+module Person
+  def self.const_missing(name)
+    puts "Oh me oh my, can't find the constant: #{name}"
+  end
+end
+
+Person::LOL
+# => Oh me oh my, can't find the constant: LOL
+```
+__autoloading__
+```ruby
+def Object.const_missing(name)
+  @looked_for ||= {}
+  str_name = name.to_s
+  raise "Class not found: #{name}" if @looked_for[str_name]
+  @looked_for[str_name] = 1
+  file = str_name.downcase
+  require file
+  klass = const_get(name)
+  return klass if klass
+  raise "Class not found: #{name}"
+end
+```
+Turns out, we don’t have to, because autoloading is built into Ruby. We have _Kernel#autoload_, _Module#autoload_ and more sophisticated _ActiveSupport::Autoload_.
+
+__Ambiguity__
+```ruby
+module Insurable
+  LIFE_INSURANCE_AMOUNT = 150_000
+end
+
+class Person
+  LIFE_INSURANCE_AMOUNT = 50_000
+end
+
+class Pilot < Person
+  INSURANCE_AMOUNT = 300_000
+  include Insurable
+end
+
+puts Pilot::INSURANCE_AMOUNT
+puts Pilot::LIFE_INSURANCE_AMOUNT
+
+# => 300_000
+# => 150_000
+```
+Results might seem strange at first, but please remember the full search path:
+__[Module.nesting + Module.ancestors].uniq__
