@@ -91,3 +91,9 @@ rb_define_singleton_method(VALUE obj, const char *name, VALUE(*func), int argc);
 As explained,  rb_define_method  is the normal method definition function.  The difference is the replacement of the Class Name parameter with the rb_singleton_class  function.  Briefly,  this function creates a Singleton Class for the indicated Class,  providing it does not already exist,  then populates it with the method specified.
 
 A Unique Class  is formally referred to as a Singleton Class.  It should be understood that it is a virtual class,  it can not be sub-classed or instatiated.   It's only purpose is to provide a place to mount methods  and instance variables  that are uniquely associated with the specified Class Name.
+
+Loading and requiring files
+___
+We cannot place all the code in just one single file, otherwise it would be too long and complicated for reading. Usually we put a class per file and use a few different methods in order to 'concatenate' it. Here they are: require, require_relative, load, autoload. Let's start with the first one.
+
+Kernel#require(name) loads the given name, returning true if successful and false if the feature is already loaded. If the filename does not resolve to an absolute path, it will be searched for in the directories listed in $LOAD_PATH ($:). Any constants or globals within the loaded source file will be available in the calling program's global namespace. However, local variables will not be propagated to the loading environment. With this method you can load even native extension(.so, .dll or the others depending on current platform). The absolute path of the loaded file is added to $LOADED_FEATURES ($"). A file will not be loaded again if its path already appears in $". Kernel.require_relative(name) is almost the same as require but it looks for a file in the current directory or directories that is relative to current.
