@@ -59,3 +59,17 @@ and xx->flags is set to "T_MODULE".
 - xx->m_tbl is initialized as empty numeric Hash Table.
 - Set "__classid__" in xx->iv_tbl with the value of rb_id2name(id).
 - Add name/id pair to rb_class_tbl and rb_cObject's iv_tbl.
+
+__Defining a method__
+
+```c
+rb_define_method(rb_cArray, "concat", rb_ary_concat, 1);
+```
+
+```ruby
+Class Array < Object
+  def concat (str)
+    method implementation code
+  end
+end
+```
