@@ -373,3 +373,44 @@ end
 widget.surname = "Bobble"
 puts widget.surname
 ```
+Constant Resolution
+---
+Ruby constant is anything that starts with a capital.
+
+When Ruby tries to resolve a constant, it starts looking in current lexical scope by searching the current module or class. If it can’t find it there, it searches the enclosing scope and so on.
+
+It’s easy to see the lexical scopes search chain with Module::nesting method:
+```ruby
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+module A
+  A_CONSTANT = 'I am defined in module A'
+  module B
+    module C
+      def self.inspect_nesting
+
+        puts Module.nesting.inspect
+        puts A_CONSTANT
+      end
+    end
+  end
+end
+
+A::B::C.inspect_nesting
+# => [A::B::C, A::B, A]
+# => I am defined in module A
+```
