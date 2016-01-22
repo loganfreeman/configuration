@@ -110,3 +110,26 @@ Kernel#require(name) loads the given name, returning true if successful and fals
 
   A::C # => 'constant'
   ```
+
+Kernel#load(filename, wrap=false) loads and executes the Ruby program in the filename. If the filename does not resolve to an absolute path, the file is searched for in $:. If the optional wrap parameter is true, the loaded script will be executed under an anonymous module, protecting the calling program's global namespace. It also can load the content of file many times because it doesn't rely on $LOADED_FEATURES. Notice that load needs a filename extension.
+
+```ruby
+  # a.rb
+  # module A
+  #   C = 'constant'
+  # end
+
+  before = $".dup
+  load './a.rb'
+  $" - before # => []
+
+  A::C # => 'constant'
+  sleep 5
+  # Meanwhile changing constant value to 'changed'
+
+  load './a.rb'
+
+  # ./a.rb:2: warning: already initialized constant A::C
+  # ./a.rb:2: warning: previous definition of C was here
+  A::C # => 'changed'
+  ```
