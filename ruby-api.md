@@ -10,6 +10,7 @@ The following six C functions constitute to principle API for defining Classes, 
 6. rb_define_singleton_method
 
 __Defining of a Class__
+
 Rb_define_class defines a new Top-Level Class with the a given name and superclass.   
 Classes and Superclasses for built-in types are of the form:  _rb_cXxxxxx_,  _rb_mXxxxxx_ and _rb_eXxxxxx_.   
 For example, to inherit from Class Object  use _rb_cObject_.   
