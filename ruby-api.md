@@ -1,6 +1,7 @@
 Classes and Modules
 ---
 The following six C functions constitute to principle API for defining Classes,  Modules  and Methods.
+
 1. rb_define_class
 2. rb_define_class_under
 3. rb_define_module
@@ -15,6 +16,7 @@ For example, to inherit from Class Object  use _rb_cObject_.
 Top-level Classes are Classes that are NOT nested inside another Class. 
 
 The function rb_define_class_id(...)  creates a new class object and metaclass object. 
+
 1. The first task is to request a Object Sized (20 Bytes)  block
 of memory in ObjectSpace.
 2. The block is set to zero.
@@ -31,6 +33,7 @@ defined Klass Entry.
 10. Add name/id pair to *rb_class_tbl* and rb_cObject's iv_tbl.
 
 Metaclasses are similarly constructed:
+
 1. Requests a Object Sized  block of memory from ObjectSpace.
 2. The block is set to zero.
 3. The Class Object is initalized: xx->klass is set to "rb_cClass" 
