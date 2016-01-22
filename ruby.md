@@ -398,3 +398,28 @@ A::B::C.inspect_nesting
 # => [A::B::C, A::B, A]
 # => I am defined in module A
 ```
+Nesting modules using alternative syntax
+```ruby
+module Screen
+  DEFAULT_RESOLUTION = [1024, 768]
+  module Widgets
+    module MacOS
+    end
+  end
+end
+
+# Alternative syntax
+
+module Screen::Widgets::MacOS::Button
+  def self.inspect_nesting
+    puts Module.nesting.inspect
+    puts DEFAULT_RESOLUTION
+  end
+end
+
+Screen::Widgets::MacOS::Button.inspect_nesting
+# => [Screen::Widgets::MacOS::Button]
+NameError: uninitialized constant Screen::Widgets::MacOS::Button::DEFAULT_RESOLUTION
+  from (irb):26:in `inspect_nesting'
+  from (irb):29
+```
