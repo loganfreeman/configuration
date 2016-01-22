@@ -440,3 +440,5 @@ puts bus_driver.can_drive_from
 
 # => 18
 ```
+__Mixin__
+Ruby can mixin modules into classes as an alternative to inheritance. When a class mixes in a module, this module inserts itself between the class being mixed in and the parent class in the inheritance hierarchy. The simple way to see this is using ancestors method.
