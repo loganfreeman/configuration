@@ -1,3 +1,10 @@
+Docker machine
+---
+```shell
+docker-machine create
+docker-machine start
+docker-machine stop
+---
 Docker can't connect to docker daemon
 ---
 If you are running Docker on OSX, running the following eval
