@@ -441,4 +441,27 @@ puts bus_driver.can_drive_from
 # => 18
 ```
 __Mixin__
+
 Ruby can mixin modules into classes as an alternative to inheritance. When a class mixes in a module, this module inserts itself between the class being mixed in and the parent class in the inheritance hierarchy. The simple way to see this is using ancestors method.
+```ruby
+module Insurable
+  LIFE_INSURANCE_AMOUNT = 150_000
+end
+
+class Person
+  DRIVING_LICENSE_AGE = 18
+end
+
+class BusDriver < Person
+  include Insurable
+  def can_drive_from
+    "Can drive from #{DRIVING_LICENSE_AGE}, with life insurance of $#{LIFE_INSURANCE_AMOUNT}"
+  end
+end
+
+puts BusDriver.ancestors.inspect
+puts BusDriver.new.can_drive_from
+
+# => [BusDriver, Insurable, Person, Object, Kernel, BasicObject]
+# => Can drive from 18, with life insurance of $150000
+```
