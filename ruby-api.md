@@ -73,3 +73,8 @@ Class Array < Object
   end
 end
 ```
+
+__Class Initialization__
+
+When a Class or Module is Instantiated,  it needs to be initialized.  In the case of user defined Classes and Modules,  the "Initialization" method handles this chore.  Built-in Classes and Modules must also be initialized and they all have a init_xxxx()  function that performs the initialization task.
+
