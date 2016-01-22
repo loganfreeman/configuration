@@ -22,6 +22,13 @@ import foo.bar
 from foo import bar
 ```
 
+#### How does Python knows where to find the foo module?
+
+When a module named spam is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named spam.py in a list of directories given by the variable **sys.path**. **sys.path** is initialized from these locations:
+- the directory containing the input script (or the current directory).
+- PYTHONPATH (a list of directory names, with the same syntax as the shell variable PATH).
+- the installation-dependent default.
+
 Load module helper
 ---
 ```python
