@@ -97,3 +97,16 @@ Loading and requiring files
 We cannot place all the code in just one single file, otherwise it would be too long and complicated for reading. Usually we put a class per file and use a few different methods in order to 'concatenate' it. Here they are: require, require_relative, load, autoload. Let's start with the first one.
 
 Kernel#require(name) loads the given name, returning true if successful and false if the feature is already loaded. If the filename does not resolve to an absolute path, it will be searched for in the directories listed in $LOAD_PATH ($:). Any constants or globals within the loaded source file will be available in the calling program's global namespace. However, local variables will not be propagated to the loading environment. With this method you can load even native extension(.so, .dll or the others depending on current platform). The absolute path of the loaded file is added to $LOADED_FEATURES ($"). A file will not be loaded again if its path already appears in $". Kernel.require_relative(name) is almost the same as require but it looks for a file in the current directory or directories that is relative to current.
+
+```ruby
+  # a.rb
+  # module A
+  #   C = 'constant'
+  # end
+
+  before = $".dup
+  require 'a'
+  $" - before # => ['/Users/route/Projects/dependencies/a.rb']
+
+  A::C # => 'constant'
+  ```
