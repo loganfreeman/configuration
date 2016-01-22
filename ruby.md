@@ -423,3 +423,20 @@ NameError: uninitialized constant Screen::Widgets::MacOS::Button::DEFAULT_RESOLU
   from (irb):26:in `inspect_nesting'
   from (irb):29
 ```
+Enclosing scopes is the first place where Ruby searches the constants. Second place is the inheritance hierarchy. 
+```ruby
+class Person
+  DRIVING_LICENSE_AGE = 18
+end
+
+class BusDriver < Person
+  def can_drive_from
+    DRIVING_LICENSE_AGE
+  end
+end
+
+bus_driver = BusDriver.new
+puts bus_driver.can_drive_from
+
+# => 18
+```
