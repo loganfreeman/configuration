@@ -133,3 +133,8 @@ Kernel#load(filename, wrap=false) loads and executes the Ruby program in the fil
   # ./a.rb:2: warning: previous definition of C was here
   A::C # => 'changed'
   ```
+Ruby Constant Lookup
+---
+- Each entry in Module.nesting
+- Each entry in Module.nesting.first.ancestors
+- Each entry in Object.ancestors if Module.nesting.first is nil or a module.
