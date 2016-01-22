@@ -21,3 +21,15 @@ import foo.bar
 ```python
 from foo import bar
 ```
+
+Load module helper
+---
+```python
+def load_module(test_module):
+    module = __import__(test_module)
+    parts = test_module.split('.')[1:]
+    while parts:
+        part = parts.pop()
+        module = getattr(module, part)
+    return module
+```
