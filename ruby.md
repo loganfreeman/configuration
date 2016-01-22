@@ -336,3 +336,40 @@ eval("@secret", b1)   #=> 99
 eval("@secret", b2)   #=> -3
 eval("@secret")       #=> nil
 ```
+Dynamic property
+---
+Ruby doesn’t have the concept of properties, so in the following snippet of Ruby code,
+```ruby
+widget.name = "Wobble"
+```
+Ruby is actually looking for a method called name= and passing the string “Wobble” as a parameter.
+- attr_accessor
+```ruby
+class Widget
+end
+
+widget = Widget.new
+class Widget
+  attr_accessor :name
+end
+widget.name = "Wobble"
+puts widget.name
+```
+- Using method_missing
+```ruby
+class Widget
+  def method_missing(name, *args, &block)
+    if name =~ /.*=$/      
+      instance_variable_set("@" + name.to_s.chop, args[0])
+      return args[0]
+    end
+    if name =~ /.*[^=]$/
+      return instance_variable_get("@" + name.to_s)
+    end
+    raise "I can't figure out what you're trying to do"
+  end
+end
+
+widget.surname = "Bobble"
+puts widget.surname
+```
