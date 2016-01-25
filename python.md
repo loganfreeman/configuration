@@ -97,4 +97,8 @@ A function is created by the def statement, or by lambda. When a function appear
 
 Defines descriptors
 ---
-If any of those methods  __get__(), __set__(), and __delete__() are defined for an object, it is said to be a descriptor.
+If any of those methods 
+```python 
+__get__(), __set__(), and __delete__() 
+```
+are defined for an object, it is said to be a descriptor.
