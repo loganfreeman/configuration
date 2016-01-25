@@ -39,3 +39,15 @@ gem uninstall libv8
 
 gem install therubyracer -v '0.10.2' # specify version
 ```
+capybara-webkit Qt issue
+---
+Latest Capybara-webkit throws a deprecation warning:
+```
+WARNING: The next major version of capybara-webkit will require at least version 5.0 of Qt. You're using version 4.8.7.
+```
+
+```shell
+brew uninstall qt
+brew install qt5
+brew link --force qt5
+```
