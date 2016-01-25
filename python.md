@@ -102,3 +102,6 @@ If any of those methods
 __get__(), __set__(), and __delete__() 
 ```
 are defined for an object, it is said to be a descriptor.
+
+The default behavior for attribute access is to get, set, or delete the attribute from an object’s dictionary. For instance, a.x has a lookup chain starting with a.__dict__['x'], then type(a).__dict__['x'], and continuing through the base classes of type(a) excluding metaclasses.
+If the looked-up value is an object defining one of the descriptor methods, then Python may override the default behavior and invoke the descriptor method instead.
