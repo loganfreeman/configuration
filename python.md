@@ -57,10 +57,10 @@ class InterfaceMeta(type):
         
         # we need to call type.__new__ to complete the initialization
         return super(InterfaceMeta, cls).__new__(cls, name, parents, dct)
-    ```
-    Now we can use it like:
-    ```ruby
+```
+Now we can use it like:
     
+```python
 class Interface(object):
     __metaclass__ = InterfaceMeta
     file = 'tmp.txt'
