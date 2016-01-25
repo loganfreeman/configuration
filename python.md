@@ -1,3 +1,7 @@
+Class attributes
+---
+Class attributes are attributes which are owned by the class itself. They will be shared by all the instances of the class. Therefore they have the same value for every instance. We define class attributes outside of all the methods, usually they are placed at the top, right below the class header. 
+
 Modules and Packages
 ---
 The first time a module is loaded into a running Python script, it is initialized by executing the code in the module once.
