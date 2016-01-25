@@ -94,3 +94,7 @@ class DBInterfaceMeta(type):
 bound method
 ---
 A function is created by the def statement, or by lambda. When a function appears within the body of a class statement (or is passed to a type class construction call), it is transformed into an unbound method. When a function is accessed on a class instance, it is transformed into a bound method, that automatically supplies the instance to the method as the first self parameter.
+
+Defines descriptors
+---
+If any of those methods  __get__(), __set__(), and __delete__() are defined for an object, it is said to be a descriptor.
