@@ -50,4 +50,6 @@ WARNING: The next major version of capybara-webkit will require at least version
 brew uninstall qt
 brew install qt5
 brew link --force qt5
+which qmake # should return /usr/local/bin/qmake
+gem pristine capybara-webkit # At this point I can rebuild the gem against the new qt5.
 ```
