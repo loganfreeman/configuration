@@ -53,3 +53,11 @@ brew link --force qt5
 which qmake # should return /usr/local/bin/qmake
 gem pristine capybara-webkit # At this point I can rebuild the gem against the new qt5.
 ```
+ExecJS and could not find a JavaScript runtime
+---
+```
+# Ubuntu
+sudo apt-get install nodejs
+# CentOS
+sudo yum install nodejs
+```
