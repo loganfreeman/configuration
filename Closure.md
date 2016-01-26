@@ -25,6 +25,9 @@ puts "outer var = #{outer}"
 Procs
 ---
 blocks used with the yield statement are not true closures. Blocks can be true closures but they have to be treated as Procs.
+
+A Proc is simple a named code block, meaning, an actual object. Since it is an object, the block can be passed around and have methods invoked on it.
+
 ```ruby
 outer = 1
 
@@ -37,4 +40,22 @@ end
 
 m {|inner| outer += inner}
 puts "outer var = #{outer}"
+```
+
+```ruby
+outer = 1
+
+def m a_var
+  inner = 99
+  puts "inner var = #{inner}"
+  proc {inner + a_var}
+end
+
+p = m(outer)
+puts "p is a #{p.class}"
+
+outer = 0
+puts "changed outer to #{outer}"
+
+puts "result of proc call: #{p.call}"
 ```
