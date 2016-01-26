@@ -105,3 +105,5 @@ If the looked-up value is an object defining one of the descriptor methods, then
 vars
 ---
 Python objects store their instance variables in a dictionary that belongs to the object. vars(x) returns this dictionary (as does `x.__dict__`).
+
+`dir(x)`, on the other hand, returns a dictionary of x's "attributes, its class's attributes, and recursively the attributes of its class's base classes."
