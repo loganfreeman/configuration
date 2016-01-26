@@ -7,3 +7,19 @@ Asset Pipeline
 > In production, Rails precompiles these files to public/assets by default. The precompiled copies are then served as static assets by the web server. The files in app/assets are never served directly in production.
 
 > In development mode, or if the asset pipeline is disabled, when these files are requested they are processed by the processors provided by the coffee-script and sass gems and then sent back to the browser as JavaScript and CSS respectively. When asset pipelining is enabled, these files are preprocessed and placed in the public/assets directory for serving by either the Rails app or web server.
+
+In development mode, assets are served as separate files in the order they are specified in the manifest file.
+
+This manifest app/assets/javascripts/application.js:
+```
+//= require core
+//= require projects
+//= require tickets
+```
+would generate this HTML:
+```
+<script src="/assets/core.js?body=1"></script>
+<script src="/assets/projects.js?body=1"></script>
+<script src="/assets/tickets.js?body=1"></script>
+```
+
