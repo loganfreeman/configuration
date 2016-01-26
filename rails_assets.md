@@ -23,3 +23,11 @@ would generate this HTML:
 <script src="/assets/tickets.js?body=1"></script>
 ```
 
+```ruby
+RAILS_ENV=production bin/rake assets:precompile
+```
+The default matcher for compiling files includes application.js, application.css and all non-JS/CSS files (this will include all image assets automatically) from app/assets folders including your gems:
+```ruby
+[ Proc.new { |filename, path| path =~ /app\/assets/ && !%w(.js .css).include?(File.extname(filename)) },
+/application.(css|js)$/ ]
+```
