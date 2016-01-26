@@ -275,7 +275,7 @@ gevent.joinall([
 ])
 ```
 **Queues** are ordered sets of data that have the usual put / get operations but are written in a way such that they can be safely manipulated across Greenlets.
-Each of the put and get operations has a non-blocking counterpart, put_nowait and get_nowait which will not block, but instead raise either gevent.queue.Empty or gevent.queue.Full if the operation is not possible.
+Each of the put and get operations has a non-blocking counterpart, `put_nowait` and `get_nowait` which will not block, but instead raise either `gevent.queue.Empty` or `gevent.queue.Full` if the operation is not possible.
 ```python
 import gevent
 from gevent.queue import Queue
