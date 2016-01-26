@@ -117,3 +117,58 @@ role.rb
 > Suppose an application has a back office whose controllers are stored in app/controllers/admin. If the Admin module is not yet loaded when Admin::UsersController is hit, Rails needs first to autoload the constant Admin.
 
 > If autoload_paths has a file called admin.rb Rails is going to load that one, but if there's no such file and a directory called admin is found, Rails creates an empty module and assigns it to the Admin constant on the fly.
+
+####Autoloading algorithm
+The procedure to autoload constant C in an arbitrary situation is as follows:
+```
+if the class or module in which C is missing is Object
+  let ns = ''
+else
+  let M = the class or module in which C is missing
+ 
+  if M is anonymous
+    let ns = ''
+  else
+    let ns = M.name
+  end
+end
+ 
+loop do
+  # Look for a regular file.
+  for dir in autoload_paths
+    if the file "#{dir}/#{ns.underscore}/c.rb" exists
+      load/require "#{dir}/#{ns.underscore}/c.rb"
+ 
+      if C is now defined
+        return
+      else
+        raise LoadError
+      end
+    end
+  end
+ 
+  # Look for an automatic module.
+  for dir in autoload_paths
+    if the directory "#{dir}/#{ns.underscore}/c" exists
+      if ns is an empty string
+        let C = Module.new in Object and return
+      else
+        let C = Module.new in ns.constantize and return
+      end
+    end
+  end
+ 
+  if ns is empty
+    # We reached the top-level without finding the constant.
+    raise NameError
+  else
+    if C exists in any of the parent namespaces
+      # Qualified constants heuristic.
+      raise NameError
+    else
+      # Try again in the parent namespace.
+      let ns = the parent namespace of ns and retry
+    end
+  end
+end
+```
