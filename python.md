@@ -107,3 +107,13 @@ vars
 Python objects store their instance variables in a dictionary that belongs to the object. vars(x) returns this dictionary (as does `x.__dict__`).
 
 `dir(x)`, on the other hand, returns a dictionary of x's "attributes, its class's attributes, and recursively the attributes of its class's base classes."
+
+```python
+class C(object):
+    def m(self):
+        print "m"
+
+x=C()
+x.m()
+```
+The method m is not stored in `x.__dict__`. It is an attribute of the class C. When you call `x.m()`, python will begin by looking for m in `x.__dict__`, but it won't find it. However, it knows that x is an instance of C, so it will next look in `C.__dict__`, find it there, and call m with x as the first argument.
