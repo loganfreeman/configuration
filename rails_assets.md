@@ -35,3 +35,28 @@ If you have other manifests or individual stylesheets and JavaScript files to in
 ```ruby
 Rails.application.config.assets.precompile += ['admin.js', 'admin.css', 'swfObject.js']
 ```
+#### Far-future Expires Header
+Precompiled assets exist on the file system and are served directly by your web server. They do not have far-future headers by default, so to get the benefit of fingerprinting you'll have to update your server configuration to add those headers.
+For Apache
+```
+# The Expires* directives requires the Apache module
+# `mod_expires` to be enabled.
+<Location /assets/>
+  # Use of ETag is discouraged when Last-Modified is present
+  Header unset ETag
+  FileETag None
+  # RFC says only cache for 1 year
+  ExpiresActive On
+  ExpiresDefault "access plus 1 year"
+</Location>
+```
+For nginx
+```
+location ~ ^/assets/ {
+  expires 1y;
+  add_header Cache-Control public;
+ 
+  add_header ETag "";
+  break;
+}
+```
