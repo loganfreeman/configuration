@@ -75,3 +75,8 @@ Rails autoloading
 ---
 **Rails autoloads files with Kernel#load when config.cache_classes is false, the default in development mode, and with Kernel#require otherwise, the default in production mode.**
 
+####autoload_paths
+```ruby
+require 'erb'
+```
+Ruby looks for the file in the directories listed in $LOAD_PATH. That is, Ruby iterates over all its directories and for each one of them checks whether they have a file called "erb.rb", or "erb.so", or "erb.o", or "erb.dll". If it finds any of them, the interpreter loads it and ends the search. Otherwise, it tries again in the next directory of the list. If the list gets exhausted, LoadError is raised.
