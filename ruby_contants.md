@@ -46,3 +46,27 @@ Later, when the body of the module definition is interpreted, a new entry is cre
 Resolution Algorithms
 ---
 ####Resolution Algorithm for Relative Constants
+
+At any given place in the code, let's define cref to be the first element of the nesting if it is not empty, or Object otherwise.
+
+- If the nesting is not empty the constant is looked up in its elements and in order. The ancestors of those elements are ignored.
+
+- If not found, then the algorithm walks up the ancestor chain of the cref.
+
+- If not found and the cref is a module, the constant is looked up in Object.
+
+- If not found, `const_missing` is invoked on the cref. The default implementation of const_missing raises NameError, but it can be overridden.
+
+####Resolution Algorithm for Qualified Constants
+
+`Billing::Invoice`
+
+Billing::Invoice is composed of two constants: Billing is relative and is resolved using the algorithm of the previous section.
+
+*Leading colons would make the first segment absolute rather than relative: ::Billing::Invoice. That would force Billing to be looked up only as a top-level constant*.
+
+Let's define parent to be that qualifying class or module object, that is, Billing in the example above. 
+
+- The constant is looked up in the parent and its ancestors.
+
+- If the lookup fails, const_missing is invoked in the parent. The default implementation of const_missing raises NameError, but it can be overridden.
