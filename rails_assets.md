@@ -31,3 +31,7 @@ The default matcher for compiling files includes application.js, application.css
 [ Proc.new { |filename, path| path =~ /app\/assets/ && !%w(.js .css).include?(File.extname(filename)) },
 /application.(css|js)$/ ]
 ```
+If you have other manifests or individual stylesheets and JavaScript files to include, you can add them to the precompile array in config/initializers/assets.rb:
+```ruby
+Rails.application.config.assets.precompile += ['admin.js', 'admin.css', 'swfObject.js']
+```
