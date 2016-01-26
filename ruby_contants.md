@@ -11,3 +11,5 @@ The nesting is an internal stack maintained by the interpreter, and it gets modi
 - When instance_eval is called using a string argument, the singleton class of the receiver is pushed to the nesting of the eval'ed code. When class_eval or module_eval is called using a string argument, the receiver is pushed to the nesting of the eval'ed code.
 
 - The nesting at the top-level of code interpreted by Kernel#load is empty unless the load call receives a true value as second argument, in which case a newly created anonymous module is pushed by Ruby.
+
+It is interesting to observe that `blocks` do not modify the stack. 
