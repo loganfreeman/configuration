@@ -79,4 +79,17 @@ Rails autoloading
 ```ruby
 require 'erb'
 ```
-Ruby looks for the file in the directories listed in $LOAD_PATH. That is, Ruby iterates over all its directories and for each one of them checks whether they have a file called "erb.rb", or "erb.so", or "erb.o", or "erb.dll". If it finds any of them, the interpreter loads it and ends the search. Otherwise, it tries again in the next directory of the list. If the list gets exhausted, LoadError is raised.
+Ruby looks for the file in the directories listed in `$LOAD_PATH`. That is, Ruby iterates over all its directories and for each one of them checks whether they have a file called "erb.rb", or "erb.so", or "erb.o", or "erb.dll". If it finds any of them, the interpreter loads it and ends the search. Otherwise, it tries again in the next directory of the list. If the list gets exhausted, LoadError is raised.
+
+Rails has a collection of directories similar to `$LOAD_PATH` in which to look up post.rb. That collection is called autoload_paths and by default it contains:
+
+- All subdirectories of app in the application and engines. For example, app/controllers. They do not need to be the default ones, any custom directories like app/workers belong automatically to autoload_paths.
+
+- Second level directories app/{controllers,models}/concerns in the application and engines.
+
+- The directory test/mailers/previews.
+
+**config.autoload_paths is accessible from environment-specific configuration files, but any changes made to it outside config/application.rb don't have an effect.**
+
+
+
