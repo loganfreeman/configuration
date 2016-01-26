@@ -117,3 +117,11 @@ x=C()
 x.m()
 ```
 The method m is not stored in `x.__dict__`. It is an attribute of the class C. When you call `x.m()`, python will begin by looking for m in `x.__dict__`, but it won't find it. However, it knows that x is an instance of C, so it will next look in `C.__dict__`, find it there, and call m with x as the first argument.
+
+`dict.items()` and `dict.iteritems()`
+---
+Originally, Python items() built a real list of tuples and returned that. That could potentially take a lot of extra memory.
+
+Then, generators were introduced to the language in general, and that method was reimplemented as an iterator-generator method named iteritems(). The original remains for backwards compatibility.
+
+One of Python 3’s changes is that  items() now return iterators, and a list is never fully built. The iteritems() method is also gone, since items() now works like iteritems() in Python 2.
