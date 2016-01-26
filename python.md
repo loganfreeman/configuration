@@ -125,3 +125,18 @@ Originally, Python items() built a real list of tuples and returned that. That c
 Then, generators were introduced to the language in general, and that method was reimplemented as an iterator-generator method named iteritems(). The original remains for backwards compatibility.
 
 One of Python 3’s changes is that  items() now return iterators, and a list is never fully built. The iteritems() method is also gone, since items() now works like iteritems() in Python 2.
+
+
+Closure
+---
+A closure occurs when a function has access to a local variable from an enclosing scope that has finished its execution.
+```python
+def make_printer(msg):
+    def printer():
+        print msg
+    return printer
+
+printer = make_printer('Foo!')
+printer()
+```
+When make_printer is called, a new frame is put on the stack with the compiled code for the printer function as a constant and the value of msg as a local. It then creates and returns the function. Because the function printer references the msg variable, it is kept alive after the make_printer function has returned.
