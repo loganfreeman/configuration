@@ -165,3 +165,11 @@ g = MyGreenlet("Hi there!", 3)
 g.start()
 g.join()
 ```
+
+Greenlet State
+---
+- started -- Boolean, indicates whether the Greenlet has been started
+- ready() -- Boolean, indicates whether the Greenlet has halted
+- successful() -- Boolean, indicates whether the Greenlet has halted and not thrown an exception
+- value -- arbitrary, the value returned by the Greenlet
+- exception -- exception, uncaught exception instance thrown inside the greenlet
