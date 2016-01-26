@@ -250,3 +250,55 @@ def main():
 if __name__ == '__main__': main()
 ```
 An extension of the Event object is the **AsyncResult** which allows you to send a value along with the wakeup call. This is sometimes called a future or a deferred, since it holds a reference to a future value that can be set on an arbitrary time schedule.
+```python
+import gevent
+from gevent.event import AsyncResult
+a = AsyncResult()
+
+def setter():
+    """
+    After 3 seconds set the result of a.
+    """
+    gevent.sleep(3)
+    a.set('Hello!')
+
+def waiter():
+    """
+    After 3 seconds the get call will unblock after the setter
+    puts a value into the AsyncResult.
+    """
+    print(a.get())
+
+gevent.joinall([
+    gevent.spawn(setter),
+    gevent.spawn(waiter),
+])
+```
+**Queues** are ordered sets of data that have the usual put / get operations but are written in a way such that they can be safely manipulated across Greenlets.
+Each of the put and get operations has a non-blocking counterpart, put_nowait and get_nowait which will not block, but instead raise either gevent.queue.Empty or gevent.queue.Full if the operation is not possible.
+```python
+import gevent
+from gevent.queue import Queue
+
+tasks = Queue()
+
+def worker(n):
+    while not tasks.empty():
+        task = tasks.get()
+        print('Worker %s got task %s' % (n, task))
+        gevent.sleep(0)
+
+    print('Quitting time!')
+
+def boss():
+    for i in xrange(1,25):
+        tasks.put_nowait(i)
+
+gevent.spawn(boss).join()
+
+gevent.joinall([
+    gevent.spawn(worker, 'steve'),
+    gevent.spawn(worker, 'john'),
+    gevent.spawn(worker, 'nancy'),
+])
+```
