@@ -173,3 +173,39 @@ Greenlet State
 - successful() -- Boolean, indicates whether the Greenlet has halted and not thrown an exception
 - value -- arbitrary, the value returned by the Greenlet
 - exception -- exception, uncaught exception instance thrown inside the greenlet
+```python
+import gevent
+
+def win():
+    return 'You win!'
+
+def fail():
+    raise Exception('You fail at failing.')
+
+winner = gevent.spawn(win)
+loser = gevent.spawn(fail)
+
+print(winner.started) # True
+print(loser.started)  # True
+
+# Exceptions raised in the Greenlet, stay inside the Greenlet.
+try:
+    gevent.joinall([winner, loser])
+except Exception as e:
+    print('This will never be reached')
+
+print(winner.value) # 'You win!'
+print(loser.value)  # None
+
+print(winner.ready()) # True
+print(loser.ready())  # True
+
+print(winner.successful()) # True
+print(loser.successful())  # False
+
+# The exception raised in fail, will not propagate outside the
+# greenlet. A stack trace will be printed to stdout but it
+# will not unwind the stack of the parent.
+
+print(loser.exception)
+```
