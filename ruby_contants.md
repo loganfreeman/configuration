@@ -112,8 +112,8 @@ role.rb
 ```
 
 ####Automatic Modules
-~When a module acts as a namespace, Rails does not require the application to defines a file for it, a directory matching the namespace is enough.
+~When a module acts as a namespace, Rails does not require the application to defines a file for it, a directory matching the namespace is enough.~
 
-Suppose an application has a back office whose controllers are stored in app/controllers/admin. If the Admin module is not yet loaded when Admin::UsersController is hit, Rails needs first to autoload the constant Admin.
+~Suppose an application has a back office whose controllers are stored in app/controllers/admin. If the Admin module is not yet loaded when Admin::UsersController is hit, Rails needs first to autoload the constant Admin.~
 
-If autoload_paths has a file called admin.rb Rails is going to load that one, but if there's no such file and a directory called admin is found, Rails creates an empty module and assigns it to the Admin constant on the fly.~
+~If autoload_paths has a file called admin.rb Rails is going to load that one, but if there's no such file and a directory called admin is found, Rails creates an empty module and assigns it to the Admin constant on the fly.~
