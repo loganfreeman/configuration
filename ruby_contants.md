@@ -91,5 +91,23 @@ Rails has a collection of directories similar to `$LOAD_PATH` in which to look u
 
 **config.autoload_paths is accessible from environment-specific configuration files, but any changes made to it outside config/application.rb don't have an effect.**
 
-
+```ruby
+module Admin
+  class BaseController < ApplicationController
+    @@all_roles = Role.all
+  end
+end
+```
+to autoload Role we are going to check if it is defined in the current or parent namespaces, one at a time. So, conceptually we want to try to autoload any of
+```ruby
+Admin::BaseController::Role
+Admin::Role
+Role
+```
+in that order. To do so, Rails looks in autoload_paths respectively for file names like these:
+```
+admin/base_controller/role.rb
+admin/role.rb
+role.rb
+```
 
