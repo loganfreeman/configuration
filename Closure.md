@@ -9,7 +9,7 @@ Put differently, a closure is a first-class function that has lexical scope.
 
 Code Blocks
 ---
-A block is, in effect, an anonymous function that also offers closure-like functionality.
+using a block allows us to cross a scope gate
 ```ruby
 outer = 1
 
