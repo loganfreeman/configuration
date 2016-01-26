@@ -70,3 +70,8 @@ Let's define parent to be that qualifying class or module object, that is, Billi
 - The constant is looked up in the parent and its ancestors.
 
 - If the lookup fails, const_missing is invoked in the parent. The default implementation of const_missing raises NameError, but it can be overridden.
+
+Rails autoloading
+---
+**Rails autoloads files with Kernel#load when config.cache_classes is false, the default in development mode, and with Kernel#require otherwise, the default in production mode.**
+
