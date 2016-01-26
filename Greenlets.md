@@ -249,3 +249,4 @@ def main():
 
 if __name__ == '__main__': main()
 ```
+An extension of the Event object is the **AsyncResult** which allows you to send a value along with the wakeup call. This is sometimes called a future or a deferred, since it holds a reference to a future value that can be set on an arbitrary time schedule.
