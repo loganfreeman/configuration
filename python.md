@@ -112,4 +112,4 @@ If the looked-up value is an object defining one of the descriptor methods, then
 
 vars
 ---
-Python objects store their instance variables in a dictionary that belongs to the object. vars(x) returns this dictionary (as does x.__dict__).
+Python objects store their instance variables in a dictionary that belongs to the object. vars(x) returns this dictionary (as does <rawtext>x.__dict__</rawtext>).
