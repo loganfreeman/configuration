@@ -61,3 +61,9 @@ sudo apt-get install nodejs
 # CentOS
 sudo yum install nodejs
 ```
+`Installing mysql2 0.3.19 with native extensions` Hangs forever
+---
+change to 0.3.20
+```shell
+yum install mysql-devel
+```
