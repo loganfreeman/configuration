@@ -20,3 +20,10 @@ Create a method to speed up future calls
     end
   end
 ```
+Require all the files in a directory
+```ruby
+   %w(configuration utility alias list gemset rubies cleanup sets env tools info wrapper).each do |key|
+      # assume rvm is in load path, this will require all files at rvm/environment/*
+      require File.join("rvm", "environment", key)
+    end
+```
