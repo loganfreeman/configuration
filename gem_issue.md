@@ -67,3 +67,10 @@ change to 0.3.20
 ```shell
 yum install mysql-devel
 ```
+[Installing Qt and compiling capybara webkit](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+---
+CentOS
+```shell
+yum install qtwebkit-devel # will work with the dash in between qt and webkit, but not if you are using chef
+ln -s /usr/lib64/qt4/bin/qmake /usr/bin/qmake # or some other method to get qmake in your path like `export QMAKE`
+```
