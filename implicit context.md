@@ -8,3 +8,33 @@ Carefully isolating functions with context and side-effects from functions with 
 - Pure functions are much easier to change or replace if they need to be refactored or optimized.
 - Pure functions are easier to test with unit-tests: There is less need for complex context setup and data cleaning afterwards.
 - Pure functions are easier to manipulate, decorate, and pass around.
+
+Context Managers
+---
+```python
+class CustomOpen(object):
+    def __init__(self, filename):
+      self.file = open(filename)
+
+    def __enter__(self):
+        return self.file
+
+    def __exit__(self, ctx_type, ctx_value, ctx_traceback):
+        self.file.close()
+
+with CustomOpen('file') as f:
+    contents = f.read()
+```
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def custom_open(filename):
+    f = open(filename)
+    yield f
+    f.close()
+
+with custom_open('file') as f:
+    contents = f.read()
+```
