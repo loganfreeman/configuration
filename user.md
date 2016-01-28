@@ -21,3 +21,4 @@ Groups user belongs to
 groups $USER
 sudo chown -R $USER:admin /usr/local/share
 ```
+private key permission should be: `chmod 600 ~/.ssh/id_rsa`
