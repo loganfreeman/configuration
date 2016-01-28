@@ -23,5 +23,6 @@ Packages
 ---
 > Any directory with an __init__.py file is considered a Python package. 
 > A file `modu.py` in the directory `pack/` is imported with the statement `import pack.modu`. This statement will look for an `__init__.py` file in pack, execute all of its top-level statements. Then it will look for a file named `pack/modu.py` and execute all of its top-level statements. After these operations, any variable, function, or class defined in modu.py is available in the `pack.modu` namespace.
+> a convenient syntax is available for importing deeply nested packages: `import very.deep.module as mod`. This allows you to use `mod` in place of the verbose repetition of `very.deep.module`.
 
 
