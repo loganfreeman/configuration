@@ -27,3 +27,14 @@ Require all the files in a directory
       require File.join("rvm", "environment", key)
     end
 ```
+Safe require
+---
+```ruby
+def require?(path)
+  require path
+rescue LoadError => e
+  # HACK: ( because we should raise on syntax errors but
+  # not if the file doesn't exist. TODO make robust!
+  raise unless e.to_s.include? path
+end
+```
