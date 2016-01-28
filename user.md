@@ -9,4 +9,10 @@ gpasswd -a demo sudo
 After providing your password at the prompt, your public key will be added to the remote user's .ssh/authorized_keys file.
 ```shell
 ssh-copy-id demo@SERVER_IP_ADDRESS
+# or manually
+mkdir .ssh
+chmod 700 .ssh
+nano .ssh/authorized_keys
+# paste the public key
+chmod 600 .ssh/authorized_keys
 ```
