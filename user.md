@@ -16,3 +16,8 @@ nano .ssh/authorized_keys
 # paste the public key
 chmod 600 .ssh/authorized_keys
 ```
+Groups user belongs to
+```shell
+groups $USER
+sudo chown -R $USER:admin /usr/local/share
+```
