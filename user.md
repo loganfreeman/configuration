@@ -15,9 +15,10 @@ nano .ssh/authorized_keys
 # paste the public key
 chmod 600 .ssh/authorized_keys
 ```
-Groups user belongs to
+Change ownership
 ```shell
 groups $USER
 sudo chown -R $USER:admin /usr/local/share
 ```
-private key permission should be: `chmod 600 ~/.ssh/id_rsa`
+private key permission should be: 
+`chmod 600 ~/.ssh/id_rsa`
