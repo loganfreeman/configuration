@@ -19,7 +19,7 @@ Modules
 > Concretely, the import modu statement will look for the proper file, which is modu.py in the same directory as the caller if it exists. If it is not found, the Python interpreter will search for modu.py in the “path” recursively and raise an ImportError exception if it is not found.
 > Once modu.py is found, the Python interpreter will execute the module in an isolated scope. Any top-level statement in modu.py will be executed, including other imports if any. Function and class definitions are stored in the module’s dictionary.
 
-__A file modu.py in the directory pack/ is imported with the statement import pack.modu. __
+*A file modu.py in the directory pack/ is imported with the statement `import pack.modu`.*
 
 Packages
 ---
