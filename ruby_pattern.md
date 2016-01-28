@@ -38,3 +38,13 @@ rescue LoadError => e
   raise unless e.to_s.include? path
 end
 ```
+exec command
+---
+```ruby
+if which "brew-#{cmd}"
+  %w[CACHE CELLAR LIBRARY_PATH PREFIX REPOSITORY].each do |e|
+    ENV["HOMEBREW_#{e}"] = Object.const_get("HOMEBREW_#{e}").to_s
+  end
+  exec "brew-#{cmd}", *ARGV
+end
+```
