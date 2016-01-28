@@ -15,14 +15,19 @@ find_package
 Modules
 ---
 > Python modules are one of the main abstraction layers available and probably the most natural one. Abstraction layers allow separating code into parts holding related data and functionality.
+
 > As soon as you use import statements you use modules. These can be either built-in modules such as os and sys, third-party modules you have installed in your environment, or your project’s internal modules.
+
 > Concretely, the import modu statement will look for the proper file, which is modu.py in the same directory as the caller if it exists. If it is not found, the Python interpreter will search for modu.py in the “path” recursively and raise an ImportError exception if it is not found.
+
 > Once modu.py is found, the Python interpreter will execute the module in an isolated scope. Any top-level statement in modu.py will be executed, including other imports if any. Function and class definitions are stored in the module’s dictionary.
 
 Packages
 ---
 > Any directory with an __init__.py file is considered a Python package. 
+
 > A file `modu.py` in the directory `pack/` is imported with the statement `import pack.modu`. This statement will look for an `__init__.py` file in pack, execute all of its top-level statements. Then it will look for a file named `pack/modu.py` and execute all of its top-level statements. After these operations, any variable, function, or class defined in modu.py is available in the `pack.modu` namespace.
+
 > a convenient syntax is available for importing deeply nested packages: `import very.deep.module as mod`. This allows you to use `mod` in place of the verbose repetition of `very.deep.module`.
 
 
