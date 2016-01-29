@@ -14,7 +14,7 @@ yum install qt-devel # if not install it
 ```
 How to install RHEL EPEL repository on Centos 7.x or RHEL 7.x
 ---
-```
+```shell
 # method 1 (recommended)
 sudo yum remove epel-release # remove old version
 sudo yum install epel-release
