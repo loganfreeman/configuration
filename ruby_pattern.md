@@ -69,8 +69,9 @@ dynamic return value based on input
 ```
 based on the first parameter, it either run the command or returns a string
 
-define a method on self by opening eigenclass of self, passing a block as the method definition. This block is evaluated using `instance_eval`. 
+define a method on self 
 ---
+by opening eigenclass of self, passing a block as the method definition. This block is evaluated using `instance_eval`. 
 ```ruby
       def define_task(task)
         tasks[task.name] = task
