@@ -69,9 +69,13 @@ dynamic return value based on input
 ```
 based on the first parameter, it either run the command or returns a string
 
-Open metaclass of self
+define a method on self by opening eigenclass of self, passing a block as the method definition
 ---
 ```ruby
-          metaclass = class << self; self; end
-          metaclass.send(:define_method, name) { namespaces[name] }
+      def define_task(task)
+        tasks[task.name] = task
+
+        metaclass = class << self; self; end
+        metaclass.send(:define_method, task.name) { execute_task(tasks[task.name]) }
+      end
 ```
