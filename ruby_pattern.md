@@ -86,3 +86,19 @@ array splat
   gateways = [*gateway].collect { |g| ServerDefinition.new(g) }
 ```
 
+context switch
+---
+```ruby
+  def local
+    if block_given?
+      begin
+        saved, @local_mode = @local_mode, true
+        yield
+      ensure
+        @local_mode = saved
+      end
+    else
+      LocalProxy.new(self)
+    end
+  end
+```
