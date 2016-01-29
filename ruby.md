@@ -1,3 +1,57 @@
+Self in ruby
+---
+The keyword self in Ruby gives you access to the current object – the object that is receiving the current message. To explain: a method call in Ruby is actually the sending of a message to a receiver.
+
+In the context of a class, self refers to the current class, which is simply an instance of the class Class. Defining a method on self creates a class method. 
+
+In a class or module definition, self is the class or module object. At the time the method definition is executed, the most you can say is that self inside this method will be some future object that has access to this method.
+
+`Singleton methods` - those attached to a particular object can be called by only one object. Class methods are defined as `singleton methods` for class objects. each object in Ruby also has its own `metaclass`, a Class that can have methods, but is only attached to the object itself.
+
+```ruby
+class Post
+  def self.print_author
+    puts "The author of all posts is Jimmy"
+  end
+end
+
+Post.print_author
+# "The author of all posts is Jimmy"
+```
+
+In this case, class_eval is setting the self to Person until the end of the block.
+```ruby
+Person.class_eval do  
+  def name
+    "Matz"
+  end
+
+  self.name #=> "Person"
+end 
+```
+
+Ruby provides a syntax for accessing an object's metaclass directly. By doing class << Person, we are setting self to Person's metaclass for the duration of the block. 
+```ruby
+class << Person  
+  def species
+    "Homo Sapien"
+  end
+
+  self.name #=> ""
+end  
+```
+
+The last case, instanceeval, actually does something interesting. It breaks apart the self into the self that is used to execute methods and the self that is used when new methods are defined. When instanceeval is used, new methods are defined on the metaclass, but the self is the object itself.
+```ruby
+Person.instance_eval do  
+  def species
+    "Homo Sapien"
+  end
+
+  self.name #=> "Person"
+end  
+```
+
 Ruby thread safety
 ---
 This page ["How Do I Know Whether My Rails App Is Thread-safe or Not?"](https://bearmetal.eu/theden/how-do-i-know-whether-my-rails-app-is-thread-safe-or-not/) explains all the pitfalls of thread safety in rails
