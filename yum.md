@@ -12,3 +12,20 @@ qmake
 rpm -ql qt-devel | grep qmake # check qmake is in $PATH
 yum install qt-devel # if not install it
 ```
+How to install RHEL EPEL repository on Centos 7.x or RHEL 7.x
+---
+```
+# method 1 (recommended)
+sudo yum remove epel-release # remove old version
+sudo yum install epel-release
+# method 2 (manually)
+cd /tmp
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ls *.rpm
+yum -Uvh epel-release*rpm
+sudo yum install epel-release-7.noarch.rpm
+# list your new repo
+sudo yum repolist | grep epel
+# To list all available packages under a repo called epel, enter:
+sudo yum --disablerepo="*" --enablerepo="epel" list available | grep 'qtwebkit'
+```
