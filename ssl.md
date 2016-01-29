@@ -37,3 +37,9 @@ RewriteCond %{HTTP_HOST}   !^$
 RewriteCond   %{HTTP_HOST}  !^domain.com [NC]
 RewriteRule ^/(.*)         http://domain.com/$1 [L,R=301]
 ```
+If you want the entire website to be forced into using ssl you can change the last line to be
+```
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+```
