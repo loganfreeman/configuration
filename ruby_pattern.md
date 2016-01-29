@@ -68,3 +68,10 @@ dynamic return value based on input
         end
 ```
 based on the first parameter, it either run the command or returns a string
+
+Open metaclass of self
+---
+```ruby
+          metaclass = class << self; self; end
+          metaclass.send(:define_method, name) { namespaces[name] }
+```
