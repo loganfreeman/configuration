@@ -80,3 +80,8 @@ by opening eigenclass of self, passing a block as the method definition. This bl
         metaclass.send(:define_method, task.name) { execute_task(tasks[task.name]) }
       end
 ```
+array splat
+---
+```ruby
+  gateways = [*gateway].collect { |g| ServerDefinition.new(g) }
+```
