@@ -85,3 +85,26 @@ array splat
 ```ruby
   gateways = [*gateway].collect { |g| ServerDefinition.new(g) }
 ```
+method with options
+---
+```ruby
+def object_to_html(object, options={})
+  default_options = {
+    :format => :table,
+    :only => nil,
+    :except => [],
+    :time_format => "%m/%d/%Y %H:%M %t",
+    :date_format => "%m/%d/%Y"
+  }
+
+  options = options.reverse_merge(default_options)
+
+  options[:only] ||= object.attributes - options[except]
+
+  if options[:only] - options[:except] != options[:only]
+    fail "You can't put in except an attribute that you've put on only"
+  end
+
+  # Code that does what we proposed (now it uses the options hash instead of local variables)
+end
+```
