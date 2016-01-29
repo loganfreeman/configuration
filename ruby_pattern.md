@@ -48,3 +48,23 @@ if which "brew-#{cmd}"
   exec "brew-#{cmd}", *ARGV
 end
 ```
+dynamic return value based on input
+---
+```ruby
+        def sudo(*parameters, &block)
+          options = parameters.last.is_a?(Hash) ? parameters.pop.dup : {}
+          command = parameters.first
+          user = options[:as] && "-u #{options.delete(:as)}"
+
+          sudo_prompt_option = "-p '#{sudo_prompt}'" unless sudo_prompt.empty?
+          sudo_command = [fetch(:sudo, "sudo"), sudo_prompt_option, user].compact.join(" ")
+
+          if command
+            command = sudo_command + " " + command
+            run(command, options, &block)
+          else
+            return sudo_command
+          end
+        end
+```
+based on the first parameter, it either run the command or returns a string
