@@ -40,3 +40,18 @@ CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost'; # The asterisks in this command refer to the database and table (respectively)
 FLUSH PRIVILEGES;
 ```
+Automated MySQL Database Backup
+---
+Want to backup your MySQL databases to another machine on a nightly basis? 
+
+Then create a `/etc/cron.daily/mysqlbackup` job like this:
+```shell
+#!/bin/sh
+mysqldump --compress -u root -p$pw -h $currenthost --add-drop-table --extended-insert
+--quote-names --databases db1 db2| mysql -u root -p$pw -h $remotehost
+```
+or backup to a file
+```shell
+#!/bin/sh
+mysqldump -u root -p$pw -h $currenthost --add-drop-table --extended-insert --quote-names --databases db1 db2 > /var/log/mysql.backup.$(date +"%Y%m%d").sql
+```
