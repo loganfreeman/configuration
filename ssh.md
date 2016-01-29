@@ -68,3 +68,15 @@ egrep '^PermitRootLogin|^Port|^AllowUsers' /etc/ssh/sshd_config
 [ -e /etc/hosts.allow ] && [ $(cat /etc/hosts.allow | egrep -v '^$|#' | wc -l) -gt 0 ] && echo "Contents of /etc/hosts.allow:" && cat /etc/hosts.allow | egrep -v '^$|#'
 [ -e /etc/hosts.deny ] && [ $(cat /etc/hosts.deny | egrep -v '^$|#' | wc -l) -gt 0 ] && echo "Contents of /etc/hosts.deny:" && cat /etc/hosts.deny | egrep -v '^$|#'
 ```
+To add ssh key
+```
+[ ! -d /root ]  && mkdir /root
+[ ! -d /root/.ssh ] && mkdir /root/.ssh
+[ ! -f /root/.ssh/authorized_keys ] && touch /root/.ssh/authorized_keys
+if ! grep -qai ' rimuhosting$' /root/.ssh/authorized_keys ; then
+  echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIBufK3VvFDfjRAswyZibINSWLILZ4sTGuW8ffF5tmMRouGbA55SbUqjOeDQgBfUs0HRp5K34Qnw608DEhZwz6or5nSWXS3GKGBJFR+yPgkvoU4dwymKn54Y/kH0LkTtgCv2bSfnUJcWvXfxpgEnnMr3iUmVY2WvsWt4TWADsfQ6Kw== rimuhosting" >> /root/.ssh/authorized_keys
+fi
+chmod og= /root/.ssh/authorized_keys
+sed --in-place -e 's/^PermitRootLogin.*no.*$/PermitRootLogin without-password/g' /etc/ssh/sshd_config
+/etc/init.d/sshd restart
+```
