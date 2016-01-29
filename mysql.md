@@ -113,3 +113,16 @@ else
 fi
 exit 0
 ```
+`.my.cnf` – mysql user & password
+---
+This one is for lazy ones! If you are paranoid about security, do not use this.
+
+Create file `~/.my.cnf` and add following lines in it and replace mysqluser & mysqlpass values.
+```
+[client]
+user=mysqluser
+password=mysqlpass
+```
+For safety, make this file readable to you only by running chmod 0600 ~/.my.cnf
+
+Next time you run mysql commands mysql, mysqlcheck, mysqdump, etc; they will pick username & password from this file if you do not provide them as argument (-u and -p). It can save your time.
