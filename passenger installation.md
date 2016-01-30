@@ -6,7 +6,7 @@ source /etc/profile.d/rvm.sh
 rvm install 2.1.5
 rvm use 2.1.5 --default
 echo "installing epel-release pygame curl"
-yum install -y epel-release pygpgme curl
+yum install -y epel-release pygpgme curl git
 echo "Add our el7 YUM repository"
 curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
 echo "Install Passenger + Apache module"
