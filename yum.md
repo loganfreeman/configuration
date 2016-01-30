@@ -50,7 +50,6 @@ sudo rpm -ivh /vagrant/resources/jdk-8u45-linux-x64.rpm
 #!/bin/bash
 
 #en: setting mongo repository to run the yum
-#pt: configurando o repositorio mongo para executar o yum
 cd /etc/yum.repos.d/
 touch mongodb-org-3.0.repo
 echo "[mongodb-org-3.0]" >> mongodb-org-3.0.repo
