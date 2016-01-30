@@ -76,7 +76,7 @@ ln -s /usr/lib64/qt4/bin/qmake /usr/bin/qmake # or some other method to get qmak
 ```
 Incorrect MySQL client library version! Gem compiled for the wrong client library version
 ---
-```
+```shell
 gem uninstall mysql2 # choose all versions
 bundle install
 ```
