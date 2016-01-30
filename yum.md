@@ -37,11 +37,29 @@ ln -s /usr/lib64/qt4/bin/qmake /usr/bin/qmake # or some other method to get qmak
 ```
 
 ## install oracle jdk 8
-```
+```shell
 if [ ! -f "/vagrant/resources/jdk-8u45-linux-x64.rpm" ]
 then
 	wget --no-cookies --no-check-certificate --progress=bar:force --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm"
 	sudo cp jdk-8u45-linux-x64.rpm /vagrant/resources
 fi
 sudo rpm -ivh /vagrant/resources/jdk-8u45-linux-x64.rpm
+```
+## Install mongo
+```shell
+#!/bin/bash
+
+#en: setting mongo repository to run the yum
+#pt: configurando o repositorio mongo para executar o yum
+cd /etc/yum.repos.d/
+touch mongodb-org-3.0.repo
+echo "[mongodb-org-3.0]" >> mongodb-org-3.0.repo
+echo "name=MongoDB Repository" >> mongodb-org-3.0.repo
+echo "baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.0/x86_64/" >> mongodb-org-3.0.repo
+echo "gpgcheck=0" >> mongodb-org-3.0.repo
+echo "enabled=1" >> mongodb-org-3.0.repo
+
+#en: installation
+#pt: instalando
+sudo yum install -y mongodb-org
 ```
