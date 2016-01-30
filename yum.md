@@ -36,7 +36,7 @@ yum install qtwebkit-devel # will work with the dash in between qt and webkit, b
 ln -s /usr/lib64/qt4/bin/qmake /usr/bin/qmake # or some other method to get qmake in your path like `export QMAKE`
 ```
 
-# install oracle jdk 8
+install oracle jdk 8
 ```
 if [ ! -f "/vagrant/resources/jdk-8u45-linux-x64.rpm" ]
 then
