@@ -23,7 +23,11 @@ echo "Install Node from the EPEL Repository"
 yum install nodejs
 echo "install mysql-devel"
 yum install mysql-devel
-adduser capistrano
+USERID="capistrano"
+egrep  -i "^${USERID}:" /etc/passwd
+if [ ! $? -eq 0 ]; then
+  adduser "${USERID}"
+fi
 usermod -a -G rvm capistrano
 if [ ! -d "/etc/httpd/sites-available" ]; then
   mkdir /etc/httpd/sites-available
@@ -36,6 +40,10 @@ if grep -q "IncludeOptional sites-enabled/\*.conf" "/etc/httpd/conf/httpd.conf";
 fi
 cd
 su capistrano && cd
-git clone https://github.com/uofu-ccts/sparc-request.git sparc-request
+SPARCDIR="sparc-request"
+if [ ! -d "${SPARCDIR}" ]; then
+  git clone https://github.com/uofu-ccts/sparc-request.git "${SPARCDIR}"
+fi
 exit
+```
 ```
