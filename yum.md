@@ -35,3 +35,14 @@ To install qtwebkit from epel
 yum install qtwebkit-devel # will work with the dash in between qt and webkit, but not if you are using chef
 ln -s /usr/lib64/qt4/bin/qmake /usr/bin/qmake # or some other method to get qmake in your path like `export QMAKE`
 ```
+
+# install oracle jdk 8
+```
+if [ ! -f "/vagrant/resources/jdk-8u45-linux-x64.rpm" ]
+then
+	wget --no-cookies --no-check-certificate --progress=bar:force --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm"
+	sudo cp jdk-8u45-linux-x64.rpm /vagrant/resources
+fi
+```
+
+sudo rpm -ivh /vagrant/resources/jdk-8u45-linux-x64.rpm
