@@ -59,6 +59,5 @@ echo "gpgcheck=0" >> mongodb-org-3.0.repo
 echo "enabled=1" >> mongodb-org-3.0.repo
 
 #en: installation
-#pt: instalando
 sudo yum install -y mongodb-org
 ```
