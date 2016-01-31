@@ -127,13 +127,33 @@ For safety, make this file readable to you only by running chmod 0600 ~/.my.cnf
 
 Next time you run mysql commands mysql, mysqlcheck, mysqdump, etc; they will pick username & password from this file if you do not provide them as argument (-u and -p). It can save your time.
 
-Can't start mysql service
+Install mysql
 ---
 ```shell
-cat /etc/my.conf
+#!/usr/bin/env bash
+
+echo "WARNING: This script should only be used on local development environments
+as it removes the root password and disables minimum password strength enforcement"
+
+# add the mysql yum repo
+yum -y localinstall http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+
+# install mysql server
+yum -y install mysql-community-server
+
+# start the mysql service
+systemctl start mysqld
+
+# add mysql to the auto start
+systemctl enable mysqld
+
+PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | sed 's/.* //g')
+
+echo "Root password: ${PASSWORD}"
+
+# Update password so it's not expired; remove password validator plugin, remove password
+mysql -p"${PASSWORD}" --connect-expired-password -e \
+ "ALTER USER USER() IDENTIFIED BY '@JCQZQBgZwY4S0e*KbxU'; UNINSTALL PLUGIN validate_password; ALTER USER USER() IDENTIFIED BY '';" || \
+ echo "NOTICE: unable to update password, maybe this has been done before"
+systemctl restart mysqld
 ```
-should display
-```
-datadir=/var/lib/mysql
-```
-just delete the datadir and then `systemctl start mysqld`
