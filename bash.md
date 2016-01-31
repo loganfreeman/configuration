@@ -41,4 +41,17 @@ for version in ${INSTALL_RUBY_VERSIONS[@]}; do
   passenger-install-apache2-module --languages ruby --auto 2>/dev/null
 done
 ```
-
+find a needle in an array of strings
+---
+```
+yourValue="$1"
+echo "you entered $yourValue"
+array=(hello world peace war)
+for i in "${array[@]}"
+do
+    # echo "$i"
+    if [ "$i" == "$yourValue" ] ; then
+        echo "Found Match"
+    fi
+done
+```
