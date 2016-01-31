@@ -27,3 +27,9 @@ apachectl -k graceful # graceful restart
 apachectl -k restart
 ```
 
+replace the user/group of apache
+---
+```shell
+sed -i 's/User apache/User vagrant/i' /etc/httpd/conf/httpd.conf
+sed -i 's/Group apache/Group vagrant/i' /etc/httpd/conf/httpd.conf
+```
