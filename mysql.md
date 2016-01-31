@@ -126,3 +126,14 @@ password=mysqlpass
 For safety, make this file readable to you only by running chmod 0600 ~/.my.cnf
 
 Next time you run mysql commands mysql, mysqlcheck, mysqdump, etc; they will pick username & password from this file if you do not provide them as argument (-u and -p). It can save your time.
+
+Can't start mysql service
+---
+```shell
+cat /etc/my.conf
+```
+should display
+```
+datadir=/var/lib/mysql
+```
+just delete the datadir and then `systemctl start mysqld`
