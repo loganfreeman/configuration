@@ -118,3 +118,11 @@ LoadModule passenger_module /usr/local/opt/passenger/libexec/buildout/apache2/mo
 PassengerRoot /usr/local/opt/passenger/libexec/src/ruby_supportlib/phusion_passenger/locations.ini
 PassengerDefaultRuby /usr/bin/ruby
 ```
+Finding out what user an application is running as
+---
+The application will now either successfully start or fail to start. If it fails to start then you will see an error page that tells you what user the application was being started as. If you do not see the error page in the browser then set PassengerFriendlyErrorPages on.
+
+If the application successfully started, then run `passenger-status` to find the process's PID:
+```shell
+ps -o pid,user,comm -p 16915
+```
