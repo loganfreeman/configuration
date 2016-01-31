@@ -32,4 +32,8 @@ replace the user/group of apache
 ```shell
 sed -i 's/User apache/User vagrant/i' /etc/httpd/conf/httpd.conf
 sed -i 's/Group apache/Group vagrant/i' /etc/httpd/conf/httpd.conf
+# with variable substitution
+USERID="$1"
+sed -i 's/User apache/User '${USERID}'/i' /etc/httpd/conf/httpd.conf
+sed -i 's/Group apache/Group '${USERID}'/i' /etc/httpd/conf/httpd.conf
 ```
