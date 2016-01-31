@@ -124,5 +124,6 @@ The application will now either successfully start or fail to start. If it fails
 
 If the application successfully started, then run `passenger-status` to find the process's PID:
 ```shell
+passenger-status | grep PID
 ps -o pid,user,comm -p 16915
 ```
