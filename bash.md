@@ -65,3 +65,16 @@ then
   exit $E_WRONG_ARGS
 fi
 ```
+create a script to update time
+---
+```shell
+# Create a script to update time.
+cat >/usr/bin/updatetime <<EOL
+systemctl stop ntpd.service
+ntpdate pool.ntp.org
+systemctl start ntpd.service
+EOL
+
+# now we can just run "updatetime" to restart and sync time servers:
+chmod +x /usr/bin/updatetime
+```
