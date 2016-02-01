@@ -1,5 +1,6 @@
 copies the tree to the server and runs `install.sh`
 ---
+[Managing a single server with Chef](http://www.opinionatedprogrammer.com/2011/06/chef-solo-tutorial-managing-a-single-server-with-chef/)
 ```shell
 #!/bin/bash
 
