@@ -21,3 +21,10 @@ sudo bash install.sh'
 ```
 [vagrant made easy with chef_solo](https://adamcod.es/2013/01/15/vagrant-is-easy-chef-is-hard-part2.html)
 ---
+
+Install Chef solo
+---
+```shell
+curl -L https://www.opscode.com/chef/install.sh | bash
+chef-solo -v
+```
