@@ -62,6 +62,11 @@ cat <<EOT nodes/82.196.8.99.json
   "apache": {
     "default_site_enabled": true
   },
+  "mysql": {
+    "server_root_password": "yoursecretsecurepassword",
+    "server_repl_password": "yoursecretsecurepassword",
+    "server_debian_password": "yoursecretsecurepassword"
+  },
   "run_list": [
     "recipe[apache2]",
     "recipe[mysql]",
