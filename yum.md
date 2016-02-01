@@ -61,3 +61,9 @@ echo "enabled=1" >> mongodb-org-3.0.repo
 #en: installation
 sudo yum install -y mongodb-org
 ```
+https
+---
+```shell
+sudo sed -i "s/mirrorlist=https/mirrorlist=http/" /etc/yum.repos.d/epel.repo
+yum check-update
+```
