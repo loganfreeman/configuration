@@ -67,5 +67,6 @@ cat <<EOT nodes/82.196.8.99.json
 }
 EOT
 librarian-chef install
+# This will login to your server, download and install chef, copy across your cookbooks, and then run chef. 
 knife solo bootstrap root@82.196.8.99
 ```
