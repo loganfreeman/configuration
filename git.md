@@ -12,7 +12,7 @@ git config --global core.autocrlf true
 checkout branch
 ---
 ```shell
-# Usage: ${0} [branch=master]
+# Usage: ${0} repo [branch=master]
 if [ -z ${1} ]; then
   exit "REMOTE REPO IS EMPTY"
 fi
