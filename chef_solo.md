@@ -19,3 +19,5 @@ cd ~/chef &&
 tar xj &&
 sudo bash install.sh'
 ```
+[vagrant made easy with chef_solo](https://adamcod.es/2013/01/15/vagrant-is-easy-chef-is-hard-part2.html)
+---
