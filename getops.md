@@ -1,5 +1,6 @@
 getops
 ---
+[some getopts tutorial](http://wiki.bash-hackers.org/howto/getopts_tutorial)
 ```shell
 while getopts "hqv:t:m:e:" OPTION; do
 	case ${OPTION} in
