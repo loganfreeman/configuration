@@ -13,8 +13,11 @@ checkout branch
 ---
 ```shell
 # Usage: ${0} [branch=master]
-BRANCH="${1:-master}"
-REMOTE_REPO="https://github.com/uofu-ccts/sparc-request.git"
+if [ -z ${1} ]; then
+  exit "REMOTE REPO IS EMPTY"
+fi
+BRANCH="${2:-master}"
+REMOTE_REPO="${1}"
 mkdir $BRANCH
 cd $BRANCH
 git init
