@@ -52,7 +52,9 @@ mkdir chef-demo
 cd chef-demo
 knife solo init .
 librarian-chef init
-echo "cookbook 'apache2'" \
-"cookbook 'mysql'" \
-"cookbook 'php'" >> Cheffile
+cat <<EOT >> Cheffile
+cookbook 'apache2'
+cookbook 'mysql'
+cookbook 'php'
+EOT
 ```
