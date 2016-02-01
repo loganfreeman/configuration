@@ -74,7 +74,6 @@ systemctl stop ntpd.service
 ntpdate pool.ntp.org
 systemctl start ntpd.service
 EOL
-
 # now we can just run "updatetime" to restart and sync time servers:
 chmod +x /usr/bin/updatetime
 ```
