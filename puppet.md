@@ -4,6 +4,9 @@
 
 default resource type
 ---
+If a resource expression includes a resource body whose title is the special value default, Puppet won’t create a new resource named “default.”
+
+Instead, every other resource in that expression will use attribute values from the default body if it doesn’t have an explicit value for one of those attributes.
 ```ruby
 file {
   default:
