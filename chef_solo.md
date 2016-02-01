@@ -22,7 +22,7 @@ sudo bash install.sh'
 [vagrant made easy with chef_solo](https://adamcod.es/2013/01/15/vagrant-is-easy-chef-is-hard-part2.html)
 ---
 
-Install Chef solo
+Install Chef solo & knife solo
 ---
 ```shell
 curl -L https://www.opscode.com/chef/install.sh | bash
@@ -31,4 +31,15 @@ wget http://github.com/opscode/chef-repo/tarball/master
 tar -zxf master
 mv chef-chef-repo* chef-repo
 cd chef-repo/
+mkdir .chef
+echo "cookbook_path [ '/root/chef-repo/cookbooks' ]" > .chef/knife.rb
+knife cookbook create phpapp
+knife cookbook site download apache2
+tar zxf apache2*
+knife cookbook site download apt
+tar zxf apt*
+knife cookbook site download iptables
+tar zxf iptables*
+knife cookbook site download logrotate
+tar zxf logrotate*
 ```
