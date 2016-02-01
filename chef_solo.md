@@ -43,3 +43,16 @@ tar zxf iptables*
 knife cookbook site download logrotate
 tar zxf logrotate*
 ```
+
+```shell
+gem install knife-solo --no-ri --no-rdoc
+gem install librarian-chef --no-ri --no-rdoc
+cd ~/Projects
+mkdir chef-demo
+cd chef-demo
+knife solo init .
+librarian-chef init
+echo "cookbook 'apache2'" \
+"cookbook 'mysql'" \
+"cookbook 'php'" >> Cheffile
+```
