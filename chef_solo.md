@@ -59,6 +59,9 @@ cookbook 'php'
 EOT
 cat <<EOT nodes/82.196.8.99.json
 {
+  "apache": {
+    "default_site_enabled": true
+  },
   "run_list": [
     "recipe[apache2]",
     "recipe[mysql]",
