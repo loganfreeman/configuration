@@ -4,7 +4,7 @@
 
 default resource type
 ---
-```
+```ruby
 file {
   default:
     ensure => file,
