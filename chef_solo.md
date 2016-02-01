@@ -65,6 +65,7 @@ cat <<EOT nodes/82.196.8.99.json
   "run_list": [
     "recipe[apache2]",
     "recipe[mysql]",
+    "recipe[mysql::server]",
     "recipe[php]"
   ]
 }
