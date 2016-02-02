@@ -77,3 +77,9 @@ EOL
 # now we can just run "updatetime" to restart and sync time servers:
 chmod +x /usr/bin/updatetime
 ```
+Get the parent directory of where this script is
+---
+```shell
+while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
+DIR="$( cd -P "$( dirname "$SOURCE" )/.." && pwd )"
+```
