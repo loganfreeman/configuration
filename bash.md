@@ -83,3 +83,11 @@ Get the parent directory of where this script is
 while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
 DIR="$( cd -P "$( dirname "$SOURCE" )/.." && pwd )"
 ```
+make a temp directory and clean up when exit
+---
+```shell
+# Create a temporary build dir and make sure we clean it up. For
+# debugging, comment out the trap line.
+DEPLOY=`mktemp -d /tmp/vagrant-www-XXXXXX`
+trap "rm -rf $DEPLOY" INT TERM EXIT
+```
