@@ -41,8 +41,8 @@ Apache user and group
 ---
 ```shell
 groupadd web-content
-usermod -G web-content alice
-usermod -G web-content apache
+usermod -a -G web-content alice
+usermod -a -G web-content apache
 chown -R alice:web-content /var/www/html
 find /var/www/html -type f -exec chmod 640 {} \;
 find /var/www/html -type d -exec chmod 750 {} \;
