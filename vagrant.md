@@ -40,3 +40,11 @@ On xargs
 
  - -L1 - take one line at a time
  - -I {} - uses {} as a place holder for the next command
+
+vagrant cannot mount 
+---
+```shell
+vagrant plugin install vagrant-vbguest
+# check the symbolic link exists
+sudo ln -s /opt/VBoxGuestAdditions-x.x.x/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
+```
