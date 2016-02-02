@@ -43,6 +43,17 @@ done
 ```
 find a needle in an array of strings
 ---
+For an array, the keys are accessed using an exclamation point: `${!array[@]}`, the values are accessed using `${array[@]}`.
+
+You can iterate over the key/value pairs like this:
+```shell
+for i in "${!array[@]}"
+do
+  echo "key  : $i"
+  echo "value: ${array[$i]}"
+done
+```
+
 ```
 yourValue="$1"
 echo "you entered $yourValue"
