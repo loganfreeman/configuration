@@ -80,3 +80,11 @@ Authentication
 ---
 1. From our workstation/notebook/etc to our servers. We do this with SSH keys, passphrase protected, ideally, using a key agent.
 2. From our servers to the repository host. We do this so that our servers can check out our application code from Github, or similar and install it to the servers. This is usually done using SSH agent forwarding, HTTP authentication, or with deploy keys.
+
+Commands
+---
+```shell
+bundle exec cap -V # list capistrano version
+bundle exec cap -T # list all capistrano task
+bundle exec cap install # install and initialize
+```
