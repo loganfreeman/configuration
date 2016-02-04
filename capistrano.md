@@ -88,3 +88,9 @@ bundle exec cap -V # list capistrano version
 bundle exec cap -T # list all capistrano task
 bundle exec cap install # install and initialize
 ```
+sudo if needed
+```ruby
+    def sudo_if_needed(command)
+      send(use_sudo? ? :sudo : :execute, command)
+    end
+```
