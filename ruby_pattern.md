@@ -113,3 +113,11 @@ else
   require "capistrano-resque/capistrano_integration"
 end
 ```
+set up gems listed in the Gemfile
+---
+```ruby
+# Set up gems listed in the Gemfile.
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
+
+require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+```
