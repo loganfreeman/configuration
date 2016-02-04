@@ -11,3 +11,18 @@ namespace :export do
   end
 end
 ```
+
+staget the repository in a local repository
+---
+```ruby
+  desc "Stage the repository in a local directory."
+  task :stage => %w[create_stage] do
+    Dir.chdir fetch(:rsync_stage) do
+      update = %W[git fetch --quiet --all --prune]
+      Kernel.system *update
+
+      checkout = %W[git reset --hard origin/#{fetch(:branch)}]
+      Kernel.system *checkout
+    end
+  end
+```
