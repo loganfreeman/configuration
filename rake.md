@@ -39,3 +39,17 @@ if Gem.loaded_specs['yard']
   end
 end
 ```
+rake tasks that accept parameters
+---
+```ruby
+  def rails_app_rake(task)
+    require 'rails/version'
+    system "cd spec/rails/rails-#{Rails::VERSION::STRING}; rake #{task}"
+  end
+
+  task :after_setup_hook do
+    rails_app_rake "parallel:load_schema"
+    rails_app_rake "parallel:create_cucumber_db"
+    rails_app_rake "parallel:load_schema_cucumber_db"
+  end
+```
