@@ -67,7 +67,7 @@ chmod -R 2750 /username/
 ```
 `Setgid` is pretty much the exact same as setuid, but the binary runs with the privileges of the owner group rather than the user’s primary group privileges.
 
-You might have selinux enabled. Try
+> You might have selinux enabled. Try
 `getenforce`
 If it shows "Enforcing", try
 `setenforce 0`
