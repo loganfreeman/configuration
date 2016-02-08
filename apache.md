@@ -65,3 +65,4 @@ because this gives Apache permissions to access your site's directory? Well that
 chgrp -R www-data /username/
 chmod -R 2750 /username/
 ```
+`Setgid` is pretty much the exact same as setuid, but the binary runs with the privileges of the owner group rather than the user’s primary group privileges.
