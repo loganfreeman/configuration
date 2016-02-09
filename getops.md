@@ -44,6 +44,8 @@ function usage() {
 An option with argument
 ---
  Also we disable the verbose error handling by preceding the whole option string with a `colon (:)`.
+ 
+`shift $((OPTIND-1))` removes all the options that have been parsed by getopts from the parameters list, and so after that point, `$1` will refer to the first non-option argument passed to the script.
 ```shell
 #!/bin/bash
  
@@ -62,4 +64,6 @@ while getopts ":a:" opt; do
       ;;
   esac
 done
+
+shift $((OPTIND-1))
 ```
