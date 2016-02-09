@@ -161,3 +161,15 @@ inheritance
 
   end
 ```
+add method dynamically
+---
+```ruby
+    AbstractController::Callbacks::ClassMethods.public_instance_methods.
+      select { |m| m.match(/(filter|action)/) }.each do |name|
+      define_method name do |*args, &block|
+        controllers_for_filters.each do |controller|
+          controller.public_send name, *args, &block
+        end
+      end
+    end
+```
