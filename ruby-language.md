@@ -10,4 +10,8 @@ system("date")
 system "rm test-rails-app"
 system "ln -s #{test_app_path} test-rails-app"
 ```
-Backticks (``) call a system program and return its output.
+`Backticks` (``) call a system program and return its output. The global variable `$?` is set through the backticks, too. With backticks you can also make use string interpolation.
+
+Using `%x` is an alternative to the backticks style. It will return the output, too.
+
+By using `Kernel#exec` the current process (your Ruby script) is replaced with the process invoked through exec. The method can take a string as argument. In this case the string will be subject to shell expansion. When using more than one argument, then the first one is used to execute a program and the following are provided as arguments to the program to be invoked.
