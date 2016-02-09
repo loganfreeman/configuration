@@ -183,3 +183,26 @@ module ActiveAdmin
   end
 end
 ```
+ActiveSupport::Concern
+---
+```ruby
+module TagLib
+  extend ActiveSupport::Concern
+
+  module ClassMethods
+    def find_by_tags()
+      # ...
+    end
+  end
+ 
+  module InstanceMethods
+    def tags()
+      # ...
+    end
+  end 
+end
+
+class ActiveRecord::Base
+  include TagLib
+end
+```
