@@ -222,3 +222,25 @@ def render_in_context(context, obj, *args)
   end
 end
 ```
+lazy eval
+---
+```ruby
+    # Creates a namespace for the given name
+    #
+    # Yields the namespace if a block is given
+    #
+    # @return [Namespace] the new or existing namespace
+    def namespace(name)
+      name ||= :root
+
+      namespace = namespaces[name] ||= begin
+        namespace = Namespace.new(self, name)
+        ActiveSupport::Notifications.publish ActiveAdmin::Namespace::RegisterEvent, namespace
+        namespace
+      end
+
+      yield(namespace) if block_given?
+
+      namespace
+    end
+```
