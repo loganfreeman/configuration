@@ -6,4 +6,9 @@ installNvm() {
   source ~/.bash_profile
 }
 ```
-
+pg on centos
+---
+```shell
+yum -y install postgresql-libs postgresql-devel
+rvmsudo gem install pg
+```
