@@ -192,3 +192,17 @@ namespace :deploy do
   end
 end
 ```
+deploy
+---
+```ruby
+desc 'Deploy a new release.'
+task :deploy do
+  set(:deploying, true)
+  %w{ starting started
+      updating updated
+      publishing published
+      finishing finished }.each do |task|
+    invoke "deploy:#{task}"
+  end
+end
+```
