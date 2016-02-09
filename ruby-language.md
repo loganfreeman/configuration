@@ -76,3 +76,17 @@ setup deferred signal handlers
     end
   end
   ```
+spawn a process
+---
+`Process.spawn` doesn’t wait for end of the command. The parent process should use Process.wait to collect the termination status of its child
+```ruby
+  def run(options={})
+    env    = @options[:env].merge(options[:env] || {})
+    output = options[:output] || $stdout
+    runner = "#{Foreman.runner}".shellescape
+    
+    Dir.chdir(cwd) do
+      Process.spawn env, expanded_command(env), :out => output, :err => output
+    end
+  end
+```
