@@ -54,3 +54,25 @@ trap
   rescue Interrupt
   end
   ```
+setup deferred signal handlers
+---
+```ruby
+  HANDLED_SIGNALS = [ :TERM, :INT, :HUP ]
+  # Set up deferred signal handlers
+  #
+  def register_signal_handlers
+    HANDLED_SIGNALS.each do |sig|
+      if ::Signal.list.include? sig.to_s
+        trap(sig) { Thread.main[:signal_queue] << sig ; notice_signal }
+      end
+    end
+  end
+
+  # Unregister deferred signal handlers
+  #
+  def restore_default_signal_handlers
+    HANDLED_SIGNALS.each do |sig|
+      trap(sig, :DEFAULT) if ::Signal.list.include? sig.to_s
+    end
+  end
+  ```
