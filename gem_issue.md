@@ -80,3 +80,9 @@ Incorrect MySQL client library version! Gem compiled for the wrong client librar
 gem uninstall mysql2 # choose all versions
 bundle install
 ```
+error install pg
+---
+```shell
+yum install postgresql-libs
+yum install postgresql-devel
+```
