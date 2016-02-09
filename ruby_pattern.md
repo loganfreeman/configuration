@@ -206,3 +206,19 @@ class ActiveRecord::Base
   include TagLib
 end
 ```
+instance_exec
+---
+This method is different from the others in that it calls `instance_exec` on the reciever, passing it the proc. This evaluates the proc in the context of the reciever, thus changing what `self` means inside the proc.
+```ruby
+def render_in_context(context, obj, *args)
+  context ||= self # default to `self`
+  case obj
+  when Proc
+    context.instance_exec *args, &obj
+  when Symbol
+    context.public_send obj, *args
+  else
+    obj
+  end
+end
+```
