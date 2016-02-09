@@ -41,3 +41,25 @@ function usage() {
 	-v Set the version of PHP to install\n"
 }
 ```
+An option with argument
+---
+ Also we disable the verbose error handling by preceding the whole option string with a `colon (:)`.
+```shell
+#!/bin/bash
+ 
+while getopts ":a:" opt; do
+  case $opt in
+    a)
+      echo "-a was triggered, Parameter: $OPTARG" >&2
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+```
