@@ -10,4 +10,4 @@ system("date")
 system "rm test-rails-app"
 system "ln -s #{test_app_path} test-rails-app"
 ```
-
+Backticks (``) call a system program and return its output.
