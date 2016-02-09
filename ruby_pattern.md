@@ -130,3 +130,34 @@ Blorgh::Article.class_eval do
   end
 end
 ```
+inheritance
+---
+```ruby
+  module Inheritance
+
+      def self.included(base)
+        base.extend ClassMethods
+      end
+
+      module ClassMethods
+
+        def settings_inherited_by(heir)
+          (@setting_heirs ||= []) << heir
+          heir.send :include, ActiveAdmin::Settings
+        end
+
+        def inheritable_setting(name, default)
+          setting name, default
+          @setting_heirs.each{ |c| c.setting name, default }
+        end
+
+        def deprecated_inheritable_setting(name, default)
+          deprecated_setting name, default
+          @setting_heirs.each{ |c| c.deprecated_setting name, default }
+        end
+
+      end
+    end
+
+  end
+```
