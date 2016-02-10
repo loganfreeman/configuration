@@ -105,3 +105,5 @@ end
 ```
 [The rails initialization process](http://guides.rubyonrails.org/v3.2.9/initialization.html)
 ---
+[Extend rail with railties](https://blog.engineyard.com/2010/extending-rails-3-with-railties)
+---
