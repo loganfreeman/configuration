@@ -101,3 +101,14 @@ There are 3 ways to create your own Enumerator:
 **Enumerator.new**
 
 *Iteration is defined by the given block, in which a “yielder” object, given as block parameter, can be used to yield a value:*
+```ruby
+fib = Enumerator.new do |y|
+  a = b = 1
+  loop do
+    y << a
+    a, b = b, a + b
+  end
+end
+
+fib.take(10) # => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+```
