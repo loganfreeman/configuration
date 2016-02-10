@@ -103,3 +103,5 @@ else
   raise NotImplementedError, "Unknown adapter type '#{adapter_type}'"
 end
 ```
+[The rails initialization process](http://guides.rubyonrails.org/v3.2.9/initialization.html)
+---
