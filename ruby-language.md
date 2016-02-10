@@ -131,3 +131,21 @@ polish_postal_codes.take(3) # => ["00-000", "00-001", "00-002"]
 **Method: Object#to_enum**
 
 *Creates a new Enumerator which will enumerate by calling method on `obj`, passing args if any.*
+```ruby
+    def find(*args)
+      unless environment
+        raise Error, "manifest requires environment for compilation"
+      end
+
+      return to_enum(__method__, *args) unless block_given?
+
+      environment = self.environment.cached
+      args.flatten.each do |path|
+        environment.find_all_linked_assets(path) do |asset|
+          yield asset
+        end
+      end
+
+      nil
+    end
+```
