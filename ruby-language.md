@@ -112,3 +112,19 @@ end
 
 fib.take(10) # => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
+*The optional parameter can be used to specify how to calculate the size in a lazy fashion. It can either be a value or a callable object.*
+```ruby
+polish_postal_codes = Enumerator.new(100_000) do |y|
+  100_000.times do |number|
+    code    = sprintf("%05d", number)
+    code[1] = code[1] + "-"
+    y.yield(code)
+  end
+end
+
+polish_postal_codes.size    # => 100000 
+                            # returned without computing
+                            # all elements
+
+polish_postal_codes.take(3) # => ["00-000", "00-001", "00-002"]
+```
