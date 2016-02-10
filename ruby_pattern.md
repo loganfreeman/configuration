@@ -279,3 +279,15 @@ lazy eval
         end
       end
   ```
+detect
+---
+```ruby
+        # Try each asset resolver and return the first non-nil result.
+        def resolve_asset
+          asset_resolver_strategies.detect do |resolver|
+            if result = yield(resolver)
+              break result
+            end
+          end
+        end
+```
