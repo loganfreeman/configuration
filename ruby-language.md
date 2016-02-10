@@ -128,3 +128,6 @@ polish_postal_codes.size    # => 100000
 
 polish_postal_codes.take(3) # => ["00-000", "00-001", "00-002"]
 ```
+**Method: Object#to_enum**
+
+*Creates a new Enumerator which will enumerate by calling method on `obj`, passing args if any.*
