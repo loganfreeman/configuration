@@ -90,7 +90,7 @@ spawn a process
     end
   end
 ```
-Create Enumerator
+[Create Enumerator](http://blog.arkency.com/2014/01/ruby-to-enum-for-enumerator/)
 ---
 There are 3 ways to create your own Enumerator:
 
