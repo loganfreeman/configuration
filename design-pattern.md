@@ -24,3 +24,24 @@ process directive
         end
       end
 ```
+enumerator
+---
+```ruby
+    # Public: Find all assets matching pattern set in environment.
+    #
+    # Returns Enumerator of Assets.
+    def find(*args)
+      unless environment
+        raise Error, "manifest requires environment for compilation"
+      end
+
+      environment = self.environment.cached
+      args.flatten.each do |path|
+        environment.find_all_linked_assets(path) do |asset|
+          yield asset
+        end
+      end
+
+      nil
+    end
+```
