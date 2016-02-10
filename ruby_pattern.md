@@ -291,3 +291,28 @@ detect
           end
         end
 ```
+get wrapper
+---
+```ruby
+      def get_cache_wrapper(cache)
+        if cache.is_a?(Cache)
+          cache
+
+        # `Cache#get(key)` for Memcache
+        elsif cache.respond_to?(:get)
+          GetWrapper.new(cache)
+
+        # `Cache#[key]` so `Hash` can be used
+        elsif cache.respond_to?(:[])
+          HashWrapper.new(cache)
+
+        # `Cache#read(key)` for `ActiveSupport::Cache` support
+        elsif cache.respond_to?(:read)
+          ReadWriteWrapper.new(cache)
+
+        else
+          cache = Sprockets::Cache::NullStore.new
+          GetWrapper.new(cache)
+        end
+      end
+```
