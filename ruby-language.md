@@ -97,3 +97,5 @@ There are 3 ways to create your own Enumerator:
 * `Kernel#to_enum`
 * `Kernel#enum_for`
 * `Enumerator.new`
+
+---Enumerator.new
