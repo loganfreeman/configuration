@@ -34,6 +34,8 @@ enumerator
       unless environment
         raise Error, "manifest requires environment for compilation"
       end
+      
+      return to_enum(__method__, *args) unless block_given?
 
       environment = self.environment.cached
       args.flatten.each do |path|
