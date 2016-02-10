@@ -32,4 +32,10 @@ two layer cache
 
       value
     end
+
+    def set(key, value, local = false)
+      expanded_key = expand_key(key)
+      @fetch_cache.set(expanded_key, value) if local
+      @cache_wrapper.set(expanded_key, value)
+    end
 ```
