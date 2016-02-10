@@ -100,4 +100,4 @@ There are 3 ways to create your own Enumerator:
 
 **Enumerator.new**
 
-__Iteration is defined by the given block, in which a “yielder” object, given as block parameter, can be used to yield a value:__
+*Iteration is defined by the given block, in which a “yielder” object, given as block parameter, can be used to yield a value:*
