@@ -98,4 +98,4 @@ There are 3 ways to create your own Enumerator:
 * `Kernel#enum_for`
 * `Enumerator.new`
 
-### Enumerator.new
+# Enumerator.new
