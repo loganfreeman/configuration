@@ -98,4 +98,5 @@ There are 3 ways to create your own Enumerator:
 * `Kernel#enum_for`
 * `Enumerator.new`
 
-~Enumerator.new
+Enumerator.new
+~Iteration is defined by the given block, in which a “yielder” object, given as block parameter, can be used to yield a value:~
