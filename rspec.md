@@ -66,3 +66,11 @@ allow(book).to receive_messages(
     :title => "The RSpec Book",
     :subtitle => "Behaviour-Driven Development with RSpec, Cucumber, and Friends")
 ```
+before vs let
+---
+Let variables don't exist until called into existence by the actual tests, so you won't waste time loading them for examples that don't use them. They're also memoized, so they're useful for encapsulating database objects, due to the cost of making a database request.
+```ruby
+let(:valid_user) { User.find_by_email(email) } # Let queries the database once, and then saves the valid_user object locally
+
+before { @valid_user = User.find_by_email(email) } # Before queries the database before each spec. 
+```
