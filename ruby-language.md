@@ -163,3 +163,17 @@ instance_eval and send
 publisher.instance_eval { broadcast(:failure) }
 publisher.send(:broadcast, :it_happened)
 ```
+This is another form of instance_eval. instance_eval evals the block in the context of the metaclass, but resolve any method in the context of the instance itself.
+```ruby
+    class << (@@properties = [])
+      def names
+        map(&:first)
+      end
+
+      def value_for(property_name)
+        if property = assoc(property_name)
+          property.last
+        end
+      end
+    end
+```
