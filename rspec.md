@@ -51,3 +51,17 @@ describe PriceSheet do
   end
 end
 ```
+Test Doubles and Method Stubs
+---
+A test double is an object that stands in for another object in your system during a code example. Use the double method, passing in an optional identifier, to create one:
+```ruby
+book = double("book")
+```
+A method stub is an implementation that returns a pre-determined value. Method stubs can be declared on test doubles or real objects using the same syntax. rspec-mocks supports 3 forms for declaring method stubs:
+```ruby
+allow(book).to receive(:title) { "The RSpec Book" }
+allow(book).to receive(:title).and_return("The RSpec Book")
+allow(book).to receive_messages(
+    :title => "The RSpec Book",
+    :subtitle => "Behaviour-Driven Development with RSpec, Cucumber, and Friends")
+```
