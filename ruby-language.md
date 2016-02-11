@@ -177,3 +177,45 @@ This is another form of instance_eval. instance_eval evals the block in the cont
       end
     end
 ```
+instance_eval on self
+```ruby
+    class << self #:nodoc:
+      def property(name, value = nil)
+        value ||= yield
+        properties << [name, value] if value
+      rescue Exception
+      end
+
+      def to_s
+        column_width = properties.names.map(&:length).max
+        info = properties.map do |name, value|
+          value = value.join(", ") if value.is_a?(Array)
+          "%-#{column_width}s   %s" % [name, value]
+        end
+        info.unshift "About your application's environment"
+        info * "\n"
+      end
+
+      alias inspect to_s
+
+      def to_html
+        '<table>'.tap do |table|
+          properties.each do |(name, value)|
+            table << %(<tr><td class="name">#{CGI.escapeHTML(name.to_s)}</td>)
+            formatted_value = if value.kind_of?(Array)
+                  "<ul>" + value.map { |v| "<li>#{CGI.escapeHTML(v.to_s)}</li>" }.join + "</ul>"
+                else
+                  CGI.escapeHTML(value.to_s)
+                end
+            table << %(<td class="value">#{formatted_value}</td></tr>)
+          end
+          table << '</table>'
+        end
+      end
+    end
+
+    # The Rails version.
+    property 'Rails version' do
+      Rails.version.to_s
+    end
+```
