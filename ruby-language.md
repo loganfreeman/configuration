@@ -157,4 +157,8 @@ def publisher_class
   Class.new { include Wisper::Publisher }
 end
 ```
-
+instance_eval
+---
+```ruby
+publisher.instance_eval { broadcast(:failure) }
+```
