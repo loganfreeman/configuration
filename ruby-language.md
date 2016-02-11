@@ -157,4 +157,4 @@ def publisher_class
   Class.new { include Wisper::Publisher }
 end
 ```
-```
+
