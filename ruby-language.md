@@ -149,3 +149,12 @@ polish_postal_codes.take(3) # => ["00-000", "00-001", "00-002"]
       nil
     end
 ```
+anonymous class
+---
+```ruby
+# returns an anonymous wispered class
+def publisher_class
+  Class.new { include Wisper::Publisher }
+end
+```
+```
