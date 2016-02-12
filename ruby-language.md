@@ -232,7 +232,7 @@ opts = OpenStruct.new({
 })
 
 # alternatively from yaml file
-config = YAML::load(File.expand_path('../../config/config.yml', File.dirname(__FILE__)))[rails_env]
+config = YAML::load(File.read('config.yml'))[rails_env]
 opts = OpenStruct.new(config)
 
 # load the erb template. 'Hello <%= first_name %> <%= last_name %>.'
