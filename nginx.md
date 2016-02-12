@@ -106,3 +106,14 @@ namespace :deploy do
   end
 end
 ```
+serve static assets with nginx
+---
+```
+location ~ ^/assets/ {
+  expires 1y;
+  add_header Cache-Control public;
+
+  add_header ETag "";
+  break;
+}
+```
