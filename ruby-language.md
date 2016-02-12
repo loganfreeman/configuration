@@ -219,3 +219,24 @@ instance_eval on self
       Rails.version.to_s
     end
 ```
+load hash into local context
+---
+```ruby
+require 'erb'
+require 'ostruct'
+
+opts = OpenStruct.new({
+  first_name: "Martin",
+  last_name: "Brennan"
+})
+
+# alternatively from yaml file
+config = YAML::load(File.expand_path('../../config/config.yml', File.dirname(__FILE__)))[rails_env]
+opts = OpenStruct.new(config)
+
+# load the erb template. 'Hello <%= first_name %> <%= last_name %>.'
+template = File.read('template.erb')
+
+# render the template
+puts ERB.new(template).result(opts.instance_eval {binding})
+```
