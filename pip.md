@@ -3,6 +3,7 @@ PIP_DOWNLOAD_CACHE
 Added support for an environmental variable `$PIP_DOWNLOAD_CACHE` which will cache package downloads, so future installations won’t require large downloads. Network access is still required, but just some downloads will be avoided when using this.
 
 To take advantage of this, I've added the following to my ~/.bash_profile:
+
 `export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache`
 ```shell
 # install our common Python packages in a temporary virtual env so that they'll get cached
