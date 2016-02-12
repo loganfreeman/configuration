@@ -241,3 +241,12 @@ template = File.read('template.erb')
 # render the template
 puts ERB.new(template).result(opts.instance_eval {binding})
 ```
+Struct
+---
+```ruby
+NewsletterJob = Struct.new(:text, :emails) do
+  def perform
+    emails.each { |e| NewsletterMailer.deliver_text_to_email(text, e) }
+  end
+end
+```
