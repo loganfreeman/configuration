@@ -74,3 +74,8 @@ let(:valid_user) { User.find_by_email(email) } # Let queries the database once, 
 
 before { @valid_user = User.find_by_email(email) } # Before queries the database before each spec. 
 ```
+Test connection
+---
+```ruby
+ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database => ':memory:'
+```
