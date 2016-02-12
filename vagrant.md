@@ -48,3 +48,25 @@ vagrant plugin install vagrant-vbguest
 # check the symbolic link exists
 sudo ln -s /opt/VBoxGuestAdditions-x.x.x/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
 ```
+use 1/4 system memory
+---
+```ruby
+config.vm.provider "virtualbox" do |v|
+  host = RbConfig::CONFIG['host_os']
+
+  # Give VM 1/4 system memory 
+  if host =~ /darwin/
+    # sysctl returns Bytes and we need to convert to MB
+    mem = `sysctl -n hw.memsize`.to_i / 1024
+  elsif host =~ /linux/
+    # meminfo shows KB and we need to convert to MB
+    mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i 
+  elsif host =~ /mswin|mingw|cygwin/
+    # Windows code via https://github.com/rdsubhas/vagrant-faster
+    mem = `wmic computersystem Get TotalPhysicalMemory`.split[1].to_i / 1024
+  end
+
+  mem = mem / 1024 / 4
+  v.customize ["modifyvm", :id, "--memory", mem]
+end
+```
