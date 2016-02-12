@@ -224,6 +224,7 @@ load hash into local context
 ```ruby
 require 'erb'
 require 'ostruct'
+require 'yaml'
 
 opts = OpenStruct.new({
   first_name: "Martin",
