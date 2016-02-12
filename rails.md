@@ -128,4 +128,4 @@ In contrast with Ruby’s autoload, which requires the location of each autoload
 ```ruby
 MyModule::SomeClass # => my_module/some_class.rb
 ```
-For a given constant, this inferred filename is then searched for within a number of autoload paths, as determined by the autoload_paths configuration option. By default, Rails searches in all immediate subdirectories of the app/ directory
+For a given constant, this inferred filename is then searched for within a number of autoload paths, as determined by the autoload_paths configuration option. By default, Rails searches in all immediate subdirectories of the `app/` directory.
