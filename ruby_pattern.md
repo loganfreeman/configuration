@@ -316,3 +316,37 @@ get wrapper
         end
       end
 ```
+Callback
+---
+```ruby
+  class Callback
+    def initialize
+      @before = []
+      @after = []
+
+      # Identity proc. Avoids special cases when there is no existing around chain.
+      @around = lambda { |*args, &block| block.call(*args) }
+    end
+
+    def execute(*args, &block)
+      @before.each { |c| c.call(*args) }
+      result = @around.call(*args, &block)
+      @after.each { |c| c.call(*args) }
+      result
+    end
+
+    def add(type, &callback)
+      case type
+      when :before
+        @before << callback
+      when :after
+        @after << callback
+      when :around
+        chain = @around # use a local variable so that the current chain is closed over in the following lambda
+        @around = lambda { |*a, &block| chain.call(*a) { |*b| callback.call(*b, &block) } }
+      else
+        raise InvalidCallback, "Invalid callback type: #{type}"
+      end
+    end
+  end
+```
