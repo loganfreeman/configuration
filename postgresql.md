@@ -1,3 +1,14 @@
+Set up postgresql
+---
+```shell
+# Postgresql
+if ! command -v psql; then
+    apt-get install -y postgresql-$PGSQL_VERSION libpq-dev
+    cp /vagrant_data/pg_hba.conf /etc/postgresql/$PGSQL_VERSION/main/
+    /etc/init.d/postgresql reload
+fi
+```
+
 How to configure rails to use postgres
 ---
 If you choose to use PostgreSQL, your config/database.yml will be customized to use PostgreSQL databases:
