@@ -79,3 +79,22 @@ Test connection
 ```ruby
 ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database => ':memory:'
 ```
+let factory
+---
+```ruby
+
+    let :md_factory do
+      lambda do |params|
+        GithubMarkdown.render(
+          dummy_file,
+          opts.merge(gfm: params[:gfm])
+        )
+      end
+    end
+
+    context 'true' do
+      it 'renders hard-wraps' do
+        expect(md_factory[gfm: true]).to include '<br>'
+      end
+    end
+```
