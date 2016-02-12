@@ -250,3 +250,10 @@ NewsletterJob = Struct.new(:text, :emails) do
   end
 end
 ```
+Ruby Constant Lookup
+---
+When you refer to a constant in a given lexical scope, that constant is searched for in:
+
+1. Each entry in `Module.nesting`
+2. Each entry in `Module.nesting.first.ancestors`
+3. Each entry in `Object.ancestors` if `Module.nesting.first` is `nil` or a module.
