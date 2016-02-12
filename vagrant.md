@@ -70,3 +70,11 @@ config.vm.provider "virtualbox" do |v|
   v.customize ["modifyvm", :id, "--memory", mem]
 end
 ```
+To enable NFS, add the following to your Vagrantfile:
+---
+```ruby
+# Required for NFS to work, pick any local IP
+config.vm.network :private_network, ip: '192.168.50.50'
+# Use NFS for shared folders for better performance
+config.vm.synced_folder '.', '/vagrant', nfs: true
+```
