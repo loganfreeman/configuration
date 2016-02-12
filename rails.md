@@ -105,5 +105,19 @@ end
 ```
 [The rails initialization process](http://guides.rubyonrails.org/v3.2.9/initialization.html)
 ---
+1. bin/rails
+2. config/boot.rb
+3. rails/commands.rb
+4. actionpack/lib/action_dispatch.rb
+5. rails/commands/server.rb
+6. Rack: lib/rack/server.rb
+7. config/application
+8. Rails::Server#start
+9. config/environment.rb
+10. config/application.rb
+11. railties/lib/rails/all.rb
+12 .Back to config/environment.rb
+13. railties/lib/rails/application.rb
+14. Rack: lib/rack/server.rb
 [Extend rail with railties](https://blog.engineyard.com/2010/extending-rails-3-with-railties)
 ---
