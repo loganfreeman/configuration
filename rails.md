@@ -122,3 +122,9 @@ end
 
 [Extend rail with railties](https://blog.engineyard.com/2010/extending-rails-3-with-railties)
 ---
+Rails Constant Autoloading
+---
+In contrast with Ruby’s autoload, which requires the location of each autoloaded constant to be specified in advance, Rails follows a simple convention that maps constant names to filenames. Nesting corresponds to directories, and constant names are underscored:
+```ruby
+MyModule::SomeClass # => my_module/some_class.rb
+```
