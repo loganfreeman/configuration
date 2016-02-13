@@ -141,7 +141,7 @@ printer()
 ```
 When make_printer is called, a new frame is put on the stack with the compiled code for the printer function as a constant and the value of msg as a local. It then creates and returns the function. Because the function printer references the msg variable, it is kept alive after the make_printer function has returned.
 
-`bound` and `unbound` methods
+`bound` and `unbound` methods, [First Class Everything](http://python-history.blogspot.com/2009/02/first-class-everything.html)
 ---
 ```python
 class Test(object):
