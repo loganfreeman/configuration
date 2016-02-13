@@ -158,4 +158,6 @@ a_test.method_one()
 is translated to
 ```
 Test.method_one(a_test)
+Test.__dict__['method_one'].__get__(a_test, Test)
 ```
+The method object binds the first parameter of a function to the instance of the class.
