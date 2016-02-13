@@ -140,3 +140,22 @@ printer = make_printer('Foo!')
 printer()
 ```
 When make_printer is called, a new frame is put on the stack with the compiled code for the printer function as a constant and the value of msg as a local. It then creates and returns the function. Because the function printer references the msg variable, it is kept alive after the make_printer function has returned.
+
+`bound` and `unbound` methods
+---
+```python
+class Test(object):
+  def method_one(self):
+    print "Called method_one"
+
+  def method_two():
+    print "Called method_two"
+```
+a call to a member function (like method_one), a bound function
+```
+a_test.method_one()
+```
+is translated to
+```
+Test.method_one(a_test)
+```
