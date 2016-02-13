@@ -161,3 +161,4 @@ Test.method_one(a_test)
 Test.__dict__['method_one'].__get__(a_test, Test)
 ```
 The method object binds the first parameter of a function to the instance of the class.
+>In reality, the same internal object type is used to represent bound and unbound methods. One of the attributes of this object contains a reference to an instance. If set to None, the method is unbound. Otherwise, the method is bound.
