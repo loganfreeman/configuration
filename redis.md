@@ -19,3 +19,30 @@ sorted set or queue
       end
     end
 ```
+check lock
+---
+```node
+    api.cache.checkLock = function(key, retry, next, startTime){
+      if(startTime === null){ startTime = new Date().getTime(); }
+
+      api.redis.client.get(api.cache.lockPrefix + key, function(err, lockedBy){
+        if(err){
+          next(err, false);
+        }else if(lockedBy === api.cache.lockName || lockedBy === null){
+          next(null, true);
+        }else{
+          var delta = new Date().getTime() - startTime;
+          if(retry === null || retry === false || delta > retry){
+            next(null, false);
+          }else{
+            setTimeout(function(){
+              api.cache.checkLock(key, retry, next, startTime);
+            }, api.cache.lockRetry);
+          }
+        }
+      });
+    };
+
+    next();
+  }
+ ```
