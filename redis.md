@@ -45,4 +45,46 @@ check lock
 
     next();
   }
+  
+     api.cache.lock = function(key, expireTimeMS, next){
+      if(typeof expireTimeMS === 'function' && next === null){
+        expireTimeMS = expireTimeMS;
+        expireTimeMS = null;
+      }
+      if(expireTimeMS === null){
+        expireTimeMS = api.cache.lockDuration;
+      }
+
+      api.cache.checkLock(key, null, function(err, lockOk){
+        if(err || lockOk !== true){
+          next(err, false);
+        }else{
+          api.redis.client.setnx(api.cache.lockPrefix + key, api.cache.lockName, function(err){
+            if(err){
+              next(err);
+            }else{
+              api.redis.client.expire(api.cache.lockPrefix + key, Math.ceil(expireTimeMS/1000), function(err){
+                lockOk = true;
+                if(err){ lockOk = false; }
+                next(err, lockOk);
+              });
+            }
+          });
+        }
+      });
+    };
+
+    api.cache.unlock = function(key, next){
+      api.cache.checkLock(key, null, function(err, lockOk){
+        if(err || lockOk !== true){
+          next(err, false);
+        }else{
+          api.redis.client.del(api.cache.lockPrefix + key, function(err){
+            lockOk = true;
+            if(err){ lockOk = false; }
+            next(err, lockOk);
+          });
+        }
+      });
+    };
  ```
