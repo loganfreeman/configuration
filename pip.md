@@ -14,4 +14,11 @@ if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
         rm -rf /home/vagrant/yayforcaching"
 fi
 ```
-
+How to install pip on Centos7
+---
+```shell
+rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum -y update
+yum -y install python-pip
+pip -V
+```
