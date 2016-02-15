@@ -14,3 +14,8 @@ if [[ ! -e /home/vagrant/.pip_download_cache ]]; then
         rm -rf /home/vagrant/yayforcaching"
 fi
 ```
+Install setuptools
+---
+```shell
+curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | sudo python -
+```
