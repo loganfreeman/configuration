@@ -1,22 +1,22 @@
 urllib2
 ---
 ```py
-	def _get(self, url):
-		request = urllib2.Request(url = url)
-		response = urllib2.urlopen(request)
-		data = response.read()
-		return data
+def _get(self, url):
+	request = urllib2.Request(url = url)
+	response = urllib2.urlopen(request)
+	data = response.read()
+	return data
 
-	def _post(self, url, params, jsonfmt = True):
-		if jsonfmt:
-			request = urllib2.Request(url = url, data = json.dumps(params))
-			request.add_header('ContentType', 'application/json; charset=UTF-8')
-		else:
-			request = urllib2.Request(url = url, data = urllib.urlencode(params))
-		response = urllib2.urlopen(request)
-		data = response.read()
-		if jsonfmt: return json.loads(data, object_hook=_decode_dict)
-		return data
+def _post(self, url, params, jsonfmt = True):
+	if jsonfmt:
+		request = urllib2.Request(url = url, data = json.dumps(params))
+		request.add_header('ContentType', 'application/json; charset=UTF-8')
+	else:
+		request = urllib2.Request(url = url, data = urllib.urlencode(params))
+	response = urllib2.urlopen(request)
+	data = response.read()
+	if jsonfmt: return json.loads(data, object_hook=_decode_dict)
+	return data
 		
 def _decode_list(data):
 	rv = []
