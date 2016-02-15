@@ -22,3 +22,26 @@ yum -y update
 yum -y install python-pip
 pip -V
 ```
+How to install virtualenv on Centos
+---
+```shell
+sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
+sudo yum -y install python-virtualenv
+sudo yum -y install python-virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+```
+The `~/.virtualenvs` directory is where the above virtual environments will reside. This directory path was chosen because the EPEL python-virtualenvwrapper package will set this path globally for all users in `/etc/profile.d/virtualenvwrapper.sh`
+
+Your first virtual environment can now be created.
+```shell
+mkvirtualenv myapp
+```
+You can leave the virtual environment at any time with the following command.
+```shell
+deactivate
+```
+The following will return to, or "activate", the virtual environment that was previously created.
+```shell
+workon myapp
+```
