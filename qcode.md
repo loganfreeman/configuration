@@ -1,7 +1,7 @@
 qcode
 ---
 ```py
-  def _printQR(self, mat):
+	def _printQR(self, mat):
 		for i in mat:
 			BLACK = '\033[40m  \033[0m'
 			WHITE = '\033[47m  \033[0m'
