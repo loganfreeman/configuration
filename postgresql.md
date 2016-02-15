@@ -1,3 +1,11 @@
+Centos installation
+---
+``` shell
+yum install postgresql-server
+service postgresql initdb
+chkconfig postgresql on
+```
+
 Set up postgresql
 ---
 ```shell
