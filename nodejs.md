@@ -82,3 +82,36 @@ get .js files recursively in a directory
       return results.sort();
     };
 ```
+multiple NodeJS processes for TCP/HTTP serving
+---
+[Multi-node](https://github.com/kriszyp/multi-node) provides launching of multiple NodeJS processes for TCP/HTTP serving.
+```js
+var server = require("http").createServer(function(request, response){
+        ... standard node request handler ...
+    });
+var nodes = require("multi-node").listen({
+        port: 80, 
+        nodes: 4
+    }, server);
+var allStreams = [];
+nodes.addListener("node", function(stream){
+    stream.addListener("data", function(data){
+        ... receiving data from this other node process ...
+    });
+    allStreams.push(stream);
+});
+
+function notifyOtherProcesses(message){
+    allStreams.forEach(function(stream){
+        stream.write(message);
+    });
+}
+
+nodes.addListener("node", function(stream){
+    stream = require("multi-node").frameStream(stream);
+    stream.addListener("message", function(data){
+        ... receiving string, object, or other value from the other node process ...
+    });
+    stream.send({foo:"bar"});
+});
+```
