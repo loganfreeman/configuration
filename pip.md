@@ -44,4 +44,6 @@ deactivate
 The following will return to, or "activate", the virtual environment that was previously created.
 ```shell
 workon myapp
+pip install django
 ```
+The Django package files will be installed under `~/.virtualenvs/myapp`.
