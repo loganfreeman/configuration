@@ -46,4 +46,10 @@ The following will return to, or "activate", the virtual environment that was pr
 workon myapp
 pip install django
 ```
-The Django package files will be installed under `~/.virtualenvs/myapp`.
+The Django package files will be installed under `~/.virtualenvs/myapp`. Now you can create Django project.
+```shell
+django-admin.py startproject myproject
+cd myproject
+python manage.py migrate
+python manage.py runserver
+```
