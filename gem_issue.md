@@ -93,3 +93,8 @@ libxml2
  rvm pkg uninstall libxml2
  rvm reinstall all --force
  ```
+nokogiri not compatible with libxml2
+---
+```shell
+yum -y install libxml2-devel libxslt-devel
+```
