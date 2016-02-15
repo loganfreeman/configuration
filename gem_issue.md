@@ -86,3 +86,10 @@ error install pg
 yum install postgresql-libs
 yum install postgresql-devel
 ```
+libxml2
+---
+```ruby
+ rvm cleanup all
+ rvm pkg uninstall libxml2
+ rvm reinstall all --force
+ ```
