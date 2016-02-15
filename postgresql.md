@@ -45,6 +45,7 @@ ALTER ROLE demo_role WITH LOGIN;
 # give the new role a password
 \password test_user
 GRANT permission_type ON table_name TO role_name; # type: UPDATE, INSERT, ALL, etc.
+GRANT permission_type ON DATABASE database_name TO role_name;
 REVOKE permission_type ON table_name FROM user_name;
 ```
 The postgres Linux account, being associated with the Postgres administrative role, has access to some utilities to create users and databases.
