@@ -129,3 +129,13 @@ In contrast with Ruby’s autoload, which requires the location of each autoload
 MyModule::SomeClass # => my_module/some_class.rb
 ```
 For a given constant, this inferred filename is then searched for within a number of autoload paths, as determined by the autoload_paths configuration option. By default, Rails searches in all immediate subdirectories of the `app/` directory.
+
+ActiveSupport helper method
+---
+```ruby
+        ActiveSupport.on_load(:action_controller) do
+          if respond_to?(:helper_method)
+            helper_method "current_#{mapping}", "#{mapping}_signed_in?", "#{mapping}_session"
+          end
+        end
+```
