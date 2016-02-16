@@ -404,3 +404,33 @@ Lifecycle
     end
   end
 ```
+defaults
+---
+```ruby
+    def self.default_logger
+      logger = Logger.new(STDOUT)
+      logger.progname = 'omniauth'
+      logger
+    end
+
+    def self.defaults
+      @defaults ||= {
+        :camelizations => {},
+        :path_prefix => '/auth',
+        :on_failure => OmniAuth::FailureEndpoint,
+        :failure_raise_out_environments => ['development'],
+        :before_request_phase   => nil,
+        :before_callback_phase  => nil,
+        :before_options_phase   => nil,
+        :form_css => Form::DEFAULT_CSS,
+        :test_mode => false,
+        :logger => default_logger,
+        :allowed_request_methods => [:get, :post],
+        :mock_auth => {:default => AuthHash.new('provider' => 'default', 'uid' => '1234', 'info' => {'name' => 'Example User'})}
+      }
+    end
+
+    def initialize
+      self.class.defaults.each_pair { |k, v| send("#{k}=", v) }
+    end
+```
