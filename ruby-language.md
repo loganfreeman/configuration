@@ -257,3 +257,21 @@ When you refer to a constant in a given lexical scope, that constant is searched
 1. Each entry in `Module.nesting`
 2. Each entry in `Module.nesting.first.ancestors`
 3. Each entry in `Object.ancestors` if `Module.nesting.first` is `nil` or a module.
+
+processing indicator
+---
+```ruby
+    def show_processing_indicator
+      $indicator = Thread.new do
+        loop do
+          print "."
+          sleep 0.2
+        end
+      end.run
+    end
+
+    def hide_processing_indicator
+      $indicator.kill
+      puts ""
+    end
+```
