@@ -48,3 +48,10 @@ deactivate
 # the virtual environment and SCL-enabled shell
 exit
 ```
+Using requirements.txt
+---
+```shell
+$ virtualenv --python=/path/to/python3 /path/to/arbitrary/directory
+$ . /path/to/arbitrary/directory/bin/activate
+$ pip install  --requirement /path/to/paperless/requirements.txt
+```
