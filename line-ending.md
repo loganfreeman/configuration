@@ -16,3 +16,12 @@ To convert from Unix to "DOS":
 ```shell
 $ unix2dos testfile1.txt
 ```
+To install dos2unix on CentOS, Fedora or RHEL:
+```shell
+$ sudo yum install dos2unix
+```
+To install dos2unix on Ubuntu or Debian:
+```shell
+$ sudo apt-get install tofrodos
+$ sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix
+```
