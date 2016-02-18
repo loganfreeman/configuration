@@ -24,3 +24,23 @@ cd myproject
 python manage.py migrate
 python manage.py runserver
 ```
+Using virtualenv
+---
+```shell
+# run scl-enabled shell and create the virtual environment
+scl enable python33 bash
+virtualenv foo
+cd foo
+source bin/activate
+ 
+# test your virtualenv by installing Django and printing its version
+pip install django
+python -c "import django; print(django.__file__)"
+ 
+# now just run "deactivate" to deactivate the environment
+# in current shell session
+deactivate
+# or just "exit" the current shell, which both terminates
+# the virtual environment and SCL-enabled shell
+exit
+```
