@@ -8,13 +8,17 @@ if [[ ! -f /usr/local/bin/virtualenv ]]; then
     easy_install virtualenv virtualenvwrapper stevedore virtualenv-clone
 fi
 ```
-Install virtualenv
+Install virtualenv & virtualenvwrapper
 ---
 ```shell
 sudo yum -y install python-virtualenv
 sudo yum -y install python-virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+```
+Using virtualenvwrapper
+---
+```shell
 mkvirtualenv myapp
 workon myapp
 pip install <package_name> # The <package_name> package files will be installed under ~/.virtualenvs/myapp.
