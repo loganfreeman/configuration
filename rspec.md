@@ -98,3 +98,21 @@ let factory
       end
     end
 ```
+assert logged
+---
+```ruby
+  def assert_logged(message)
+    old_logger = ActionController::Base.logger
+    log = StringIO.new
+    ActionController::Base.logger = Logger.new(log)
+
+    begin
+      yield
+
+      log.rewind
+      assert_match message, log.read
+    ensure
+      ActionController::Base.logger = old_logger
+    end
+  end
+```
