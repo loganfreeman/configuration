@@ -452,3 +452,13 @@ hash accessor
 
     hash_accessor :failure_app, :default_scope, :intercept_401
 ```
+dynamically add method on an instance
+---
+```ruby
+def define_singleton_method_by_proc(obj, name, block)
+  metaclass = class << obj; self; end
+  metaclass.send(:define_method, name, block)
+end
+p = proc { "foobar!" }
+define_singleton_method_by_proc(y, :bar, p)
+```
