@@ -341,7 +341,7 @@ def
 ---
 * Ruby keyword, starts a method definition
 * Opens a new, isolated scope. Variables defined outside are not accessible inside and vice versa.
-* Defines an instance method on the receiver (specified before the method name, e.g. def object.foo); implicit receiver is the default definee
+* Defines an instance method on the receiver (specified before the method name, e.g. def object.foo); *implicit receiver is the default definee*
 ```ruby
 $string = "hello world"
 class Foo  
@@ -352,3 +352,14 @@ end
 Foo.instance_methods(false) # => ["bar"]
 $string.methods(false) # => ["baz"]
 ```
+define_method
+---
+- A method defined in Module
+- Defines an instance method on the receiver; implicit receiver is self
+- Takes a block as method body, which is evaluated using `instance_eval`. Since blocks carry with them the binding in which they were created, variables from outside are accessible in define_method.
+
+`self` is the "current object" and implicit receiver of method calls:
+
+- in a method body, self is the receiver of the method
+- in a class or module definition, self is the class or module object being defined
+- in blocks, self is bound to the class when class_eval'd and bound to the object when instance_eval'd
