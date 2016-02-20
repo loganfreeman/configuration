@@ -323,3 +323,17 @@ GC.start
 
 p ObjectSpace.memsize_of_all(RubyVM::InstructionSequence)
 ```
+Be careful with Closures when using `define_method`
+---
+The main down side is that `define_method` creates a closure. The closure could hold references to large objects, and those large objects will never be garbage collected. For example:
+```ruby
+class Foo
+  x = "X" * 1024000 # Not GC'd
+  define_method("foo") { }
+end
+
+class Bar
+  x = "X" * 1024000 # Is GC'd
+  class_eval("def foo; end")
+end
+```
