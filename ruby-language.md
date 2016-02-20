@@ -337,3 +337,18 @@ class Bar
   class_eval("def foo; end")
 end
 ```
+def
+---
+* Ruby keyword, starts a method definition
+* Opens a new, isolated scope. Variables defined outside are not accessible inside and vice versa.
+* Defines an instance method on the receiver (specified before the method name, e.g. def object.foo); implicit receiver is the default definee
+```ruby
+$string = "hello world"
+class Foo  
+  def $string.baz # define a singleton method on $string / an instance method on $string's singleton class
+    def bar; end
+  end  
+end  
+Foo.instance_methods(false) # => ["bar"]
+$string.methods(false) # => ["baz"]
+```
