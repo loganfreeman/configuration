@@ -302,3 +302,24 @@ Benchmark.bm(13) do |x|
   }
 end
 ```
+Measuring Instructions
+---
+```ruby
+require 'objspace'
+
+N = (ENV['N'] || 100_000).to_i
+
+class Foo
+  N.times do |i|
+    if ENV['EVAL']
+      class_eval "def bar_#{i}; end"
+    else
+      define_method("bar_#{i}") { }
+    end
+  end
+end
+
+GC.start
+
+p ObjectSpace.memsize_of_all(RubyVM::InstructionSequence)
+```
