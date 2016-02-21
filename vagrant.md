@@ -78,3 +78,11 @@ config.vm.network :private_network, ip: '192.168.50.50'
 # Use NFS for shared folders for better performance
 config.vm.synced_folder '.', '/vagrant', nfs: true
 ```
+symbolic links
+---
+> Virtualbox does not allow symlinks on shared folders for security reasons. To enable symlinks the following line needs to be added to the vm provider config block in the Vagrantfile:
+```ruby
+config.vm.provider "virtualbox" do |v|
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+end
+```
