@@ -8,6 +8,7 @@ pip install Django
 django-admin.py startproject mysite
 cd mysite
 pip install uwsgi
+uwsgi --http :8000 --module mysite.wsgi
 ```
 sample wsgi file
 ---
