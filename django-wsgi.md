@@ -79,6 +79,10 @@ passenger_wsgi.py
  sys.path.insert(0,'$HOME/.virtualenvs/<site>/lib/python2.7/site-packages')
 
  os.environ['DJANGO_SETTINGS_MODULE'] = "project.settings"
+ # python < 1.7 
  import django.core.handlers.wsgi
  application = django.core.handlers.wsgi.WSGIHandler()
+ # Python 1.7
+ from django.core.wsgi import get_wsgi_application
+ application = get_wsgi_application()
 ```
