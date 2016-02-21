@@ -86,3 +86,4 @@ config.vm.provider "virtualbox" do |v|
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
 end
 ```
+You need to boot up the Vagrant machine in Administrator mode.
