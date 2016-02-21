@@ -74,9 +74,9 @@ passenger_wsgi.py
  if sys.version < "2.7.3": os.execl("$HOME/<site>/env/bin/python",
      "python2.7.3", *sys.argv)
 
- sys.path.insert(0,'$HOME/<site>/env/bin')
- sys.path.insert(0,'$HOME/<site>/env/lib/python2.7/site-packages/django')
- sys.path.insert(0,'$HOME/<site>/env/lib/python2.7/site-packages')
+ sys.path.insert(0,'$HOME/.virtualenvs/<site>/bin')
+ sys.path.insert(0,'$HOME/.virtualenvs/<site>/lib/python2.7/site-packages/django')
+ sys.path.insert(0,'$HOME/.virtualenvs/<site>/lib/python2.7/site-packages')
 
  os.environ['DJANGO_SETTINGS_MODULE'] = "project.settings"
  import django.core.handlers.wsgi
