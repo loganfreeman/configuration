@@ -64,9 +64,21 @@ server {
 passenger_wsgi.py
 ---
 ```py
-import sys, os
-sys.path.append(os.path.join(os.getcwd(), 'projectname')) #I needed this
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-import django.core.handlers.wsgi
-application = django.core.handlers.wsgi.WSGIHandler()
+ import sys, os
+ cwd = os.getcwd()
+ sys.path.append(cwd)
+ sys.path.append(cwd + '/project')  #You must add your project here or 500
+
+ #Switch to new python
+ #You may try to replace $HOME with your actual path
+ if sys.version < "2.7.3": os.execl("$HOME/<site>/env/bin/python",
+     "python2.7.3", *sys.argv)
+
+ sys.path.insert(0,'$HOME/<site>/env/bin')
+ sys.path.insert(0,'$HOME/<site>/env/lib/python2.7/site-packages/django')
+ sys.path.insert(0,'$HOME/<site>/env/lib/python2.7/site-packages')
+
+ os.environ['DJANGO_SETTINGS_MODULE'] = "project.settings"
+ import django.core.handlers.wsgi
+ application = django.core.handlers.wsgi.WSGIHandler()
 ```
