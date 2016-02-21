@@ -10,3 +10,19 @@ def to_class(class_str):
     module = importlib.import_module(module_path)
     return getattr(module, class_name, None)
 ```
+multiprocessing
+---
+```py
+    def compile(self, paths)
+        def _compile(input_path)
+            # implementation of _compile
+            
+        try:
+            import multiprocessing
+            from concurrent import futures
+        except ImportError:
+            return list(map(_compile, paths))
+        else:
+            with futures.ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
+                return list(executor.map(_compile, paths))
+```
