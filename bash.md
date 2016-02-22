@@ -115,4 +115,12 @@ traverse upward until home root
       builtin cd .. &>/dev/null
     done
   ) )
+  
+  _file=${#_files[@]}
+  while (( _file > 0 ))
+  do
+    envfile=${_files[_file-__array_offset]}
+    autoenv_check_authz_and_run "$envfile"
+    : $(( _file -= 1 ))
+  done
 ```
