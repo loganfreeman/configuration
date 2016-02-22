@@ -102,3 +102,17 @@ make a temp directory and clean up when exit
 DEPLOY=`mktemp -d /tmp/vagrant-www-XXXXXX`
 trap "rm -rf $DEPLOY" INT TERM EXIT
 ```
+traverse upward until home root
+---
+```shell
+  _files=( $(
+    while [[ "$PWD" != "/" && "$PWD" != "$home" ]]
+    do
+      _file="$PWD/$AUTOENV_ENV_FILENAME"
+      if [[ -f "${_file}" ]]
+      then echo "${_file}"
+      fi
+      builtin cd .. &>/dev/null
+    done
+  ) )
+```
