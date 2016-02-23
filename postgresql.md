@@ -40,10 +40,11 @@ statement_limit: 200
 How to Create Roles in PostgreSQL
 ---
 ```sql
-CREATE ROLE new_role_name;
+CREATE ROLE demo_role;
 ALTER ROLE demo_role WITH LOGIN;
 # give the new role a password
-\password test_user
+\password demo_role
+create database demo_role
 GRANT permission_type ON table_name TO role_name; # type: UPDATE, INSERT, ALL, etc.
 GRANT permission_type ON DATABASE database_name TO role_name;
 REVOKE permission_type ON table_name FROM user_name;
