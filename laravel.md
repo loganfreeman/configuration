@@ -36,6 +36,7 @@ listen = /var/run/php5-fpm.sock
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 composer create-project laravel/laravel /var/www/laravel/ 4.1
+php5enmod mcrypt
 service php5-fpm restart
 service nginx restart
 ```
