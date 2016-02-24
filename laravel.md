@@ -27,3 +27,7 @@ server {
         }
 }
 ```
+`/etc/php5/fpm/pool.d/www.conf`
+```
+listen = /var/run/php5-fpm.sock
+```
