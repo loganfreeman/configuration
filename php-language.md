@@ -30,3 +30,41 @@ resolve nested variable
         return $value;
     }
 ```
+prepare options
+---
+```php
+    /**
+     * Prepare a command's options for command line usage
+     *
+     * @param array $options
+     *
+     * @return string
+     */
+    public function prepareOptions(array $options)
+    {
+        $optionPieces = [];
+        foreach ($options as $opt => $value) {
+            //if it's an array of options, throw them in there as well
+            if (is_array($value)) {
+                foreach ($value as $optArrayValue) {
+                    $optionPieces[] = '--'.$opt.'="'.addslashes($optArrayValue).'"';
+                }
+            } else {
+                $option = null;
+
+                //option exists with no value
+                if (is_numeric($opt)) {
+                    $option = $value;
+                } elseif (!empty($value)) {
+                    $option = $opt.'="'.addslashes($value).'"';
+                }
+
+                if (!is_null($option)) {
+                    $optionPieces[] = '--'.$option;
+                }
+            }
+        }
+
+        return implode(' ', $optionPieces);
+    }
+```
