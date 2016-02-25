@@ -124,3 +124,9 @@ traverse upward until home root
     : $(( _file -= 1 ))
   done
 ```
+escape spaces in path
+---
+```shell
+dir=$(echo $dir | sed 's/ /\ /g')
+"${dir}/php-parse" "$@"
+```
