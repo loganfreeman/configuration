@@ -43,3 +43,23 @@ php5enmod mcrypt
 service php5-fpm restart
 service nginx restart
 ```
+get all commands that are scheduled
+---
+```php
+    /**
+     * Get all commands that are scheduled
+     *
+     * @return \Indatus\Dispatcher\Scheduling\ScheduledCommandInterface[]
+     */
+    public function getScheduledCommands()
+    {
+        $scheduledCommands = [];
+        foreach ($this->console->all() as $command) {
+            if ($command instanceof ScheduledCommandInterface) {
+                $scheduledCommands[] = $command;
+            }
+        }
+
+        return $scheduledCommands;
+    }
+```
