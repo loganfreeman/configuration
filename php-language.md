@@ -68,3 +68,25 @@ prepare options
         return implode(' ', $optionPieces);
     }
 ```
+factory
+---
+```php
+	public static function factory($index, $driver = null)
+	{
+		if (null === $driver) {
+			$driver = Config::get('search.default', 'zend');
+		}
+		
+		switch ($driver) {
+			case 'algolia':
+				return new Index\Algolia($index, 'algolia');
+				
+			case 'elasticsearch':
+				return new Index\Elasticsearch($index, 'elasticsearch');
+				
+			case 'zend':
+			default:
+				return new Index\Zend($index, 'zend');
+		}
+	}
+```
