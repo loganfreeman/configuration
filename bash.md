@@ -144,3 +144,15 @@ if command -v 'cygpath' >/dev/null 2>&1; then
 	fi
 fi
 ```
+Find out which shell is running
+---
+```shell
+ps -p $$
+# use bash as shell
+usermod -s /bin/bash YOUR_USERNAME
+```
+If the user has no admin priviledges, just add to the end of `.cshrc`
+```
+setenv SHELL /bin/bash
+exec /bin/bash --login
+```
