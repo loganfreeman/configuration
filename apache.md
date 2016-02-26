@@ -72,3 +72,40 @@ chmod -R 2750 /username/
 If it shows "Enforcing", try
 `setenforce 0`
 should fix your issue
+
+SSL
+---
+```
+<VirtualHost *:443>
+   Include conf/ssl/ssl-standard.conf
+
+   SSLCertificateFile      /etc/httpd/conf/ssl/*.crt
+   SSLCertificateKeyFile   /etc/httpd/conf/ssl/*.key
+   SSLCertificateChainFile /etc/httpd/conf/ssl/intermediate-cert.crt
+</VirtualHost>
+```
+ssl-standard.conf
+```
+# ssl-standard.conf
+# Basic Apache SSL options
+
+SSLEngine on
+#   SSL Cipher Suite:
+#   List the ciphers that the client is permitted to negotiate.
+#   See the mod_ssl documentation for a complete list.
+
+SSLProtocol All -SSLv2 -SSLv3
+SSLHonorCipherOrder on
+SSLCipherSuite EECDH:ECDH:HIGH:+SHA1:-aNULL:-eNULL:-DSS:-ADH:-3DES:-RC4
+
+#   Export the SSL environment variables to scripts
+<Files ~ "\.(cgi|pl|shtml|phtml|php3?)$">
+   SSLOptions +StdEnvVars
+</Files>
+
+#   Protocol adjustments for broken clients
+#SetEnvIf User-Agent ".*MSIE.*" \
+SetEnvIf User-Agent "MSIE [2-5]" \
+   nokeepalive ssl-unclean-shutdown \
+   downgrade-1.0 force-response-1.0
+```
