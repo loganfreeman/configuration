@@ -151,3 +151,17 @@ closure
         return $this->gatherExitCodes($processes);
     }
 ```
+build serializable closure
+---
+```php
+    private function buildSerializableClosure(\Closure $closure)
+    {
+        switch (true) {
+            case class_exists('SuperClosure\\SerializableClosure'):
+                return new \SuperClosure\SerializableClosure($closure);
+            
+            default:
+                return new \Jeremeamia\SuperClosure\SerializableClosure($closure);
+        }
+    }
+```
