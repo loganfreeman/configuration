@@ -42,10 +42,4 @@ git tag latest -f
 
 git push origin $next_ref
 git push origin latest -f
-
-npm run build
-
-./scripts/mv-stuff.js
-npm publish
-./scripts/mv-stuff-back.js
 ```
