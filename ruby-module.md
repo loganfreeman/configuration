@@ -28,3 +28,19 @@ method_missing
         end
       end
 ```
+instance_eval
+---
+```ruby
+      instance_eval do
+        # rubocop:disable Lint/RescueException
+        begin
+          # rubocop:disable Eval
+          eval(contents, nil, path.to_s)
+          # rubocop:enable Eval
+        rescue Exception => e
+          message = "Invalid `#{path.basename}` file: #{e.message}"
+          raise DSLError.new(message, path, e.backtrace, contents)
+        end
+        # rubocop:enable Lint/RescueException
+      end
+```
