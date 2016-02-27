@@ -3,6 +3,13 @@ var pm2 = require('pm2');
 
 var instances = process.env.WEB_CONCURRENCY || -1; // Set by Heroku or -1 to scale to max cpu core -1
 var maxMemory = process.env.WEB_MEMORY || 512;    // " " "
+var transporter = nodemailer.createTransport(transportOptions);
+var compiled = _.template(
+  'An error has occurred on server ' +
+  '<% name %>\n' +
+  'Stack Trace:\n\n\n<%= stack %>\n\n\n' +
+  'Context:\n\n<%= text %>'
+);
 
 pm2.connect(function() {
   pm2.start({
@@ -19,16 +26,34 @@ pm2.connect(function() {
     if (err) return console.error('Error while launching applications', err.stack || err);
     console.log('PM2 and application has been succesfully started');
 
-    // Display logs in standard output 
     pm2.launchBus(function(err, bus) {
-      console.log('[PM2] Log streaming started');
-
-      bus.on('log:out', function(packet) {
-       console.log('[App:%s] %s', packet.process.name, packet.data);
-      });
-
-      bus.on('log:err', function(packet) {
-        console.error('[App:%s][Err] %s', packet.process.name, packet.data);
+      if (err) {
+        return console.error(err);
+      }
+      console.log('event bus connected');
+  
+      bus.on('process:exception', function(data) {
+        var text;
+        var stack;
+        var name;
+        try {
+          data.date = moment(data.at || new Date())
+            .tz('America/Los_Angeles')
+            .format('MMMM Do YYYY, h:mm:ss a z');
+  
+          text = JSON.stringify(data, null, 2);
+          stack = data.data.stack;
+          name = data.process.name;
+        } catch (e) {
+          return e;
+        }
+  
+        transporter.sendMail({
+          to: mailReceiver,
+          from: 'team@freecodecamp.com',
+          subject: 'Server exception',
+          text: compiled({ name: name, text: text, stack: stack })
+        });
       });
     });
 
