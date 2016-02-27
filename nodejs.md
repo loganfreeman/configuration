@@ -117,7 +117,7 @@ nodes.addListener("node", function(stream){
 ```
 daemonize
 ---
-```node
+```js
 function daemonize() {
   if (process.env.IS_DAEMONIC) return;
 
@@ -134,6 +134,26 @@ function daemonize() {
   spawn('/bin/sh', ['-c', code]).on('exit', function(code) {
     process.exit(code || 0);
   });
+
+  stop();
+}
+```
+killall
+---
+```js
+function killall() {
+  var spawn = require('child_process').spawn;
+
+  var options = {
+    cwd: process.cwd(),
+    env: process.env,
+    setsid: false,
+    customFds: [0, 1, 2]
+  };
+
+  spawn('/bin/sh',
+    ['-c', 'kill $(ps ax | grep -v grep | grep tty.js | awk \'{print $1}\')'],
+    options);
 
   stop();
 }
