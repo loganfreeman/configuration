@@ -158,7 +158,7 @@ function killall() {
   stop();
 }
 ```
-Example of detaching a long-running process and redirecting its output to a file:
+detaching a long-running process and redirecting its output to a file:
 ---
 ```js
 const fs = require('fs');
