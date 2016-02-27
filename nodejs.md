@@ -115,3 +115,26 @@ nodes.addListener("node", function(stream){
     stream.send({foo:"bar"});
 });
 ```
+daemonize
+---
+```node
+function daemonize() {
+  if (process.env.IS_DAEMONIC) return;
+
+  var spawn = require('child_process').spawn
+    , argv = process.argv.slice()
+    , code;
+
+  argv = argv.map(function(arg) {
+    arg = arg.replace(/(["$\\])/g, '\\$1');
+    return '"' + arg + '"';
+  }).join(' ');
+
+  code = '(IS_DAEMONIC=1 setsid ' + argv + ' > /dev/null 2>& 1 &)';
+  spawn('/bin/sh', ['-c', code]).on('exit', function(code) {
+    process.exit(code || 0);
+  });
+
+  stop();
+}
+```
