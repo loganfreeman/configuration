@@ -173,3 +173,44 @@ const child = spawn('prg', [], {
 
 child.unref();
 ```
+pipe
+---
+```js
+Stream.prototype.pipe = function(dest, options) {
+  var src = this
+    , ondata
+    , onerror
+    , onend;
+
+  function unbind() {
+    src.removeListener('data', ondata);
+    src.removeListener('error', onerror);
+    src.removeListener('end', onend);
+    dest.removeListener('error', onerror);
+    dest.removeListener('close', unbind);
+  }
+
+  src.on('data', ondata = function(data) {
+    dest.write(data);
+  });
+
+  src.on('error', onerror = function(err) {
+    unbind();
+    if (!this.listeners('error').length) {
+      throw err;
+    }
+  });
+
+  src.on('end', onend = function() {
+    dest.end();
+    unbind();
+  });
+
+  dest.on('error', onerror);
+  dest.on('close', unbind);
+
+  dest.emit('pipe', src);
+
+  return dest;
+};
+```
