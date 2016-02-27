@@ -43,3 +43,30 @@ function createQuery(db, collection, options, batchSize) {
   });
 }
 ```
+batch processing
+---
+```js
+// batch them into arrays of twenty documents
+var userSavesCount = users
+  .bufferWithCount(batchSize)
+  // get bd object ready for insert
+  .withLatestFrom(dbObservable, function(users, db) {
+    return {
+      users: users,
+      db: db
+    };
+  })
+  .flatMap(function(dats) {
+    // bulk insert into user collection
+    return insertMany(dats.db, 'user', dats.users, { w: 1 });
+  })
+  .flatMap(function() {
+    return totalUser;
+  })
+  .doOnNext(function(totalUsers) {
+    count = count + batchSize;
+    debug('user progress %s', count / totalUsers * 100);
+  })
+  // count how many times insert completes
+  .count();
+  ```
