@@ -158,3 +158,18 @@ function killall() {
   stop();
 }
 ```
+Example of detaching a long-running process and redirecting its output to a file:
+---
+```js
+const fs = require('fs');
+const spawn = require('child_process').spawn;
+const out = fs.openSync('./out.log', 'a');
+const err = fs.openSync('./out.log', 'a');
+
+const child = spawn('prg', [], {
+ detached: true,
+ stdio: [ 'ignore', out, err ]
+});
+
+child.unref();
+```
