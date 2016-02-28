@@ -44,3 +44,14 @@ instance_eval
         # rubocop:enable Lint/RescueException
       end
 ```
+gem path 
+---
+```ruby
+  def self.gem_path
+    gem_name = "danger"
+    unless Gem::Specification.find_all_by_name(gem_name).any?
+      raise "Couldn't find gem directory for 'danger'"
+    end
+    return Gem::Specification.find_by_name(gem_name).gem_dir
+  end
+```
