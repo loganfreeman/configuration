@@ -81,3 +81,21 @@ platform
       nil
     end
 ```
+run by sending command
+---
+```ruby
+    def run
+      current_state = state
+      runlist = steps(current_state)
+      @logger.debug("Runlist for state #{current_state} is: #{runlist}")
+      while (command = runlist.shift)
+        @logger.debug("Running command #{command} from runlist")
+        if !self.send(command)
+          env.ui.error('vagrant_vbguest.machine_loop_guard', :command => command, :state => current_state)
+          return false
+        end
+        return run if current_state != state
+      end
+      true
+    end
+```
