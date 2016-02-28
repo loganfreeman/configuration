@@ -71,3 +71,13 @@ For use/testing when no gem is installed
 ```ruby
 $LOAD_PATH.unshift File.dirname(__FILE__) # For use/testing when no gem is installed
 ```
+platform
+---
+```ruby
+        def platform_path
+          [:linux, :darwin, :cygwin, :windows].each do |sys|
+            return self.send("#{sys}_path") if Vagrant::Util::Platform.respond_to?("#{sys}?") && Vagrant::Util::Platform.send("#{sys}?")
+          end
+          nil
+        end
+```
