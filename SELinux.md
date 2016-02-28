@@ -23,3 +23,16 @@ system_u:system_r:httpd_t        3234 ?        Ss     0:00 /usr/sbin/httpd
 ```
 
 By default SELinux log messages are written to `/var/log/audit/audit.log` via the Linux Auditing System `auditd`, which is started by default. If the `auditd` daemon is not running, then messages are written to `/var/log/messages` . SELinux log messages are labeled with the "AVC" keyword so that they might be easily filtered from other messages, as with grep.
+
+Using Apache as an example, suppose you want to change the DocumentRoot to serve web pages from a location other than the default /var/www/html/ directory.
+
+The 'chcon' command may be used to change SELinux security context of a file or files/directories in a similar way to how 'chown' or 'chmod' may be used to change the ownership or standard file permissions of a file.
+
+```shell
+# chcon -v --type=httpd_sys_content_t /html
+context of /html changed to user_u:object_r:httpd_sys_content_t
+# chcon -v --type=httpd_sys_content_t /html/index.html
+context of /html/index.html changed to user_u:object_r:httpd_sys_content_t
+# ls -Z /html/index.html
+-rw-r--r--  root root user_u:object_r:httpd_sys_content_t    /html/index.html
+```
