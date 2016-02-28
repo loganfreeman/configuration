@@ -87,3 +87,40 @@ config.vm.provider "virtualbox" do |v|
 end
 ```
 You need to boot up the Vagrant machine in Administrator mode.
+
+vboxadd
+---
+```ruby
+      # Checks for the correct location of the 'vboxadd' tool.
+      # It checks for a given list of possible locations. This list got
+      # extracted from the 'VBoxLinuxAdditions.run' script.
+      #
+      # @return [String|nil] Absolute path to the +vboxadd+ tool,
+      #                      or +nil+ if none found.
+      def vboxadd_tool
+        candidates = [
+          "/usr/lib/i386-linux-gnu/VBoxGuestAdditions/vboxadd",
+          "/usr/lib/x86_64-linux-gnu/VBoxGuestAdditions/vboxadd",
+          "/usr/lib64/VBoxGuestAdditions/vboxadd",
+          "/usr/lib/VBoxGuestAdditions/vboxadd",
+          "/lib64/VBoxGuestAdditions/vboxadd",
+          "/lib/VBoxGuestAdditions/vboxadd",
+          "/etc/init.d/vboxadd",
+        ]
+        bin_path = ""
+        cmd = <<-SHELL
+        for c in #{candidates.join(" ")}; do
+          if test -x "$c"; then
+            echo $c
+            break
+          fi
+        done
+        SHELL
+
+        path = nil
+        communicate.sudo(cmd, {:error_check => false}) do |type, data|
+          path = data.strip unless data.empty?
+        end
+        path
+      end
+```
