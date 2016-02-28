@@ -41,3 +41,8 @@ Or recursively
 ```shell
 chcon -Rv --type=httpd_sys_content_t /html 
 ```
+
+To make the security context changes permanent, even through a complete filesystem relabel, we can use the SELinux Management Tool or the 'semanage' command from the command line:
+```shell
+semanage fcontext -a -t httpd_sys_content_t "/html(/.*)?" 
+```
