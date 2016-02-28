@@ -21,3 +21,5 @@ Now consider the SELinux security context of the Apache web server process: 'htt
 $ ps axZ | grep httpd
 system_u:system_r:httpd_t        3234 ?        Ss     0:00 /usr/sbin/httpd
 ```
+
+By default SELinux log messages are written to `/var/log/audit/audit.log` via the Linux Auditing System `auditd`, which is started by default. If the `auditd` daemon is not running, then messages are written to `/var/log/messages` . SELinux log messages are labeled with the "AVC" keyword so that they might be easily filtered from other messages, as with grep.
