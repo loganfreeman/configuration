@@ -55,3 +55,8 @@ gem path
     return Gem::Specification.find_by_name(gem_name).gem_dir
   end
 ```
+For use/testing when no gem is installed
+---
+```ruby
+$LOAD_PATH.unshift File.dirname(__FILE__) # For use/testing when no gem is installed
+```
