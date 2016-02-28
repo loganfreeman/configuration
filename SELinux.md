@@ -15,3 +15,9 @@ $ ls -Z /var/www/html/index.html
 In addition to the standard file permissions and ownership, we can see the SELinux security context fields: `system_u:object_r:httpd_sys_content_t`.
 
 This is based upon `user:role:type:mls`. In our example above, `user:role:type` fields are displayed and `mls` is hidden. Within the default `targeted` policy, type is the important field used to implement Type Enforcement, in this case `httpd_sys_content_t`.
+
+Now consider the SELinux security context of the Apache web server process: 'httpd'
+```
+$ ps axZ | grep httpd
+system_u:system_r:httpd_t        3234 ?        Ss     0:00 /usr/sbin/httpd
+```
