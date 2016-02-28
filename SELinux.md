@@ -36,3 +36,8 @@ context of /html/index.html changed to user_u:object_r:httpd_sys_content_t
 # ls -Z /html/index.html
 -rw-r--r--  root root user_u:object_r:httpd_sys_content_t    /html/index.html
 ```
+
+Or recursively
+```shell
+chcon -Rv --type=httpd_sys_content_t /html 
+```
