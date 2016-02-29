@@ -139,3 +139,10 @@ ActiveSupport helper method
           end
         end
 ```
+load_rails
+---
+```ruby
+  def load_rails
+    require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+  end
+```
