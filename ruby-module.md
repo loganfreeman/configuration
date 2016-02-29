@@ -108,3 +108,9 @@ if defined?(Rake)
   Dir[File.join(File.dirname(__FILE__), 'tasks', '**/*.rake')].each { |rake| load rake }
 end
 ```
+override an existing method
+---
+```ruby
+    alias_method :connect_without_fakeweb, :connect
+    alias_method :connect, :connect_with_fakeweb
+```
