@@ -116,3 +116,16 @@ assert logged
     end
   end
 ```
+Json Helpers
+---
+```ruby
+module JsonApiHelpers
+  def json_response
+    @json_response ||= JSON.parse(response.body)
+  end
+end
+
+RSpec.configure do |config|
+  config.include JsonApiHelpers, type: :controller
+end
+```
