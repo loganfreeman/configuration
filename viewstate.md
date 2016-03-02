@@ -54,7 +54,7 @@ angular.module('cafeTownsend').config [
 ]
 ```
 viewstate
----html
+```html
 <div class="main-view"
    ng-controller="MainController as mainCtrl"
    ng-class="{login:'main-view-loggedIn',
