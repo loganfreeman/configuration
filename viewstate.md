@@ -84,3 +84,10 @@ viewstate
   </div>
 </div>
 ```
+bower
+```json
+{
+  "directory": "vendor/assets/javascripts/",
+  "json": "bower.json"
+}
+```
