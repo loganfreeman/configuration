@@ -53,3 +53,34 @@ angular.module('cafeTownsend').config [
     $locationProvider.html5Mode true
 ]
 ```
+viewstate
+---html
+<div class="main-view"
+   ng-controller="MainController as mainCtrl"
+   ng-class="{login:'main-view-loggedIn',
+    employees:'main-view-employees',
+    edit:'main-view-edit',
+    create:'main-view-create'}[mainCtrl.viewState.current]">
+
+  <header ng-controller="HeaderController as headerCtrl">
+    <div
+      ng-class="{'hide-header':!headerCtrl.authorized()}"
+      class="header-container"
+      ng-cloak
+    >
+      <p class="main-button" ng-click="headerCtrl.logout()">Logout</p>
+      <p id="greetings">Hello {{headerCtrl.user.name}}</p>
+    </div>
+  </header>
+
+  <div class="main-view-wrapper"
+     ng-class="{login:'main-view-wrapper-loggedIn',
+      employees:'main-view-wrapper-employees',
+      edit:'main-view-wrapper-edit',
+      create:'main-view-wrapper-create'}[mainCtrl.viewState.current]">
+    <div ng-view
+      class="main-view-container"
+      ></div>
+  </div>
+</div>
+```
