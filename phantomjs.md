@@ -81,3 +81,32 @@ if (require.main === module) {
   main();
 }
 ```
+find phantomjs
+---
+```js
+  /**
+   * Finds global or local PhantomJS installation and uses its executable
+   * filepath.
+   * Overridden by opts.phantomjs.
+   * @returns {(string|undefined)} Path to PhantomJS executable, if present
+   */
+  function findPhantomJS() {
+    var filepath;
+
+    if (opts.phantomjs) {
+      return opts.phantomjs;
+    }
+
+    try {
+      filepath = which.sync('phantomjs');
+    } catch (e) {
+      // ignored
+      try {
+        filepath = require.resolve('phantomjs/bin/phantomjs');
+      } catch (ignore) {
+        // ignored
+      }
+    }
+    return filepath;
+  }
+```
