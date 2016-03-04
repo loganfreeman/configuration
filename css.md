@@ -11,3 +11,21 @@ if (style.styleSheet) {
   style.appendChild(document.createTextNode(css));
 }
 ```
+overlay
+---
+```js
+    var overlayLayer = targetElement.querySelector('.introjs-overlay');
+
+    //return if intro already completed or skipped
+    if (overlayLayer == null) {
+      return;
+    }
+
+    //for fade-out animation
+    overlayLayer.style.opacity = 0;
+    setTimeout(function () {
+      if (overlayLayer.parentNode) {
+        overlayLayer.parentNode.removeChild(overlayLayer);
+      }
+    }, 500);
+  ```
