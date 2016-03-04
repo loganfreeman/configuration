@@ -48,3 +48,20 @@ Get an element CSS property on the page
     }
   };
 ```
+Checks to see if target element (or parents) position is fixed or not
+---
+```js
+  function _isFixed (element) {
+    var p = element.parentNode;
+
+    if (p.nodeName === 'HTML') {
+      return false;
+    }
+
+    if (_getPropValue(element, 'position') == 'fixed') {
+      return true;
+    }
+
+    return _isFixed(p);
+  };
+```
