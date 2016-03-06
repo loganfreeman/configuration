@@ -46,3 +46,8 @@ To make the security context changes permanent, even through a complete filesyst
 ```shell
 semanage fcontext -a -t httpd_sys_content_t "/html(/.*)?" 
 ```
+access check
+---
+```shell
+ sudo -u www-data stat /home/vagrant/grav/user/config/security.yaml
+ ```
