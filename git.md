@@ -85,3 +85,12 @@ git checkout develop
 git merge --no-ff release-1.2
 git branch -d release-1.2  # now the release may be deleted
 ```
+git flow
+---
+After installing git-flow (`brew install git-flow`), you can start using git-flow in your repository by using it's `init` command. 
+```shell
+git flow init
+```
+> git-flow is just a wrapper around existing git commands, so the init command doesn't change anything in your repository other than creating branches for you.
+
+> If you run git branch after setting up, you'll notice that you switched from the master branch to a new one named develop.
