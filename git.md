@@ -111,3 +111,14 @@ git flow feature finish authentication
 - You are now on branch 'develop'
 
 > Internally, git-flow used `git merge --no-ff feature/authentication` to make sure you don't lose any hostorical information about your feature branch before it is removed.
+
+```shell
+git flow release start 0.1.0
+git flow release finish 0.1.0
+```
+> Summary of actions:
+- Latest objects have been fetched from 'origin'
+- Release branch has been merged into 'master'
+- The release was tagged '0.1.0'
+- Release branch has been back-merged into 'develop'
+- Release branch 'release/0.1.0' has been deleted
