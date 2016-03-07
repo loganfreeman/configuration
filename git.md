@@ -52,3 +52,18 @@ if ARGV.include?('push')
   `git push origin latest-release`
 end
 ```
+feature branch
+---
+When starting work on a new feature, branch off from the develop branch.
+```shell
+git checkout -b myfeature develop
+```
+Finished features may be merged into the develop branch to definitely add them to the upcoming release.
+> The `--no-ff` flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. 
+This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature.
+```shell
+git checkout develop
+git merge --no-ff myfeature
+git branch -d myfeature # Deleted branch myfeature
+git push origin develop
+```
