@@ -91,6 +91,8 @@ After installing git-flow (`brew install git-flow`), you can start using git-flo
 ```shell
 git flow init
 ```
-> git-flow is just a wrapper around existing git commands, so the init command doesn't change anything in your repository other than creating branches for you.
+> `git-flow` is just a wrapper around existing git commands, so the init command doesn't change anything in your repository other than creating branches for you.
 
 > If you run git branch after setting up, you'll notice that you switched from the master branch to a new one named develop.
+
+* Feature branches
