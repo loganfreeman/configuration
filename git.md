@@ -109,3 +109,5 @@ git flow feature finish authentication
 - The feature branch 'feature/authentication' was merged into 'develop'
 - Feature branch 'feature/authentication' has been removed
 - You are now on branch 'develop'
+
+> Internally, git-flow used `git merge --no-ff feature/authentication` to make sure you don't lose any hostorical information about your feature branch before it is removed.
