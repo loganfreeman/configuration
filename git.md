@@ -68,3 +68,19 @@ git merge --no-ff myfeature
 git branch -d myfeature # Deleted branch myfeature
 git push origin develop
 ```
+Creating a release branch
+---
+```shell
+git checkout -b release-1.2 develop
+./bump-version.sh 1.2 # version bumped to 1.2.
+git commit -a -m "Bumped version number to 1.2" 
+```
+Finishing a release branch
+---
+```shell
+git checkout master
+git merge --no-ff release-1.2
+git tag -a 1.2
+git checkout develop
+git merge --no-ff release-1.2
+```
