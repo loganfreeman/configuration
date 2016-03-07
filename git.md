@@ -80,7 +80,8 @@ Finishing a release branch
 ```shell
 git checkout master
 git merge --no-ff release-1.2
-git tag -a 1.2
+git tag -a 1.2 # the -a option makes an unsigned, annotated tag object
 git checkout develop
 git merge --no-ff release-1.2
+git branch -d release-1.2  # now the release may be deleted
 ```
