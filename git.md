@@ -95,4 +95,7 @@ git flow init
 
 > If you run git branch after setting up, you'll notice that you switched from the master branch to a new one named develop.
 
-* Feature branches
+> Switched to a new branch 'feature/authentication'
+```shell
+git flow feature start authentication
+```
