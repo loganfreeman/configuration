@@ -99,3 +99,13 @@ git flow init
 git flow feature start authentication
 ```
 > Switched to a new branch 'feature/authentication'
+
+```shell
+git flow feature finish authentication
+```
+> Switched to branch 'develop'. 
+
+Summary of actions:
+- The feature branch 'feature/authentication' was merged into 'develop'
+- Feature branch 'feature/authentication' has been removed
+- You are now on branch 'develop'
