@@ -105,7 +105,7 @@ git flow feature finish authentication
 ```
 > Switched to branch 'develop'. 
 
-Summary of actions:
+> Summary of actions:
 - The feature branch 'feature/authentication' was merged into 'develop'
 - Feature branch 'feature/authentication' has been removed
 - You are now on branch 'develop'
