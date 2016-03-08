@@ -69,3 +69,13 @@ module MithrilRails
   end
 end
 ```
+sass
+---
+```ruby
+      config.assets.configure do |env|
+        env.register_transformer 'text/sass', 'text/css',
+          Sprockets::SassProcessor.new(importer: SassImporter, sass_config: app.config.sass)
+        env.register_transformer 'text/scss', 'text/css',
+          Sprockets::ScssProcessor.new(importer: SassImporter, sass_config: app.config.sass)
+      end
+```
