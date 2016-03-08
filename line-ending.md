@@ -29,5 +29,5 @@ $ sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix
 git 
 ---
 ```shell
-git config --global core.autocrlf true
+git config --global core.autocrlf false
 ```
