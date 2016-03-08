@@ -182,3 +182,27 @@ clone an iterator
         }
     }
 ```
+self vs static
+---
+`self` - refers to the same class in which the new keyword is actually written.
+
+`static` - in PHP 5.3's late static bindings, refers to whatever class in the hierarchy you called the method on.
+
+`get_called_class` - gets the name of the class the static method is called in.
+```php
+class A {
+    public static function get_self() {
+        return new self();
+    }
+
+    public static function get_static() {
+        return new static();
+    }
+}
+
+class B extends A {}
+
+echo get_class(B::get_self());  // A
+echo get_class(B::get_static()); // B
+echo get_class(A::get_static()); // A
+```
