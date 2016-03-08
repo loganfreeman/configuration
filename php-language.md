@@ -165,3 +165,20 @@ build serializable closure
         }
     }
 ```
+Object Cloning
+---
+An object copy is created by using the `clone` keyword (which calls the object's `__clone()` method if possible). An object's `__clone()` method cannot be called directly.
+```php
+$copy_of_object = clone $object;
+```
+clone an iterator
+```php
+    public function __clone()
+    {
+        foreach ($this as $key => $value) {
+            if (is_object($value)) {
+                $this->$key = clone $this->$key;
+            }
+        }
+    }
+```
