@@ -28,13 +28,13 @@ Using Apache as an example, suppose you want to change the DocumentRoot to serve
 
 The 'chcon' command may be used to change SELinux security context of a file or files/directories in a similar way to how 'chown' or 'chmod' may be used to change the ownership or standard file permissions of a file.
 
-```
-# chcon -v --type=httpd_sys_content_t /html
-context of /html changed to user_u:object_r:httpd_sys_content_t
-# chcon -v --type=httpd_sys_content_t /html/index.html
-context of /html/index.html changed to user_u:object_r:httpd_sys_content_t
-# ls -Z /html/index.html
--rw-r--r--  root root user_u:object_r:httpd_sys_content_t    /html/index.html
+```shell
+chcon -v --type=httpd_sys_content_t /html
+# context of /html changed to user_u:object_r:httpd_sys_content_t
+chcon -v --type=httpd_sys_content_t /html/index.html
+# context of /html/index.html changed to user_u:object_r:httpd_sys_content_t
+ls -Z /html/index.html
+# -rw-r--r--  root root user_u:object_r:httpd_sys_content_t    /html/index.html
 ```
 
 Or recursively
