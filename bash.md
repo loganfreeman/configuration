@@ -188,3 +188,12 @@ log_generic () {
   esac
 }
 ```
+shell quote string
+---
+```shell
+shell_quote_string() {
+  # This sed command makes sure that any special chars are quoted,
+  # so the arg gets passed exactly to the server.
+  echo "$1" | sed -e 's,\([^a-zA-Z0-9/_.=-]\),\\\1,g'
+}
+```
