@@ -163,4 +163,5 @@ Ensure your entire data directory is owned by the _mysql user with permissions d
 ```shell
 sudo chown -R _mysql /usr/local/var/mysql
 sudo chmod -R o+rwx /usr/local/var/mysql
+sudo chmod -R g+rwx /usr/local/var/mysql
 ```
