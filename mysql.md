@@ -157,3 +157,10 @@ mysql -p"${PASSWORD}" --connect-expired-password -e \
  echo "NOTICE: unable to update password, maybe this has been done before"
 systemctl restart mysqld
 ```
+/usr/local/var/mysql/${user}.err: Permission denied
+---
+Ensure your entire data directory is owned by the _mysql user with permissions drwxr-xr-x.
+```shell
+sudo chown -R _mysql /usr/local/var/mysql
+sudo chmod -R o+rwx /usr/local/var/mysql
+```
