@@ -167,3 +167,24 @@ else # normal
   PS1="[\\u@\\h:\\w] $"
 fi
 ```
+logger
+---
+```shell
+log_generic () {
+  priority="$1"
+  shift
+
+  msg="`date +'%y%m%d %H:%M:%S'` mysqld_safe $*"
+  echo "$msg"
+  case $logging in
+    init) ;;  # Just echo the message, don't save it anywhere
+    file) echo "$msg" >> "$err_log" ;;
+    syslog) logger -t "$syslog_tag_mysqld_safe" -p "$priority" "$*" ;;
+    both) echo "$msg" >> "$err_log"; logger -t "$syslog_tag_mysqld_safe" -p "$priority" "$*" ;;
+    *)
+      echo "Internal program error (non-fatal):" \
+           " unknown logging method '$logging'" >&2
+      ;;
+  esac
+}
+```
