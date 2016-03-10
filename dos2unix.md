@@ -31,3 +31,9 @@ git
 ```shell
 git config --global core.autocrlf false
 ```
+
+convert all 
+---
+```shell
+ find /vagrant -type f -name '*.sh' -exec dos2unix {} \;
+ ```
