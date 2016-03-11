@@ -49,6 +49,12 @@ GRANT permission_type ON table_name TO role_name; # type: UPDATE, INSERT, ALL, e
 GRANT permission_type ON DATABASE database_name TO role_name;
 REVOKE permission_type ON table_name FROM user_name;
 ```
+
+```sql
+CREATE ROLE redmine LOGIN ENCRYPTED PASSWORD 'my_password' NOINHERIT VALID UNTIL 'infinity';
+CREATE DATABASE redmine WITH ENCODING='UTF8' OWNER=redmine;
+```
+
 The postgres Linux account, being associated with the Postgres administrative role, has access to some utilities to create users and databases.
 ```shell
 sudo -i -u postgres
