@@ -149,4 +149,15 @@ prefixer
     }
   }
 }
+
+// Usage
+@mixin box-sizing ($box) {
+//  content-box | border-box | inherit
+  @include prefixer(box-sizing, $box, webkit moz spec);
+}
+
+// Usage
+*, *::before, *::after {
+	@include box-sizing(border-box);
+}
 ```
