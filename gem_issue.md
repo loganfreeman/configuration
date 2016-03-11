@@ -98,3 +98,8 @@ nokogiri not compatible with libxml2
 ```shell
 yum -y install libxml2-devel libxslt-devel
 ```
+ruby headers
+---
+```shell
+yum -y install gcc mysql-devel ruby-devel rubygems
+```
