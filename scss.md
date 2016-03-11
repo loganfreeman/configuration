@@ -18,7 +18,7 @@ Sass's @content Directive
 }
 ```
 
-breakpoints
+
 ```sass
 // Breakpoints
 @mixin breakpoint($breakpoints, $media: all) {
