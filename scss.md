@@ -1,6 +1,6 @@
 Sass's @content Directive
 ---
-1. Media Queries
+- Media Queries
 ```sass
 @mixin media($width) {
   @media only screen and (max-width: $width) {
