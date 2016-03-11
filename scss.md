@@ -51,6 +51,55 @@ breakpoints
 
 }
 ```
+* keyframes
+```sass
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+```
+* context specificity
+```sass
+@mixin create-context($classes...) {
+  @each $class in $classes {
+    .#{$class} & {
+      @content;
+  }
+}
+
+@mixin context--alternate-template {
+  @include create-context(about, blog) {
+    @content
+  }
+}
+
+.header {
+  height: 12em;
+  background: red;
+
+  @include context--alternate-template {
+    background: green;
+  }
+}
+```
 vertical centering
 ---
 ```sass
