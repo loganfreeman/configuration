@@ -11,13 +11,13 @@ Sass's @content Directive
 @include media(320px) {
   background: red;
 }
-```
-generates:
-```sass
+
+// generates
 @media only screen and (max-width: 320px) {
   background: red;
 }
 ```
+
 breakpoints
 ```sass
 // Breakpoints
