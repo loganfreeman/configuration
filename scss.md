@@ -51,3 +51,17 @@ breakpoints
 
 }
 ```
+vertical centering
+---
+```sass
+// Vertical Centering
+%vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+```
