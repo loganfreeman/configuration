@@ -9,6 +9,7 @@ sudo /usr/local/mysql/support-files/mysql.server stop
 sudo /etc/init.d/mysql start # ubuntu
 # then start in safe mode
 sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables # this should be kept open
+ sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking & # ubuntu
 # in another terminal
 mysql -u root
 UPDATE mysql.user SET Password=PASSWORD('pass') WHERE User='root';
