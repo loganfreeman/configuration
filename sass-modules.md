@@ -28,4 +28,32 @@ button
     }
 
 }
+
+@mixin button-color($color, $text:$white, $lighter:null) {
+	color: rgba($text, 0.85);
+	border-radius: $border-radius;
+    background: $color;
+
+    @if ($lighter == null) {
+        $lighter: lightness($color) > 50;
+    }
+
+    @if ($lighter) {
+        &:hover {
+            background: shade($color,15%);
+            color: $text;
+        }
+        &.dropdown-toggle {
+            border-left: 1px solid lighten($color, 5%);
+        }
+    } @else {
+        &:hover {
+            background: tint($color,15%);
+            color: $text;
+        }
+        &.dropdown-toggle {
+            border-left: 1px solid darken($color, 5%);
+        }
+    }
+}
 ```
