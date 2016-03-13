@@ -15,11 +15,18 @@ mysql -u root
 UPDATE mysql.user SET Password=PASSWORD('pass') WHERE User='root';
 FLUSH PRIVILEGES;  
 ```
-
+### MariabDB
 ```shell
 sudo service mysql stop
 mysqld_safe --skip-grant-tables &
 ```
+```sql
+use mysql;
+UPDATE user SET password=PASSWORD("new_password") WHERE User='root';
+FLUSH PRIVILEGES;
+quit;
+```
+
 
 if you are using MySQL 5.7 then you have to do this instead of the commands stated above. Because in MySQL 5.7, the password field in mysql.user table is removed, now the field name is 'authentication_string'.
 
