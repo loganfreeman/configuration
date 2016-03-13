@@ -114,3 +114,16 @@ get_passwd() {
 	echo `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
 }
 ```
+install supervisor
+---
+```shell
+install_supervisor_centos6() {
+		run_cmd easy_install supervisor
+		curl -Ss https://raw.githubusercontent.com/pdvyas/supervisor-initscripts/master/redhat-init-jkoppe > /etc/init.d/supervisord
+		curl -Ss https://raw.githubusercontent.com/pdvyas/supervisor-initscripts/master/redhat-sysconfig-jkoppe > /etc/sysconfig/supervisord
+		curl -Ss https://raw.githubusercontent.com/pdvyas/supervisor-initscripts/master/supervisord.conf > /etc/supervisord.conf
+		run_cmd mkdir /etc/supervisor.d
+		run_cmd chmod +x /etc/init.d/supervisord
+		bash -c "service supervisord start || true"
+}
+```
