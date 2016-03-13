@@ -75,3 +75,11 @@ php5enmod mcrypt
 ```
 php artisan key:generate
 ```
+the default cipher is
+```
+'cipher' => 'AES-256-CBC'
+```
+change it to
+```
+'cipher' => MCRYPT_RIJNDAEL_128
+```
