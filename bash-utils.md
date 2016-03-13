@@ -74,3 +74,36 @@ add_user() {
 	fi
 }
 ```
+configure mariaDB
+---
+```shell
+configure_mariadb() {
+	config="
+[mysqld]
+innodb-file-format=barracuda
+innodb-file-per-table=1
+innodb-large-prefix=1
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+[mysql]
+default-character-set = utf8mb4
+ "
+	deb_cnf_path="/etc/mysql/conf.d/barracuda.cnf"
+	centos_cnf_path="/etc/my.cnf.d/barracuda.cnf"
+
+	if [ $OS == "centos" ]; then
+
+		echo "$config" > $centos_cnf_path
+		if [ $OS_VER == "6" ]; then
+			run_cmd sudo service mysql restart
+		elif [ $OS_VER == "7" ]; then
+			run_cmd sudo systemctl restart mysql
+		fi
+
+	elif [ $OS == "debian" ] || [ $OS == "Ubuntu" ]; then
+		echo "$config" > $deb_cnf_path
+		sudo service mysql restart
+	fi
+}
+```
