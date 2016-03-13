@@ -57,3 +57,28 @@ button
     }
 }
 ```
+collapse and collapsing
+---
+```sass
+.collapse {
+    display: none;
+    &.in {
+        display: block;
+    }
+
+    tr &.in {
+        display: table-row;
+    }
+
+    tbody &.in {
+        display: table-row-group;
+    }
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    @include transition(height .35s ease, visibility .35s ease);
+}
+```
