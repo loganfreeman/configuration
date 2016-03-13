@@ -6,6 +6,7 @@ which mysql  # /usr/local/bin/mysql
 python -c "import os; print os.path.realpath('/usr/local/bin/mysql')"
 # then stop mysql service
 sudo /usr/local/mysql/support-files/mysql.server stop
+sudo /etc/init.d/mysql start # ubuntu
 # then start in safe mode
 sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables # this should be kept open
 # in another terminal
