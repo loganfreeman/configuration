@@ -49,3 +49,28 @@ run_cmd() {
 	fi
 }
 ```
+add user
+---
+```shell
+add_user() {
+# Check if script is running as root and is not running as sudo. We want to skip
+# this step if the user is already running this script with sudo as a non root
+# user
+	if [ "$FRAPPE_USER" == "false" ]; then
+		if [[ $SUDO_UID -eq 0 ]] && [[ $EUID -eq 0 ]]; then
+			export FRAPPE_USER="frappe"
+		else
+			export FRAPPE_USER="$SUDO_USER"
+		fi
+	fi
+
+	USER_EXISTS=`bash -c "id $FRAPPE_USER > /dev/null 2>&1  && echo true || (echo false && exit 0)"`
+
+	if [ $USER_EXISTS == "false" ]; then
+		useradd -m -d /home/$FRAPPE_USER -s $SHELL $FRAPPE_USER
+		echo $FRAPPE_USER:$FRAPPE_USER_PASS | chpasswd
+		chmod o+x /home/$FRAPPE_USER
+		chmod o+r /home/$FRAPPE_USER
+	fi
+}
+```
