@@ -37,3 +37,15 @@ get_distro() {
 	echo
 }
 ```
+verbose
+---
+```shell
+run_cmd() {
+	if $VERBOSE; then
+		"$@"
+	else
+		# $@
+		"$@" > /tmp/cmdoutput.txt 2>&1 || (cat /tmp/cmdoutput.txt && exit 1)
+	fi
+}
+```
