@@ -158,3 +158,10 @@ install_wkhtmltopdf_deb () {
 	run_cmd dpkg -i wkhtmltox-0.12.2.1_linux-$WK_VER-$WK_ARCH.deb
 }
 ```
+add epel
+---
+```shell
+add_epel_centos7() {
+	yum install -y epel-release
+}
+```
