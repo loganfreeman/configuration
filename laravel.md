@@ -63,3 +63,11 @@ get all commands that are scheduled
         return $scheduledCommands;
     }
 ```
+mcrypt
+---
+```shell
+sudo apt-get install -y mcrypt php5-mcrypt
+php -m | grep mcrypt # check if mcrypt module is loaded:
+# if nothing shows:
+php5enmod mcrypt
+```
