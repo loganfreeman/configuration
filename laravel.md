@@ -71,3 +71,7 @@ php -m | grep mcrypt # check if mcrypt module is loaded:
 # if nothing shows:
 php5enmod mcrypt
 ```
+
+```
+php artisan key:generate
+```
