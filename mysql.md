@@ -15,7 +15,7 @@ mysql -u root
 UPDATE mysql.user SET Password=PASSWORD('pass') WHERE User='root';
 FLUSH PRIVILEGES;  
 ```
-### MariabDB
+### MariaDB
 ```shell
 sudo service mysql stop
 mysqld_safe --skip-grant-tables &
