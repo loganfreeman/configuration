@@ -14,7 +14,11 @@ sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables # this should be kept 
 mysql -u root
 UPDATE mysql.user SET Password=PASSWORD('pass') WHERE User='root';
 FLUSH PRIVILEGES;  
-\q
+```
+
+```shell
+sudo service mysql stop
+mysqld_safe --skip-grant-tables &
 ```
 
 if you are using MySQL 5.7 then you have to do this instead of the commands stated above. Because in MySQL 5.7, the password field in mysql.user table is removed, now the field name is 'authentication_string'.
