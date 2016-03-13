@@ -83,3 +83,7 @@ change it to
 ```
 'cipher' => MCRYPT_RIJNDAEL_128
 ```
+
+```shell
+php artisan config:cache
+```
