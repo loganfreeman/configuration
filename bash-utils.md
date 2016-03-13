@@ -127,3 +127,34 @@ install_supervisor_centos6() {
 		bash -c "service supervisord start || true"
 }
 ```
+install wkhtmltopdf
+---
+```shell
+install_wkhtmltopdf_centos () {
+
+	if [[ $OS == "centos" && $OS_VER == "7" && $T_ARCH == "i386" ]]; then
+		echo "Cannot install wkhtmltodpdf. Skipping..."
+		return 0
+	fi
+	RPM="wkhtmltox-0.12.2.1_linux-$OS$OS_VER-$WK_ARCH.rpm"
+	run_cmd wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/$RPM
+	rpm --quiet -q wkhtmltox || run_cmd rpm -Uvh $RPM
+}
+
+install_wkhtmltopdf_deb () {
+	WK_VER=$OS_VER
+
+	if [[ $OS_VER == "utopic" ||  $OS_VER == "vivid" ||  $OS_VER == "wily" ]]; then
+		echo "Installing wkhtmltox package for trusty (Ubuntu 14.4) even if you are using $OS_VER."
+		WK_VER="trusty"
+	fi
+	if [[ $OS == "debian" &&  $OS_VER == "7" ]]; then
+		WK_VER="wheezy"
+	elif [[ $OS == "debian" &&  $OS_VER == "8" ]]; then
+		WK_VER="jessie"
+	fi
+
+	run_cmd wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-$WK_VER-$WK_ARCH.deb
+	run_cmd dpkg -i wkhtmltox-0.12.2.1_linux-$WK_VER-$WK_ARCH.deb
+}
+```
