@@ -48,3 +48,7 @@ bootstrap navbar breakpoint
     }
 }
 ```
+In bootstrap 3, only need override
+```
+$grid-float-breakpoint: 1600px;
+```
