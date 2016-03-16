@@ -21,6 +21,9 @@ The following instructions install PEAR and PECL on Mac OS X under /usr/local/. 
 curl -O http://pear.php.net/go-pear.phar
 sudo php -d detect_unicode=0 go-pear.phar
 sudo pecl install intl
+sudo cp /private/etc/php.ini{.default,}
+sudo chmod 644 /private/etc/php.ini
+echo extension=intl.so >> /private/etc/php.ini
 ```
 
 When prompting for icu directory, enter the icu directory: `/usr/local/Cellar/icu4c/56.1/`
