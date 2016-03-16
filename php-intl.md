@@ -23,7 +23,7 @@ sudo php -d detect_unicode=0 go-pear.phar
 sudo pecl install intl
 sudo cp /private/etc/php.ini{.default,}
 sudo chmod 644 /private/etc/php.ini
-echo extension=intl.so >> /private/etc/php.ini
+echo extension=intl.so >> /usr/local/etc/php/5.5/php.ini
 ```
 
 When prompting for icu directory, enter the icu directory: `/usr/local/Cellar/icu4c/56.1/`
