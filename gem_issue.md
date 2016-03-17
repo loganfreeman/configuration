@@ -103,3 +103,8 @@ ruby headers
 ```shell
 yum -y install gcc mysql-devel ruby-devel rubygems
 ```
+libv8
+---
+```shell
+gem install libv8 -v '3.16.14.3' -- --with-system-v8
+```
