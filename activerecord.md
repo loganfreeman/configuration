@@ -63,3 +63,13 @@ table with new rows
       result.map{ |row| row['table_name'] } - ['schema_migrations']
     end
 ```
+OrderBy postgres vs mysql
+---
+```ruby
+  scope :by_due_at, -> {
+    order({
+      "MySQL"      => "due_at NOT NULL, due_at ASC",
+      "PostgreSQL" => "due_at ASC NULLS FIRST"
+    }[ActiveRecord::Base.connection.adapter_name] || :due_at)
+  }
+```
