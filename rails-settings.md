@@ -99,3 +99,40 @@ class Setting < ActiveRecord::Base
   ActiveSupport.run_load_hooks(:fat_free_crm_setting, self)
 end
 ```
+User Preference
+---
+```ruby
+class Preference < ActiveRecord::Base
+  belongs_to :user
+
+  #-------------------------------------------------------------------
+  def [](name)
+    # Following line is to preserve AR relationships
+    return super(name) if name.to_s == "user_id" # get the value of belongs_to
+
+    return cached_prefs[name.to_s] if cached_prefs.key?(name.to_s)
+    cached_prefs[name.to_s] = if user.present? && pref = Preference.find_by_name_and_user_id(name.to_s, user.id)
+                                Marshal.load(Base64.decode64(pref.value))
+    end
+  end
+
+  #-------------------------------------------------------------------
+  def []=(name, value)
+    return super(name, value) if name.to_s == "user_id" # set the value of belongs_to
+
+    encoded = Base64.encode64(Marshal.dump(value))
+    if pref = Preference.find_by(name: name.to_s, user_id: user.id)
+      pref.update_attribute(:value, encoded)
+    else
+      Preference.create(user: user, name: name.to_s, value: encoded)
+    end
+    cached_prefs[name.to_s] = value
+  end
+
+  def cached_prefs
+    @cached_prefs ||= {}
+  end
+
+  ActiveSupport.run_load_hooks(:fat_free_crm_preference, self)
+end
+```
