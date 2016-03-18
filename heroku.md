@@ -140,3 +140,15 @@ end
 ```
 #### Connection Pool
 By default Rails (Active Record) will only create a connection when a new thread or process attempts to talk to the database through a SQL query. Active Record limits the total number of connections per application through a database setting pool; this is the maximum size of the connections your app can have to the database. The default maximum size of the database connection pool is 5. If you try to use more connections than are available, Active Record will block and wait for a connection from the pool.
+
+Laravel
+---
+```shell
+echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile
+git add .
+git commit -m "Procfile added"
+heroku create
+heroku buildpacks:set heroku/php
+heroku config:set APP_KEY=$(php artisan --no-ansi key:generate --show)
+git push heroku master
+```
