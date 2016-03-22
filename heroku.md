@@ -152,3 +152,32 @@ heroku buildpacks:set heroku/php
 heroku config:set APP_KEY=$(php artisan --no-ansi key:generate --show)
 git push heroku master
 ```
+
+Heroku Postgres
+---
+```php
+        'default' => 'pgsql',
+        
+        'pgsql' => [
+            'driver'   => 'pgsql',
+            'host'     => parse_url(getenv("DATABASE_URL"))["host"],
+            'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+            'username' => parse_url(getenv("DATABASE_URL"))["user"],
+            'password' => parse_url(getenv("DATABASE_URL"))["pass"],
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ],
+```
+
+```
+DATABASE_URL=postgres://attendize:pass22@localhost:5432/attendize_dev
+```
+
+```shell
+heroku buildpacks:set heroku/php
+git push heroku master
+heroku addons:add heroku-postgresql:hobby-dev
+heroku config | grep DATABASE_URL
+heroku run php artisan migrate
+```
