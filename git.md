@@ -122,3 +122,11 @@ git flow release finish 0.1.0
 - The release was tagged '0.1.0'
 - Release branch has been back-merged into 'develop'
 - Release branch 'release/0.1.0' has been deleted
+
+
+Only remove files from remote
+---
+```shell
+git rm -r --cached cache/
+echo /cache/ >> .gitignore
+```
