@@ -176,6 +176,7 @@ DATABASE_URL=postgres://attendize:pass22@localhost:5432/attendize_dev
 
 ```shell
 heroku buildpacks:set heroku/php
+heroku config:set APP_KEY=$(php artisan --no-ansi key:generate --show)
 git push heroku master
 heroku addons:add heroku-postgresql:hobby-dev
 heroku config | grep DATABASE_URL
