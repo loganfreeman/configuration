@@ -108,3 +108,13 @@ libv8
 ```shell
 gem install libv8 -v '3.16.14.3' -- --with-system-v8
 ```
+
+pg_ext improperly linked
+---
+```shell
+ldd  /usr/local/rvm/gems/ruby-2.2.4/gems/pg-0.18.4/lib/pg_ext.so | grep libruby
+# show: libruby.so.2.0 => /usr/lib64/libruby.so.2.0 (0x00007fe73da7d000)
+gem install pg -- --with-pg-config=/var/lib/pgsql/data
+ldd  /usr/local/rvm/gems/ruby-2.2.4/gems/pg-0.18.4/lib/pg_ext.so | grep libruby
+# show: libruby.so.2.2 => /usr/local/rvm/rubies/ruby-2.2.4/lib/libruby.so.2.2 (0x00007f142615b000)
+```
