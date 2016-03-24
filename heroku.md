@@ -182,3 +182,11 @@ heroku addons:add heroku-postgresql:hobby-dev
 heroku config | grep DATABASE_URL
 heroku run php artisan migrate
 ```
+multi-buildpacks
+---
+```
+heroku buildpacks:set heroku/ruby
+heroku buildpacks:add --index 1 heroku/nodejs
+heroku buildpacks
+```
+This will insert the Node.js buildpack at the first position in the order of buildpack execution, and move the other buildpacks that are ahead of it down one position. 
