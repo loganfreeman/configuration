@@ -107,6 +107,7 @@ libv8
 ---
 ```shell
 gem install libv8 -v '3.16.14.3' -- --with-system-v8
+bundle config build.libv8 --with-system-v8
 ```
 
 pg_ext improperly linked
