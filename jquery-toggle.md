@@ -1,10 +1,14 @@
 slideToggle
 ---
 `.slideToggle( [duration ] [, complete ] )`
+
 *Description* : Display or hide the matched elements with a sliding motion
 
 toggle and slideToggle has no difference in usage unless slideToggle has a sliding motion associated with it.
 ```coffee
+
+    EXPANDED: "&#9660;"
+    COLLAPSED: "&#9658;"
 
     #----------------------------------------------------------------------------
     flip_subtitle: (el) ->
