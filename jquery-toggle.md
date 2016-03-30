@@ -41,3 +41,42 @@ Here is the definition of subtitle
 ```
 when the subtitle is clicked, it finds the arrow. The section following the div containing the subtitle will slideToggle. after the following section slideToggle, the small introduction inside the following section will also toggle.
 
+
+fadeIn and fadeOut
+---
+```coffee
+      flick: function(id, action) {
+        var $el;
+        $el = $("#" + id);
+        if ($el.length) {
+          switch (action) {
+            case "show":
+              return $el.show();
+            case "hide":
+              return $el.hide();
+            case "clear":
+              return $el.html("");
+            case "remove":
+              return $el.remove();
+            case "toggle":
+              return $el.toggle();
+          }
+        }
+      },
+      flash: function(type, sticky) {
+        var $el;
+        $el = $("#flash");
+        $el.hide();
+        if (type === "warning" || type === "error") {
+          $el.addClass("flash_warning");
+        } else {
+          $el.addClass("flash_notice");
+        }
+        $el.fadeIn(500);
+        if (!sticky) {
+          return setTimeout((function() {
+            return $el.fadeOut(500);
+          }), 3000);
+        }
+      }
+```
