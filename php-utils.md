@@ -82,6 +82,7 @@ Twig absolute url filter
 
 dynamic property
 ---
+`&`: You can pass a variable by reference to a function so the function can modify the variable. 
 ```php
     /**
      * @param array $field
