@@ -119,3 +119,13 @@ gem install pg -- --with-pg-config=/var/lib/pgsql/data
 ldd  /usr/local/rvm/gems/ruby-2.2.4/gems/pg-0.18.4/lib/pg_ext.so | grep libruby
 # show: libruby.so.2.2 => /usr/local/rvm/rubies/ruby-2.2.4/lib/libruby.so.2.2 (0x00007f142615b000)
 ```
+
+bundle install fails but gem install succeeds
+---
+```
+It looks like when you run bundler, it's using the Mac OS X system Ruby (/usr/bin/ruby) but when using gem it is using a Ruby 1.8.7 installed in ~/.rubies.
+
+When building native extensions for the system Ruby, you need to have the full XCode installed: just the command-line tools alone don't work.
+
+I'd bet that the problem is that Bundler itself is installed as gem under the system Ruby, rather than the one in ~/.rubies.
+```
