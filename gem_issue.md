@@ -39,6 +39,14 @@ gem uninstall libv8
 
 gem install therubyracer -v '0.10.2' # specify version
 ```
+
+Fortunately, with homebrew fixing this (on OSX 10.11, El Capitan at least) worked perfectly. Simply execute these commands:
+```
+brew install v8
+gem install therubyracer
+gem install libv8 -v '3.16.14.3' -- --with-system-v8
+```
+
 [capybara-webkit Qt issue](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 ---
 Latest Capybara-webkit throws a deprecation warning:
