@@ -62,4 +62,6 @@ normalize path
 ---
 ```php
 $path = rtrim(str_replace('\\', '/', $path), '/');
+// Remove prefix from filename.
+$filename = '/' . trim(substr($file, strlen($prefix)), '\/');
 ```
