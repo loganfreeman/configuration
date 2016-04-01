@@ -46,6 +46,19 @@ brew install v8
 gem install therubyracer
 gem install libv8 -v '3.16.14.3' -- --with-system-v8
 ```
+If the above fails, try this:
+```
+brew tap homebrew/versions
+brew install v8-315
+brew link --force v8-315
+gem install libv8 -- --with-system-v8
+gem install therubyracer
+```
+You can list libv8 installed
+```
+gem list libv8
+bundle exec gem list libv8
+```
 
 [capybara-webkit Qt issue](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 ---
