@@ -65,3 +65,17 @@ $path = rtrim(str_replace('\\', '/', $path), '/');
 // Remove prefix from filename.
 $filename = '/' . trim(substr($file, strlen($prefix)), '\/');
 ```
+
+Twig absolute url filter
+---
+`(?!(http|ftp))` Negative Lookahead - Assert that it is impossible to match the regex below
+```php
+    public function absoluteUrlFilter($string)
+    {
+        $url = $this->grav['uri']->base();
+        $string = preg_replace('/((?:href|src) *= *[\'"](?!(http|ftp)))/i', "$1$url", $string);
+
+        return $string;
+
+    }
+```
