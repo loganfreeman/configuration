@@ -58,3 +58,8 @@ phpinfo
         }
     }
 ```
+normalize path
+---
+```php
+$path = rtrim(str_replace('\\', '/', $path), '/');
+```
