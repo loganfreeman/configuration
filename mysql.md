@@ -179,3 +179,8 @@ sudo chown -R _mysql /usr/local/var/mysql
 sudo chmod -R o+rwx /usr/local/var/mysql
 sudo chmod -R g+rwx /usr/local/var/mysql
 ```
+MySql support files
+---
+```shell
+ls $(brew --prefix mysql)/support-files/my-*  
+```
