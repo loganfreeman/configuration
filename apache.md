@@ -121,3 +121,16 @@ brew install mcrypt php56-mcrypt
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 ```
+
+setup dnsmasq
+---
+```shell
+brew install dnsmasq
+cd $(brew --prefix)
+mkdir -p etc
+echo 'address=/.dev/127.0.0.1' > etc/dnsmasq.conf
+sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
+sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo mkdir /etc/resolver
+sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
+```
