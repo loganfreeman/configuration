@@ -13,6 +13,7 @@ sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables # this should be kept 
 # in another terminal
 mysql -u root
 UPDATE mysql.user SET Password=PASSWORD('pass') WHERE User='root';
+UPDATE mysql.user SET authentication_string=PASSWORD('my-new-password') WHERE User='root'; 
 FLUSH PRIVILEGES;  
 ```
 ### MariaDB
