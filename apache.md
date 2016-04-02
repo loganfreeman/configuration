@@ -109,3 +109,15 @@ SetEnvIf User-Agent "MSIE [2-5]" \
    nokeepalive ssl-unclean-shutdown \
    downgrade-1.0 force-response-1.0
 ```
+
+setup Mac for php development
+---
+```shell
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+brew install php56 --with-homebrew-curl --without-bz2 --without-apache --without-fpm --without-ldap --without-mysql
+brew install mcrypt php56-mcrypt
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
