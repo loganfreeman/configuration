@@ -191,3 +191,10 @@ brew install php56
 brew unlink php56
 brew install php70
 ```
+PHP Switcher Script
+---
+```shell
+mkdir -p ~/bin/
+curl -L https://raw.githubusercontent.com/conradkleinespel/sphp-osx/master/sphp > ~/bin/sphp
+chmod +x ~/bin/sphp
+```
