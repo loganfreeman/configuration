@@ -134,3 +134,46 @@ sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo mkdir /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
 ```
+dnsmasp
+---
+This configuration allows you to use the URL `http://client1.dev` on your local machine with your site files stored in `/www/sites/client1/wwwroot`. It also allows you to use the service xip.io to use the URL `http://client1.[LOCAL IP].xip.io` to access your sites from another machine (or device) on your local network. So, if your machine’s local IP address (not your public IP address), is `192.168.1.10`, the URL for a site might be `http://client1.192.168.1.10.xip.io`. You can find your local IP address in your network preferences.
+
+`Xip.io` is offered for free by Basecamp and provides one of the simplest services on the internet. They run a simple DNS server that redirects all traffic to `*.xip.io` back to the IP address indicated by the subdomain.
+
+Now you don’t need to update config files every time you add a new site. Simply add the necessary folders to your “sites” directory, and the site will work locally with its own subdomain.
+```
+<Directory "/www">
+  Options Indexes MultiViews FollowSymLinks
+  AllowOverride All
+  Order allow,deny
+  Allow from all
+</Directory>
+
+<Virtualhost *:80>
+  VirtualDocumentRoot "/www/home/wwwroot"
+  ServerName home.dev
+  UseCanonicalName Off
+</Virtualhost>
+
+<Virtualhost *:80>
+  VirtualDocumentRoot "/www/sites/%1/public"
+  ServerName sites.dev
+  ServerAlias *.dev
+  UseCanonicalName Off
+</Virtualhost>
+
+<Virtualhost *:80>
+  VirtualDocumentRoot "/www/sites/%-7+/wwwroot"
+  ServerName xip
+  ServerAlias *.xip.io
+  UseCanonicalName Off
+</Virtualhost>
+```
+
+upload your code the server
+---
+```shell
+cd /path/to/ninja/code
+chmod -R 755 storage
+sudo chown -R www-data:www-data storage public/logo
+```
