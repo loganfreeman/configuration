@@ -111,8 +111,8 @@ SetEnvIf User-Agent "MSIE [2-5]" \
 ```
 
 setup Mac for php development
-[Link](https://mallinson.ca/osx-web-development/)
 ---
+[Link](https://mallinson.ca/osx-web-development/)
 ```shell
 brew tap homebrew/dupes
 brew tap homebrew/versions
