@@ -177,3 +177,17 @@ cd /path/to/ninja/code
 chmod -R 755 storage
 sudo chown -R www-data:www-data storage public/logo
 ```
+multiple php
+---
+```shell
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+brew install php54
+brew unlink php54
+brew install php55
+brew unlink php55
+brew install php56
+brew unlink php56
+brew install php70
+```
