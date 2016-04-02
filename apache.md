@@ -112,7 +112,8 @@ SetEnvIf User-Agent "MSIE [2-5]" \
 
 setup Mac for php development
 ---
-[Link](https://mallinson.ca/osx-web-development/)
+1. [Link](https://mallinson.ca/osx-web-development/)
+2. [Link](https://getgrav.org/blog/mac-os-x-apache-setup-multiple-php-versions)
 ```shell
 brew tap homebrew/dupes
 brew tap homebrew/versions
