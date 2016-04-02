@@ -191,10 +191,17 @@ brew install php56
 brew unlink php56
 brew install php70
 ```
+
 PHP Switcher Script
 ---
 ```shell
 mkdir -p ~/bin/
 curl -L https://raw.githubusercontent.com/conradkleinespel/sphp-osx/master/sphp > ~/bin/sphp
 chmod +x ~/bin/sphp
+```
+Add this to `httpd.conf`
+```
+# Brew PHP LoadModule for `sphp` switcher
+LoadModule php5_module /usr/local/lib/libphp5.so
+#LoadModule php7_module /usr/local/lib/libphp7.so
 ```
