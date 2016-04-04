@@ -189,3 +189,41 @@ do cluster
       api.redis.publish(payload);
     };
 ```
+Running Redis as a User Daemon on OSX With Launchd
+---
+
+```shell
+sudo emacs /Library/LaunchDaemons/io.redis.redis-server.plist
+```
+and paste the following content into it:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>io.redis.redis-server</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/redis-server</string>
+        <string>/usr/local/etc/redis.conf</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+```
+You’ll then need to load the file (one time) into launchd with launchctl:
+```shell
+sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist 
+```
+To manually start or stop:
+```shell
+sudo launchctl start io.redis.redis-server
+sudo launchctl stop io.redis.redis-server
+```
+Alias for the sake of convenience:
+```shell
+alias redisstart='sudo launchctl start io.redis.redis-server'
+alias redisstop='sudo launchctl stop io.redis.redis-server'
+```
