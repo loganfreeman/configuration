@@ -11,7 +11,7 @@ search form
 
 drop down menu
 ---
-```html
+```blade
       <ul class="nav navbar-nav navbar-right navbar-search"> 
         <li class="dropdown">
           <a href="#" onclick="showSearch()">
