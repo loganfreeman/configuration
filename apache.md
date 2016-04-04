@@ -165,7 +165,7 @@ Now you don’t need to update config files every time you add a new site. Simpl
 </Virtualhost>
 
 <Virtualhost *:80>
-  VirtualDocumentRoot "/www/sites/%-7+/wwwroot"
+  VirtualDocumentRoot "/www/sites/%-7+/public"
   ServerName xip
   ServerAlias *.xip.io
   UseCanonicalName Off
