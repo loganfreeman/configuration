@@ -190,3 +190,15 @@ heroku buildpacks:add --index 1 heroku/nodejs
 heroku buildpacks
 ```
 This will insert the Node.js buildpack at the first position in the order of buildpack execution, and move the other buildpacks that are ahead of it down one position. 
+
+mysql
+---
+```shell
+heroku addons:create jawsdb
+```
+
+APP_CIPHER
+---
+```shell
+heroku config:set APP_CIPHER=AES-256-CBC
+```
