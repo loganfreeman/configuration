@@ -71,3 +71,20 @@ timeslot=`date +%u`
 i=dbnametobackup
 /usr/bin/pg_dump -U postgres $i | gzip > "$backup_dir/postgresql-$i-$timeslot-database.gz"
 ```
+install pgsql dirver for php on Mac
+---
+```
+curl -O http://pear.php.net/go-pear.phar
+sudo php -d detect_unicode=0 go-pear.phar
+pecl download pdo_pgsql
+tar xzf PDO_PGSQL-1.0.2.tgz
+cd PDO_PGSQL-1.0.2
+phpize
+./configure --with-pdo-pgsql=/path/to/your/PostgreSQL/installation
+make && sudo make install
+```
+add extension to php.ini
+```
+extension=pdo_pgsql.so
+extension_dir = "/usr/lib/php/extensions/no-debug-non-zts-20060613"
+```
