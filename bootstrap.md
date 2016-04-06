@@ -25,3 +25,47 @@ navbar
     </div>
 </nav>
 ```
+Bootstrap 3 responsive centered columns
+---
+This simple css code centers the columns (.col-centered) inside the row (.row-centered).
+```css
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+```
+You can also set a min-width, a max-width or a fixed width to the columns.
+```css
+.col-fixed {
+    /* custom width */
+    width:320px;
+}
+.col-min {
+    /* custom min width */
+    min-width:320px;
+}
+.col-max {
+    /* custom max width */
+    max-width:320px;
+}
+```
+The markup
+```html
+<div class="container">
+    <div class="row row-centered">
+        <div class="col-xs-6 col-centered"></div>
+        <div class="col-xs-6 col-centered"></div>
+        <div class="col-xs-3 col-centered"></div>
+        <div class="col-xs-3 col-centered"></div>
+        <div class="col-xs-3 col-centered"></div>
+    </div>
+</div>
+```
