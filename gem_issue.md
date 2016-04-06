@@ -149,3 +149,9 @@ bundle install fails but gem install succeeds
 
 > I'd bet that the problem is that Bundler itself is installed as gem under the system Ruby, rather than the one in ~/.rubies.
 
+
+thrift issue with Mac 
+---
+```shell
+bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
+```
