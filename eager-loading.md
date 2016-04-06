@@ -33,3 +33,19 @@ select * from books
 
 select * from authors where id in (1, 2, 3, 4, 5, ...)
 ```
+Rails
+---
+Query
+```ruby
+clients = Client.includes(:address).limit(10)
+ 
+clients.each do |client|
+  puts client.address.postcode
+end
+```
+SQL
+```sql
+SELECT * FROM clients LIMIT 10
+SELECT addresses.* FROM addresses
+  WHERE (addresses.client_id IN (1,2,3,4,5,6,7,8,9,10))
+```
