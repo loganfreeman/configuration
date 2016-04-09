@@ -88,3 +88,11 @@ bootstrap combobox
       }
   };
 ```
+markup with Former
+```php
+    {!! Former::select('expense_currency_id')->addOption('','')
+            ->data_bind('combobox: expense_currency_id')
+            ->label(trans('texts.currency_id'))
+            ->data_placeholder(Utils::getFromCache($account->getCurrencyId(), 'currencies')->name)
+            ->fromQuery($currencies, 'name', 'id') !!}
+```
