@@ -28,3 +28,14 @@ markup
 <span style="vertical-align:text-top;color:red" class="fa fa-exclamation-triangle"
       data-bind="visible: $data.email_error, tooltip: {title: $data.email_error}"></span>
 ```                               
+
+placeholder
+---
+```js
+  ko.bindingHandlers.placeholder = {
+    init: function (element, valueAccessor, allBindingsAccessor) {
+      var underlyingObservable = valueAccessor();
+      ko.applyBindingsToNode(element, { attr: { placeholder: underlyingObservable } } );
+    }
+  };
+```
