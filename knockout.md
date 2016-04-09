@@ -39,3 +39,22 @@ placeholder
     }
   };
 ```
+
+datepicker
+---
+```js
+  ko.bindingHandlers.datePicker = {
+      init: function (element, valueAccessor, allBindingsAccessor) {
+         var value = ko.utils.unwrapObservable(valueAccessor());
+         if (value) $(element).datepicker('update', value);
+         $(element).change(function() {
+            var value = valueAccessor();
+            value($(element).val());
+         })
+      },
+      update: function (element, valueAccessor) {
+         var value = ko.utils.unwrapObservable(valueAccessor());
+         if (value) $(element).datepicker('update', value);
+      }
+  };
+```
