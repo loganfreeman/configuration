@@ -96,3 +96,16 @@ markup with Former
             ->data_placeholder(Utils::getFromCache($account->getCurrencyId(), 'currencies')->name)
             ->fromQuery($currencies, 'name', 'id') !!}
 ```
+
+
+file path
+---
+```js
+  ko.bindingHandlers.filepath = {
+    init: function(element, valueAccessor) {
+      var fullPath = ko.utils.unwrapObservable(valueAccessor());
+      var filename = fullPath.replace(/^.*[\\\/]/, '');
+      $(element).val(filename);
+    }
+  }
+```
