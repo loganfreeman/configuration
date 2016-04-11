@@ -12,3 +12,9 @@ pg on centos
 yum -y install postgresql-libs postgresql-devel
 rvmsudo gem install pg
 ```
+
+
+```
+for config in application database epic ldap; \
+          do cp -v config/$config.yml.example config/$config.yml; done
+```
