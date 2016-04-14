@@ -1,3 +1,4 @@
+js
 ```js
     $("#password").complexify({
         minimumChars: 9,
@@ -16,7 +17,7 @@
     });
 ```
 markup
-```
+```html
   <div class="span4 progress_data" id="progressbar"><div id="progress"> </div></div>
 ```
 css
