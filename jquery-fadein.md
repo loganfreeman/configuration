@@ -1,5 +1,6 @@
 fadein one by one
 ---
+javascript
 ```js
 $(document).ready(function() {
            fade_in_next();
@@ -14,5 +15,17 @@ function fade_in_next() {
       $('.submit_button_main').removeClass('hide');
     }    
   });
+}
+```
+css
+```css
+.reset_form ul li {
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+    font-size: 18px !important;
+    margin-top: 10px;
+    width: 100%;
+    display: none;
 }
 ```
