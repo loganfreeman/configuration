@@ -207,3 +207,9 @@ Add this to `httpd.conf`
 LoadModule php5_module /usr/local/lib/libphp5.so
 #LoadModule php7_module /usr/local/lib/libphp7.so
 ```
+mcrypt on Mac
+---
+```shell
+brew install mcrypt
+brew install php55-mcrypt
+```
