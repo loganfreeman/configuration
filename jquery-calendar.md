@@ -62,3 +62,12 @@ $('.cal2').clndr({
     }
   });
 ```
+The `days` array contains most of the stuff we need to make a calendar. Its structure looks like this:
+```js
+{
+    day: 5,
+    events: [],
+    classes: "day",
+    date: moment("2015-12-31")
+}
+```
