@@ -71,3 +71,12 @@ The `days` array contains most of the stuff we need to make a calendar. Its stru
     date: moment("2015-12-31")
 }
 ```
+CLNDR accepts events as an array of objects:
+```js
+events = [
+    {
+        date: "YYYY-MM-DD or some other ISO Date format",
+        and: "anything else"
+    }
+]
+```
