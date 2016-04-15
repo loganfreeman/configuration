@@ -80,3 +80,21 @@ events = [
     }
 ]
 ```
+Php
+```php
+public function getEventDates($userId)
+{
+	
+	$eventsId = \EventUser::where('user_id',$userId)->lists('events_id');
+	if(sizeof($eventsId) !=0)
+	{
+	$eventDates =  \Events::whereIn('id',$eventsId)->get(array('date'))->toJson();
+	return $eventDates;	
+	}
+	else
+	{
+		return json_encode([]);
+	}
+	
+}
+```
