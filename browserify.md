@@ -102,3 +102,23 @@ function bundleShare(b) {
     .pipe(gulp.dest('./build/public/js'));
 }
 ```
+gulp
+---
+```js
+var gulp = require('gulp'),
+  plugins = require('gulp-load-plugins')();
+  
+gulp.task('minified', ['clean:build'], function() {
+  config.production = true;
+  var gulpFilter = require('gulp-filter');
+  var jsfilter = gulpFilter(['*.js']);
+  return compileJS(["./src/index.js"])
+    .pipe(jsfilter)
+    .pipe(plugins.rename({ extname: '.min.js' }))
+    .pipe(plugins.sourcemaps.init({loadMaps: true}))
+    .pipe(plugins.uglify())
+    .pipe(plugins.sourcemaps.write('./'))
+    .pipe(gulp.dest('build/public/js'))
+    ;
+});
+```
