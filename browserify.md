@@ -36,3 +36,50 @@ function bundler(entry) {
   return config.production ? bundler : watchify(bundler);
 }
 ```
+bundle
+---
+***b.bundle(cb)***
+
+Bundle the files and their dependencies into a single javascript file.
+
+Return a readable stream with the javascript file contents or optionally specify a cb(err, buf) to get the buffered results.
+
+```js
+function compileJS(entry) {
+
+  var w = bundler(entry);
+
+  if (!config.production) {
+    w.on("update", function (e) {
+      var updateStart = Date.now();
+
+      bundleShare(w);
+      console.log('file changed %s', e)
+    });
+  }
+
+  // called on completion of build
+  w.on('time', function (time) {
+      if (!config.production) {
+        console.log('Bundle updated in %s ms', time);
+        browserSync.reload();
+      }
+    })
+  .on('error', console.error.bind(console));
+
+  return bundleShare(w);
+}
+
+function bundleShare(b) {
+  return b.bundle()
+    .on('error', function(err){
+      console.log(chalk.red(err.toString()));
+      this.end();
+    })
+    .pipe(source('react-d3.js'))
+    .pipe(buffer())
+    .pipe(plugins.sourcemaps.init({loadMaps: true}))
+    .pipe(plugins.sourcemaps.write('./'))
+    .pipe(gulp.dest('./build/public/js'));
+}
+```
