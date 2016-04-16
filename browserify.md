@@ -44,6 +44,12 @@ Bundle the files and their dependencies into a single javascript file.
 
 Return a readable stream with the javascript file contents or optionally specify a cb(err, buf) to get the buffered results.
 
+***stream = sourceStream([filename])***
+
+Creates a through stream which takes text as input, and emits a single vinyl file instance for streams down the pipeline to consume.
+
+filename is a "pretend" filename to use for your file, which some streams might use to determine various factors such as the final filename of your file. It should be a string, and though recommended, using this argument is optional.
+
 ```js
 function compileJS(entry) {
 
