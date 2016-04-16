@@ -1,6 +1,15 @@
 browserify
 ---
+***browserify([files] [, opts])***
+
 Returns a new browserify instance.
+
+***watchify(b, opts)***
+
+watchify is a browserify plugin, so it can be applied like any other plugin. However, when creating the browserify instance b, you MUST set the `cache` and `packageCache` properties:
+
+b continues to behave like a browserify instance except that it caches file contents and emits an 'update' event when a file changes. You should call b.bundle() after the 'update' event fires to generate a new bundle. 
+
 ```js
 function bundler(entry) {
   var babelify = require('babelify'),
