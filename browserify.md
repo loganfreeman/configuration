@@ -50,6 +50,10 @@ Creates a through stream which takes text as input, and emits a single vinyl fil
 
 filename is a "pretend" filename to use for your file, which some streams might use to determine various factors such as the final filename of your file. It should be a string, and though recommended, using this argument is optional.
 
+***vinylBuffer()***
+
+Creates a transform stream that takes vinyl files as input, and outputs modified vinyl files as output. If file.isStream(), file.contents will be converted to a Buffer before being emitted again – otherwise, the file will be emitted immediately.
+
 ```js
 function compileJS(entry) {
 
