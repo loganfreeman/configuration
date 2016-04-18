@@ -44,3 +44,22 @@
             }
         }
 ```
+javascript
+---
+```js
+    function goToStep(current, next) {
+        // validation was ok. We can go on next step.
+        $('.block-' + current)
+          .removeClass('show')
+          .addClass('hidden');
+
+        $('.block-' + next)
+          .removeClass('hidden')
+          .addClass('show');
+
+        $('.steps .step')
+            .removeClass("active")
+            .filter(":lt(" + (next) + ")")
+            .addClass("active");
+    }
+```
