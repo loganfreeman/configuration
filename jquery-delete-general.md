@@ -55,3 +55,41 @@
         e.preventDefault();
     });
 ```
+ask confirmation
+---
+```js
+// Mock the DELETE form requests.
+$('[data-method]').not(".disabled").append(function() {
+    var methodForm = "\n";
+    methodForm += "<form action='" + $(this).attr('href') + "' method='POST' style='display:none'>\n";
+    methodForm += "<input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n";
+    methodForm += "<input type='hidden' name='_token' value='" + $('meta[name=token]').attr('content') + "'>\n";
+    methodForm += "</form>\n";
+    return methodForm;
+})
+    .removeAttr('href')
+    .on('click', function() {
+        var button = $(this);
+
+        if (button.hasClass('confirm-action')) {
+            askConfirmation(function() {
+                button.find("form").submit();
+            });
+        } else {
+            button.find("form").submit();
+        }
+    });
+        
+function askConfirmation(callback) {
+    swal({
+        type: "warning",
+        title: "Confirm your action",
+        text: "Are you sure you want to do this?",
+        confirmButtonText: "Yes",
+        confirmButtonColor: "#FF6F6F",
+        showCancelButton: true
+    }, function() {
+        callback();
+    });
+}
+```
