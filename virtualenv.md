@@ -58,3 +58,17 @@ $ pip install  --requirement /path/to/paperless/requirements.txt
 always copy
 ---
 > Always copy files rather than symlinking.
+
+using virtualenv
+---
+```shell
+# create a virtual environment
+virtualenv -p python3 ~/.venv/pycraft # (or wherever)
+# you may need to add execute permissions
+chmod -R a+x ~/.venv
+# activate
+. ~/.venv/pycraft/bin/activate # on mac
+. ~/.venv/pycraft/Scripts/activate # on windows
+# deactivate (when you're done)
+deactivate
+```
