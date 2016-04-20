@@ -212,4 +212,15 @@ is_cygwin() {
     *)  return 1 ;;
   esac
 }
+
+# This can fix cygwin style /cygdrive paths so we get the
+# windows style paths.
+cygwinpath() {
+  local file="$1"
+  if is_cygwin; then
+    echo $(cygpath -w $file)
+  else
+    echo $file
+  fi
+}
 ```
