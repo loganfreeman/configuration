@@ -224,3 +224,10 @@ cygwinpath() {
   fi
 }
 ```
+echo error
+---
+```shell
+echoerr () {
+  echo 1>&2 "$@"
+}
+```
