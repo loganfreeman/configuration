@@ -256,3 +256,10 @@ execRunner () {
   exec "$@"
 }
 ```
+is function defined
+---
+```shell
+is_function_defined() {
+  declare -f "$1" > /dev/null
+}
+```
