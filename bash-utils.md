@@ -230,4 +230,10 @@ echo error
 echoerr () {
   echo 1>&2 "$@"
 }
+vlog () {
+  [[ $verbose || $debug ]] && echoerr "$@"
+}
+dlog () {
+  [[ $debug ]] && echoerr "$@"
+}
 ```
