@@ -201,3 +201,15 @@ realpath () {
 )
 }
 ```
+is_cygwin
+---
+```shell
+# Uses uname to detect if we're in the odd cygwin environment.
+is_cygwin() {
+  local os=$(uname -s)
+  case "$os" in
+    CYGWIN*) return 0 ;;
+    *)  return 1 ;;
+  esac
+}
+```
