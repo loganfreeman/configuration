@@ -237,3 +237,22 @@ dlog () {
   [[ $debug ]] && echoerr "$@"
 }
 ```
+exec
+---
+```shell
+execRunner () {
+  # print the arguments one to a line, quoting any containing spaces
+  [[ $verbose || $debug ]] && echo "# Executing command line:" && {
+    for arg; do
+      if printf "%s\n" "$arg" | grep -q ' '; then
+        printf "\"%s\"\n" "$arg"
+      else
+        printf "%s\n" "$arg"
+      fi
+    done
+    echo ""
+  }
+
+  exec "$@"
+}
+```
