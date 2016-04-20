@@ -49,7 +49,7 @@ public class LoggingAspect {
     }
 }
 ```
-### Configuration
+Configuration
 ```java
 @Configuration
 @EnableAspectJAutoProxy
