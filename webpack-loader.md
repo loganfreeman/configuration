@@ -39,3 +39,13 @@ module.exports = function(content) {
 }
 module.exports.raw = true;
 ```
+json loader
+---
+```js
+module.exports = function(source) {
+	this.cacheable && this.cacheable();
+	var value = typeof source === "string" ? JSON.parse(source) : source;
+	this.value = [value];
+	return "module.exports = " + JSON.stringify(value, undefined, "\t") + ";";
+}
+```
