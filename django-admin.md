@@ -105,3 +105,24 @@ def create_project():
 if __name__ == "__main__":
     create_project()
 ```
+Writing custom django-admin commands¶
+---
+To do this, just add a `management/commands` directory to the application. Django will register a manage.py command for each Python module in that directory whose name doesn’t begin with an underscore. 
+```
+polls/
+    __init__.py
+    models.py
+    management/
+        __init__.py
+        commands/
+            __init__.py
+            _private.py
+            closepoll.py
+    tests.py
+    views.py
+```
+In this example, the closepoll command will be made available to any project that includes the polls application in `INSTALLED_APPS`.
+
+The `_private.py` module will not be available as a management command.
+
+The `closepoll.py` module has only one requirement – it must define a class `Command` that extends `BaseCommand` or one of its subclasses.
