@@ -192,3 +192,11 @@ SET SESSION sql_mode = 'modes';
 SELECT @@GLOBAL.sql_mode;
 SELECT @@SESSION.sql_mode;
 ```
+my.cnf
+---
+location: `/etc/my.cnf`
+
+```
+sudo cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
+sudo /usr/local/mysql/support-files/mysql.server restart
+```
