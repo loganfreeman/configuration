@@ -119,6 +119,10 @@ nokogiri not compatible with libxml2
 ```shell
 yum -y install libxml2-devel libxslt-devel
 ```
+Mac
+```shell
+sudo env ARCHFLAGS="-arch x86_64" gem install nokogiri -- --use-system-libraries --with-xml=/usr/local/Cellar/libxml2/
+```
 ruby headers
 ---
 ```shell
