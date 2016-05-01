@@ -200,3 +200,13 @@ location: `/etc/my.cnf`
 sudo cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
 sudo /usr/local/mysql/support-files/mysql.server restart
 ```
+MySQL ERROR! The server quit without updating PID file
+---
+So possible solutions are, first up try a straight restart:
+
+`/usr/local/mysql/support-files/mysql.server restart`
+If that doesn’t fix
+
+Remove `/etc/my.cnf` or just back it up for now and restart:
+
+`sudo mv /etc/my.cnf /etc/my.cnf.bak`
