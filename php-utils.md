@@ -168,3 +168,19 @@ if (ini_get('magic_quotes_gpc')) {
 	$_COOKIE = clean($_COOKIE);
 }
 ```
+is Association
+---
+```php
+    protected static function isAssoc($arr)
+    {
+        $len = count($arr);
+        $keys = array_keys($arr);
+        for ($i = 0; $i < $len; $i++) {
+            if ($i !== $key[$i]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+```
