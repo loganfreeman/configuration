@@ -43,3 +43,18 @@ function findSeleniumJar() {
   return path.resolve(dir, jar);
 }
 ```
+package.json
+---
+```js
+  "scripts": {
+    "postinstall": "webdriver-manager update",
+    "start": "gulp",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "clean": "gulp clean",
+    "test": "npm run unit && npm run e2e",
+    "unit": "karma start --single-run",
+    "tdd": "karma start",
+    "e2e": "npm run build && protractor"
+  }
+```
