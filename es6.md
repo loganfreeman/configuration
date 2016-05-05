@@ -17,3 +17,17 @@ function extend(dest, src1, src2) {
 
 module.exports = extend
 ```
+iterator interface
+---
+```js
+interface IteratorResult {
+  done: boolean;
+  value: any;
+}
+interface Iterator {
+  next(): IteratorResult;
+}
+interface Iterable {
+  [Symbol.iterator](): Iterator
+}
+```
