@@ -31,3 +31,11 @@ interface Iterable {
   [Symbol.iterator](): Iterator
 }
 ```
+generator interface
+---
+```js
+interface Generator extends Iterator {
+    next(value?: any): IteratorResult;
+    throw(exception: any);
+}
+```
