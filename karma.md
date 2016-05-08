@@ -22,3 +22,36 @@ files: [
   {pattern: 'compiled/app.js.map', included: false, served: true, watched: false, nocache: true}
 ],
 ```
+preprocessor
+---
+```js
+    files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      {
+        pattern: 'test/karma.tests.js',
+        watched: false,
+        served: true,
+        included: true,
+      },
+    ],
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-mocha',
+      'karma-sourcemap-loader',
+      'karma-webpack',
+      'karma-mocha-reporter',
+    ],
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+    port: 9876,
+    preprocessors: {
+      'test/karma.tests.js': ['webpack', 'sourcemap'],
+    },
+```
+karma.tests.js content
+```js
+const integrationContext = require.context('./integration', true, /\.(js|jsx)$/);
+integrationContext.keys().forEach(integrationContext);
+const unitContext = require.context('../src/', true, /\.spec\.(js|jsx)$/);
+unitContext.keys().forEach(unitContext);
+```
