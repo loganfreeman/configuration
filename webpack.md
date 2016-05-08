@@ -58,3 +58,34 @@ module.exports = {
   }
 }
 ```
+context module API
+---
+```js
+var req = require.context("./templates", true, /^\.\/.*\.jade$/);
+
+var tableTemplate = req("./table.jade");
+// tableTemplate === require("./templates/table.jade");
+
+var tableTemplateId = req.resolve("./table.jade");
+// tableTemplateId === require.resolve("./templates/table.jade");
+
+req.keys();
+// is ["./table.jade", "./table-row.jade", "./directory/folder.jade"]
+
+req.id;
+// is i. e. 42
+function requireAll(requireContext) {
+  return requireContext.keys().map(requireContext);
+}
+// requires and returns all modules that match
+
+var modules = requireAll(require.context("./spec", true, /^\.\/.*\.js$/));
+// is an array containing all the matching modules
+```
+Example usage
+```js
+const integrationContext = require.context('./integration', true, /\.(js|jsx)$/);
+integrationContext.keys().forEach(integrationContext);
+const unitContext = require.context('../src/', true, /\.spec\.(js|jsx)$/);
+unitContext.keys().forEach(unitContext);
+```
