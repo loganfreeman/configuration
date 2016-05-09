@@ -89,3 +89,23 @@ integrationContext.keys().forEach(integrationContext);
 const unitContext = require.context('../src/', true, /\.spec\.(js|jsx)$/);
 unitContext.keys().forEach(unitContext);
 ```
+PostCSS for Webpack
+---
+```js
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
+
+module.exports = {
+    module: {
+        loaders: [
+            {
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
+            }
+        ]
+    },
+    postcss: function () {
+        return [precss, autoprefixer];
+    }
+}
+```
