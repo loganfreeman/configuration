@@ -75,3 +75,32 @@ module.exports = function(text) {
   });
 };
 ```
+markdown loader
+---
+```js
+// marked renderer hack
+marked.Renderer.prototype.code = function renderCode(code, lang) {
+  const out = this.options.highlight(code, lang);
+  const classMap = this.options.langPrefix + lang;
+
+  if (!lang) {
+    return `<pre><code>${out}\n</code></pre>`;
+  }
+  return `<pre class="${classMap}"><code class="${classMap}">${out}\n</code></pre>\n`;
+};
+```
+webpack markdown loader
+```js
+  markdownLoader: {
+    langPrefix: 'language-',
+    highlight(code, lang) {
+      const language = !lang || lang === 'html' ? 'markup' : lang;
+      const Prism = global.Prism || reqPrism;
+
+      if (!Prism.languages[language]) {
+        require(`prismjs/components/prism-${language}.js`);
+      }
+      return Prism.highlight(code, Prism.languages[language]);
+    }
+  },
+```
