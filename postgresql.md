@@ -88,3 +88,16 @@ add extension to php.ini
 extension=pdo_pgsql.so
 extension_dir = "/usr/lib/php/extensions/no-debug-non-zts-20060613"
 ```
+Enabling PostgreSQL support in PHP on Mac OS X
+---
+
+- Find your version of PHP: php -v.
+- Download the version of PHP that matches yours: `curl -O http://us.php.net/distributions/php-5.3.3.tar.gz`.
+- Extract the archive you downloaded: `tar -xzvf php-5.3.3.tar.gz`
+- Change to the PostgreSQL's extension directory: `cd php-5.3.3/ext/pgsql/`
+- Type `phpize`.
+- Type `./configure`.
+- Type `make`.
+- Type `sudo make install`.
+- Add the extension to you php.ini file by adding `extension=pgsql.so`. (You may already have done this)
+- Restart Apache.
