@@ -1,3 +1,9 @@
+get current branch
+---
+```shell
+git branch --no-color | grep '^\* ' | grep -v 'no branch' | sed 's/^* //g'
+```
+
 get branch
 ---
 ```
