@@ -55,3 +55,15 @@ integrationContext.keys().forEach(integrationContext);
 const unitContext = require.context('../src/', true, /\.spec\.(js|jsx)$/);
 unitContext.keys().forEach(unitContext);
 ```
+Can not load "PhantomJS", it is not registered!
+---
+I got tripped up by this today running
+```
+karma: 0.13.7
+karma-phantomjs-launcher: 1.0.0
+```
+What isn't very obvious is that the launcher has a dependency on: `phantomjs-prebuilt`
+So if you, install this locally everything should run fine, eg:
+```
+npm install phantomjs-prebuilt --save-dev
+```
