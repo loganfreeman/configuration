@@ -159,3 +159,9 @@ thrift issue with Mac
 ```shell
 bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
 ```
+gem install puma error
+---
+```shell
+brew install openssl
+brew link --force openssl
+```
