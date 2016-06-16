@@ -26,3 +26,25 @@ function manageStartup(enable) {
     }
 }
 ```
+global shortcut
+---
+```js
+    // Change CommandOrControl+Alt+\ to the shortcut to manage the application.
+    globalShortcut.register('CommandOrControl+Alt+\\', function () {
+        let result = dialog.showMessageBox({
+            type: 'info',
+            title: 'Shortcut pressed',
+            message: 'You pressed the keyboard shortcut. \nIf you do not know what you are doing press cancel.',
+            buttons: ['Quit Application', 'Enable Startup', 'Disable Startup', 'Cancel']
+        });
+        
+        if (result === 0) {
+            mainWindow = null;
+            app.exit(0);
+        } else if (result === 1) {
+            manageStartup(true);
+        } else if (result === 2) {
+            manageStartup(false);
+        }
+    });
+```
