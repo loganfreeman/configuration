@@ -25,6 +25,13 @@ function manageStartup(enable) {
         }); 
     }
 }
+
+// Accept --startup as command line argument to enable on startup.
+process.argv.forEach(function (val, index, array) {
+  if (val === "--startup") {
+    manageStartup(true);
+  }
+});
 ```
 global shortcut
 ---
