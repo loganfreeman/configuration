@@ -54,6 +54,10 @@ global shortcut
             manageStartup(false);
         }
     });
+
+app.on('will-quit', function() {
+    globalShortcut.unregisterAll();
+});
 ```
 hidden browser window
 ---
