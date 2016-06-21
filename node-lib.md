@@ -29,3 +29,25 @@ function getFilesFor(dir) {
     }, []);
 }
 ```
+test symblink
+---
+```js
+function testSymlink (cb) {
+    var testPath = path.join(tempBase, 'symlink-test')
+    var testFile = path.join(testPath, 'test')
+    var testLink = path.join(testPath, 'testlink')
+    series([
+      function (cb) {
+        fs.outputFile(testFile, '', cb)
+      },
+      function (cb) {
+        fs.symlink(testFile, testLink, cb)
+      }
+    ], function (err) {
+      var result = !err
+      fs.remove(testPath, function () {
+        cb(result) // ignore errors on cleanup
+      })
+    })
+  }
+```
