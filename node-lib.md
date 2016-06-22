@@ -82,3 +82,14 @@ class PackagerConsole {
 
 export default PackagerConsole;
 ```
+usage
+---
+```js
+function usage (code) {
+  var rs = fs.createReadStream(path.join(__dirname, '/usage.txt'))
+  rs.pipe(process.stdout)
+  rs.on('close', function () {
+    if (code) process.exit(code)
+  })
+}
+```
