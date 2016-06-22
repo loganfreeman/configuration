@@ -75,3 +75,13 @@ hidden browser window
 
     mainWindow.loadURL(`file://${__dirname}/index.html`);
 ```
+preload
+---
+```js
+opts.preload.forEach(function (script) {
+  var tag = document.createElement('script')
+  tag.src = script
+  tag.async = false
+  document.head.appendChild(tag)
+})
+```
