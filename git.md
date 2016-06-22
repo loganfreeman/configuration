@@ -143,6 +143,8 @@ You just need create a new branch and delete the old branch
 git branch new-branch-name origin/old-branch-name
 git push origin --set-upstream new-branch-name
 git push origin :old-branch-name
+git fetch origin
+git remote prune origin
 ```
 git compare two branches
 ---
