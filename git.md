@@ -136,3 +136,17 @@ Only remove files from remote
 git rm -r --cached cache/
 echo /cache/ >> .gitignore
 ```
+git rename remote branch
+---
+You just need create a new branch and delete the old branch
+```shell
+git branch new-branch-name origin/old-branch-name
+git push origin --set-upstream new-branch-name
+git push origin :old-branch-name
+```
+git compare two branches
+---
+```shell
+git diff branch1 branch2 --name-only
+git diff branch1 branch2 -- file-name-to-compare
+```
