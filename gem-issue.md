@@ -164,4 +164,5 @@ gem install puma error
 ```shell
 brew install openssl
 brew link --force openssl
+gem install puma -v '2.8.2' -- --with-cppflags=-I/usr/local/opt/openssl/include
 ```
