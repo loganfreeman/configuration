@@ -166,3 +166,9 @@ brew install openssl
 brew link --force openssl
 gem install puma -v '2.8.2' -- --with-cppflags=-I/usr/local/opt/openssl/include
 ```
+gem install rugged -v '0.24.0'
+---
+```shell
+brew install cmake
+gem install rugged -v '0.24.0'
+```
