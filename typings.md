@@ -19,3 +19,31 @@ to get both "main" and "browser" typings, a la Typings 0.x:
   }
 }
 ```
+factory pattern
+---
+```typescript
+
+interface Block {
+// omitted
+}
+
+interface BlockConstructor {
+  new(index: number): Block;
+}
+
+abstract class BaseBlock implements Block {
+  // omitted
+  static factory(meta: BoardMeta): BlockConstructor {
+    let blockType = class RuntimeBlock extends BaseBlock {};
+
+    Object.defineProperty(blockType.prototype, 'meta', {
+      configurable: false,
+      enumerable: false,
+      value: meta,
+      writable: false
+    });
+
+    return blockType;
+  }
+}
+```
