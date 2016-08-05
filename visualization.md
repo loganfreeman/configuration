@@ -8,3 +8,4 @@ links
 - [HTML Canvas](http://html-canvas-lib.sourceforge.net/)
 - [Konva](http://konvajs.github.io/)
 - [raphael](https://github.com/DmitryBaranovskiy/raphael)
+- [dimple](http://dimplejs.org/)
