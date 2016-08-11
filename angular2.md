@@ -70,3 +70,22 @@ ngDoCheck
     }
   }
 ```
+detached change detector
+---
+```js
+ @Component({
+   selector: 'giant-list',
+   template: `
+     <li ngFor="let d of dataProvider.data">Data {{d}}</lig>
+   `,
+   directives: [NgFor]
+ })
+ class GiantList {
+   constructor(private ref: ChangeDetectorRef, private dataProvider:DataProvider) {
+     ref.detach();
+     setInterval(() => {
+       this.ref.detectChanges();
+     }, 5000);
+   }
+ }
+```
