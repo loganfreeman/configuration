@@ -32,3 +32,41 @@ export class JqueryIntegration implements OnInit {
     }
 }
 ```
+ngDoCheck
+---
+```js
+  @Input()
+  set ngClass(v: string|string[]|Set<string>|{[key: string]: any}) {
+    this._cleanupClasses(this._rawClass);
+
+    if (isString(v)) {
+      v = (<string>v).split(' ');
+    }
+
+    this._rawClass = <string[]|Set<string>>v;
+    this._iterableDiffer = null;
+    this._keyValueDiffer = null;
+    if (isPresent(v)) {
+      if (isListLikeIterable(v)) {
+        this._iterableDiffer = this._iterableDiffers.find(v).create(null);
+      } else {
+        this._keyValueDiffer = this._keyValueDiffers.find(v).create(null);
+      }
+    }
+  }
+  
+  ngDoCheck(): void {
+    if (isPresent(this._iterableDiffer)) {
+      var changes = this._iterableDiffer.diff(this._rawClass);
+      if (isPresent(changes)) {
+        this._applyIterableChanges(changes);
+      }
+    }
+    if (isPresent(this._keyValueDiffer)) {
+      var changes = this._keyValueDiffer.diff(this._rawClass);
+      if (isPresent(changes)) {
+        this._applyKeyValueChanges(changes);
+      }
+    }
+  }
+```
