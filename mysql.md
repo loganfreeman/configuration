@@ -216,4 +216,6 @@ change collate
 ALTER DATABASE <database_name> CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ALTER TABLE <table_name> MODIFY <column_name> VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+use <database_name>;
+SELECT @@character_set_database, @@collation_database;
 ```
