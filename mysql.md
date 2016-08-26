@@ -210,3 +210,10 @@ If that doesn’t fix
 Remove `/etc/my.cnf` or just back it up for now and restart:
 
 `sudo mv /etc/my.cnf /etc/my.cnf.bak`
+change collate
+---
+```sql
+ALTER DATABASE <database_name> CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE <table_name> CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE <table_name> MODIFY <column_name> VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+```
