@@ -219,3 +219,8 @@ ALTER TABLE <table_name> MODIFY <column_name> VARCHAR(255) CHARACTER SET utf8 CO
 use <database_name>;
 SELECT @@character_set_database, @@collation_database;
 ```
+Show mysql mode
+---
+```
+SHOW VARIABLES LIKE 'sql_mode';
+```
