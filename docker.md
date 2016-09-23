@@ -5,7 +5,8 @@ Docker recipes
 
 Docker images
 ---
-[arungupta/javaee7-hol](https://github.com/arun-gupta/docker-images/blob/master/javaee7-hol/Dockerfile)
+- [arungupta/javaee7-hol](https://github.com/arun-gupta/docker-images/blob/master/javaee7-hol/Dockerfile)
+- [wildfly-mysql-javaee7](https://github.com/arun-gupta/docker-images/tree/master/wildfly-mysql-javaee7)
 
 Docker machine
 ---
