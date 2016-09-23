@@ -2,6 +2,10 @@ Docker recipes
 ---
 [9 Docker recipes for Java EE Applications](http://planet.jboss.org/post/9_docker_recipes_for_java_ee_applications_tech_tip_80)
 
+Docker images
+---
+[arungupta/javaee7-hol](https://github.com/arun-gupta/docker-images/blob/master/javaee7-hol/Dockerfile)
+
 Docker machine
 ---
 ```shell
