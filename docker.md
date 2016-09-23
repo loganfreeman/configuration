@@ -2,6 +2,7 @@ Docker recipes
 ---
 - [9 Docker recipes for Java EE Applications](http://planet.jboss.org/post/9_docker_recipes_for_java_ee_applications_tech_tip_80)
 - [WildFly/JavaEE7 and MySQL linked on two Docker containers](http://blog.arungupta.me/wildfly-javaee7-mysql-link-two-docker-container-techtip65/)
+- [Deploy to WildFly and Docker from Eclipse](http://blog.arungupta.me/deploy-wildfly-docker-eclipse/)
 
 Docker images
 ---
