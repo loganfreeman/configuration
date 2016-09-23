@@ -10,6 +10,14 @@ Docker recipes
 - [Docker container linking across multiple hosts](http://blog.arungupta.me/docker-container-linking-across-multiple-hosts-techtip69/)
 - [Build a Docker container for any app using Heroku Buildpacks](https://github.com/CenturyLinkLabs/building)
 - [A Step By Step Guide For Dockerizing And Managing A Java App On 28 Different Application Stacks](https://www.linkedin.com/pulse/step-guide-dockerizing-managing-java-app-28-different-amjad-afanah)
+- [Docker java](https://github.com/dchqinc/docker-java)
+- [dchq-docker-java-solr-mongo-cassandra-example](https://github.com/dchqinc/dchq-docker-java-solr-mongo-cassandra-example)
+- [docker-lamp](https://github.com/dchqinc/docker-lamp)
+- [docker mean](https://github.com/meanjs/mean)
+- [docker nodejs](https://github.com/dchqinc/docker-nodejs)
+- [docker python](https://github.com/dchqinc/docker-python)
+- [docker rails](https://github.com/dchqinc/docker-rails)
+- [dchq-docker-java-example](https://github.com/dchqinc/dchq-docker-java-example)
 
 Docker images
 ---
