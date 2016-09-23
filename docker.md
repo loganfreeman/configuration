@@ -31,6 +31,7 @@ Docker images
 - [docker_centos_tomcat_mysql](https://github.com/bobdavisdev/docker_centos_tomcat_mysql)
 - [Docker CentOs7 + Java 7 + Tomcat 8](https://github.com/kirillF/centos-tomcat)
 - [Docker tomcat context example](https://github.com/ciandt-dev/docker-tomcat7-mysql)
+- [Docker tomcat jdbc example](https://github.com/dmulligan/docker-example-tomcat-mysql)
 
 Docker machine
 ---
