@@ -9,6 +9,7 @@ Docker recipes
 - [Deploy to WildFly and Docker from Eclipse](http://blog.arungupta.me/deploy-wildfly-docker-eclipse/)
 - [Docker container linking across multiple hosts](http://blog.arungupta.me/docker-container-linking-across-multiple-hosts-techtip69/)
 - [Build a Docker container for any app using Heroku Buildpacks](https://github.com/CenturyLinkLabs/building)
+- [A Step By Step Guide For Dockerizing And Managing A Java App On 28 Different Application Stacks](https://www.linkedin.com/pulse/step-guide-dockerizing-managing-java-app-28-different-amjad-afanah)
 
 Docker images
 ---
