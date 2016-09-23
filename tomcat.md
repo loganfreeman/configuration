@@ -1,3 +1,8 @@
+Links
+---
+- [CONFIGURE THE APPLICATION SERVER (APACHE TOMCAT ON LINUX)](https://www.onehippo.org/library/enterprise/installation-and-configuration/linux-installation-manual.html)
+
+
 tomcat datasource
 ---
 ```
@@ -6,3 +11,4 @@ tomcat datasource
              username="root" password="pass" driverClassName="com.mysql.jdbc.Driver"
              url="jdbc:mysql://localhost:3306/osdb"/>
 ```
+
