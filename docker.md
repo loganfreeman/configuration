@@ -28,6 +28,7 @@ Docker images
 - [wildfly-mysql-javaee7](https://github.com/arun-gupta/docker-images/tree/master/wildfly-mysql-javaee7)
 - [spring-boot-tomcat-mysql-app](https://github.com/meirwah/spring-boot-tomcat-mysql-app)
 - [docker-compose-mysql-tomcat](https://github.com/witrdotnet/docker-compose-mysql-tomcat)
+- [docker_centos_tomcat_mysql](https://github.com/bobdavisdev/docker_centos_tomcat_mysql)
 
 Docker machine
 ---
