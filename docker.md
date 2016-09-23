@@ -1,3 +1,7 @@
+Docker references
+---
+- [Container Linking Environment Variables](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/#environment-variables)
+
 Docker recipes
 ---
 - [9 Docker recipes for Java EE Applications](http://planet.jboss.org/post/9_docker_recipes_for_java_ee_applications_tech_tip_80)
