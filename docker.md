@@ -5,6 +5,7 @@ Docker references
 Docker recipes
 ---
 - [Create And Deploy Spring-Based Java Application In Containers Using Docker](http://www.nirmata.com/2016/08/create-and-deploy-spring-based-java-application-in-containers-using-docker/)
+- [Setting up a Docker container with Centos6 and Tomcat7](http://www.dev-garden.org/2014/12/27/setting-up-a-docker-container-with-centos6-and-tomcat7/)
 - [9 Docker recipes for Java EE Applications](http://planet.jboss.org/post/9_docker_recipes_for_java_ee_applications_tech_tip_80)
 - [WildFly/JavaEE7 and MySQL linked on two Docker containers](http://blog.arungupta.me/wildfly-javaee7-mysql-link-two-docker-container-techtip65/)
 - [Deploy to WildFly and Docker from Eclipse](http://blog.arungupta.me/deploy-wildfly-docker-eclipse/)
