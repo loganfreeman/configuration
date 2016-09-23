@@ -8,6 +8,7 @@ Docker recipes
 - [WildFly/JavaEE7 and MySQL linked on two Docker containers](http://blog.arungupta.me/wildfly-javaee7-mysql-link-two-docker-container-techtip65/)
 - [Deploy to WildFly and Docker from Eclipse](http://blog.arungupta.me/deploy-wildfly-docker-eclipse/)
 - [Docker container linking across multiple hosts](http://blog.arungupta.me/docker-container-linking-across-multiple-hosts-techtip69/)
+- [Build a Docker container for any app using Heroku Buildpacks](https://github.com/CenturyLinkLabs/building)
 
 Docker images
 ---
