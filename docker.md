@@ -29,6 +29,7 @@ Docker images
 - [spring-boot-tomcat-mysql-app](https://github.com/meirwah/spring-boot-tomcat-mysql-app)
 - [docker-compose-mysql-tomcat](https://github.com/witrdotnet/docker-compose-mysql-tomcat)
 - [docker_centos_tomcat_mysql](https://github.com/bobdavisdev/docker_centos_tomcat_mysql)
+- [Docker CentOs7 + Java 7 + Tomcat 8](https://github.com/kirillF/centos-tomcat)
 
 Docker machine
 ---
