@@ -140,3 +140,31 @@ docker run --volumes-from dbdata -v $(pwd):/backup ubuntu tar cvf /backup/backup
 docker run --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf /backup/backup.tar"
 ```
 Here we’ve launched a new container and mounted the volume from the dbdata container. We’ve then mounted a local host directory as /backup. Finally, we’ve passed a command that uses tar to backup the contents of the dbdata volume to a backup.tar file inside our /backup directory.
+
+Docker host
+---
+
+```shell
+#!/bin/bash
+dev_docker_file="docker-compose.yml"
+
+export localhost_ip="$(ifconfig en0 inet | grep "inet " | awk -F'[: ]+' '{ print $2 }')"
+
+docker-compose -f $dev_docker_file build
+docker-compose -f $dev_docker_file up
+```
+
+docker-compose.yml
+```
+version: '2'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    extra_hosts:
+      - "dockerhost:${localhost_ip}"
+```
