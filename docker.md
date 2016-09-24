@@ -35,6 +35,7 @@ Docker images
 - [Docker tomcat context example](https://github.com/ciandt-dev/docker-tomcat7-mysql)
 - [Docker tomcat jdbc example](https://github.com/dmulligan/docker-example-tomcat-mysql)
 - [Docker compose tomcat mysql example](https://github.com/dmulligan/docker-example-tomcat-mysql)
+- [Minimal Docker tomcat](https://github.com/jeanblanchard/docker-tomcat)
 
 Docker machine
 ---
