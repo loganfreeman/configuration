@@ -36,6 +36,7 @@ Docker images
 - [Docker tomcat jdbc example](https://github.com/dmulligan/docker-example-tomcat-mysql)
 - [Docker compose tomcat mysql example](https://github.com/dmulligan/docker-example-tomcat-mysql)
 - [Minimal Docker tomcat](https://github.com/jeanblanchard/docker-tomcat)
+- [bitnami tomcat](https://github.com/bitnami/bitnami-docker-tomcat)
 
 Docker machine
 ---
