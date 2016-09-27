@@ -1,3 +1,8 @@
+Tips
+---
+- [Rails Environment Variables](http://railsapps.github.io/rails-environment-variables.html)
+- [The Rubyist's Guide to Environment Variables](http://blog.honeybadger.io/ruby-guide-environment-variables/)
+
 How to write complex migrations in Rails
 ---
 - Use the full power of SQL
