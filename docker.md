@@ -23,6 +23,7 @@ Docker recipes
 - [docker rails](https://github.com/dchqinc/docker-rails)
 - [dchq-docker-java-example](https://github.com/dchqinc/dchq-docker-java-example)
 - [Deploying NGINX and NGINX Plus with Docker](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/)
+- [Rails Development Environment for OS X Using Docker](https://allenan.com/docker-rails-dev-environment-for-osx/)
 
 Docker images
 ---
