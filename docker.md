@@ -26,6 +26,7 @@ Docker recipes
 - [Rails Development Environment for OS X Using Docker](https://allenan.com/docker-rails-dev-environment-for-osx/)
 - [Running Docker Containers with Systemd](http://container-solutions.com/running-docker-containers-with-systemd/)
 - [system docker](https://github.com/ibuildthecloud/systemd-docker)
+- [Automatically start containers](https://docs.docker.com/engine/admin/host_integration/)
 
 Docker images
 ---
