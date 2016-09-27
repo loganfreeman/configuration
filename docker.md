@@ -24,6 +24,7 @@ Docker recipes
 - [dchq-docker-java-example](https://github.com/dchqinc/dchq-docker-java-example)
 - [Deploying NGINX and NGINX Plus with Docker](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/)
 - [Rails Development Environment for OS X Using Docker](https://allenan.com/docker-rails-dev-environment-for-osx/)
+- [Running Docker Containers with Systemd](http://container-solutions.com/running-docker-containers-with-systemd/)
 
 Docker images
 ---
