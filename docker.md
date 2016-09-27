@@ -3,6 +3,7 @@ Docker references
 - [Container Linking Environment Variables](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/#environment-variables)
 - [Docker commands](https://docs.docker.com/engine/reference/commandline/)
 - [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+- [Why and How to Use Docker for Development](https://medium.com/iron-io-blog/why-and-how-to-use-docker-for-development-a156c1de3b24#.vmkg8o8jc)
 
 Docker recipes
 ---
