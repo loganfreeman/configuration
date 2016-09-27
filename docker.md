@@ -25,6 +25,7 @@ Docker recipes
 - [Deploying NGINX and NGINX Plus with Docker](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/)
 - [Rails Development Environment for OS X Using Docker](https://allenan.com/docker-rails-dev-environment-for-osx/)
 - [Running Docker Containers with Systemd](http://container-solutions.com/running-docker-containers-with-systemd/)
+- [system docker](https://github.com/ibuildthecloud/systemd-docker)
 
 Docker images
 ---
