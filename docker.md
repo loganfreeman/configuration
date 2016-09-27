@@ -22,6 +22,7 @@ Docker recipes
 - [docker python](https://github.com/dchqinc/docker-python)
 - [docker rails](https://github.com/dchqinc/docker-rails)
 - [dchq-docker-java-example](https://github.com/dchqinc/dchq-docker-java-example)
+- [Deploying NGINX and NGINX Plus with Docker](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/)
 
 Docker images
 ---
