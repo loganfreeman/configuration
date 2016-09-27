@@ -44,6 +44,7 @@ Docker images
 - [Minimal Docker tomcat](https://github.com/jeanblanchard/docker-tomcat)
 - [bitnami tomcat](https://github.com/bitnami/bitnami-docker-tomcat)
 - [mysql settings example](https://gist.github.com/feltnerm/bb6e23f531803896ca1e)
+- [Continuous Deployment with Gradle and Docker example project](https://github.com/gesellix/pipeline-with-gradle-and-docker)
 
 Docker machine
 ---
