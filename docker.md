@@ -213,3 +213,8 @@ task buildDocker(type: Docker, dependsOn: build) {
   }
 }
 ```
+
+You can build a tagged docker image and then push it to a remote repository with Gradle in one command:
+```
+$ ./gradlew build buildDocker
+```
