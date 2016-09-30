@@ -180,3 +180,36 @@ services:
     extra_hosts:
       - "dockerhost:${localhost_ip}"
 ```
+
+Build a Docker Image with Gradle
+---
+If you are using Gradle you need to add a new plugin like this:
+
+`build.gradle`
+
+```groovy
+buildscript {
+    ...
+    dependencies {
+        ...
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+    }
+}
+
+group = 'springio'
+
+...
+apply plugin: 'docker'
+
+task buildDocker(type: Docker, dependsOn: build) {
+  push = true
+  applicationName = jar.baseName
+  dockerfile = file('src/main/docker/Dockerfile')
+  doFirst {
+    copy {
+      from jar
+      into stageDir
+    }
+  }
+}
+```
