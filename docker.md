@@ -31,6 +31,7 @@ Docker recipes
 - [Automatically start containers](https://docs.docker.com/engine/admin/host_integration/)
 - [wait for start script](http://brunorocha.org/python/dealing-with-linked-containers-dependency-in-docker-compose.html)
 - [Dockerfile generator](http://jrruethe.github.io/blog/2015/09/20/dockerfile-generator/)
+- [tensorflow](https://github.com/somaticio/tensorflow.rb)
 
 Docker images
 ---
