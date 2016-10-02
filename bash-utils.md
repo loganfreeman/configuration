@@ -328,7 +328,8 @@ if [ "$cygwin" = "false" -a "$darwin" = "false" ] ; then
 fi
 ```
 
-# traverses directory structure from process work directory to filesystem root. first directory with .mvn subdirectory is considered project base directory
+traverses directory structure from process work directory to filesystem root. first directory with .mvn subdirectory is considered project base directory
+---
 ```shell
 find_maven_basedir() {
   local basedir=$(pwd)
@@ -343,8 +344,9 @@ find_maven_basedir() {
   echo "${basedir}"
 }
 ```
-# concatenates all lines of a file
-``shell
+concatenates all lines of a file
+---
+```shell
 concat_lines() {
   if [ -f "$1" ]; then
     echo "$(tr -s '\n' ' ' < "$1")"
