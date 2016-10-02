@@ -328,8 +328,7 @@ if [ "$cygwin" = "false" -a "$darwin" = "false" ] ; then
 fi
 ```
 
-# traverses directory structure from process work directory to filesystem root
-# first directory with .mvn subdirectory is considered project base directory
+# traverses directory structure from process work directory to filesystem root. first directory with .mvn subdirectory is considered project base directory
 ```shell
 find_maven_basedir() {
   local basedir=$(pwd)
