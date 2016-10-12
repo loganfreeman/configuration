@@ -32,6 +32,8 @@ Docker recipes
 - [wait for start script](http://brunorocha.org/python/dealing-with-linked-containers-dependency-in-docker-compose.html)
 - [Dockerfile generator](http://jrruethe.github.io/blog/2015/09/20/dockerfile-generator/)
 - [tensorflow](https://github.com/somaticio/tensorflow.rb)
+- [NAST cluster](http://nats.io/documentation/server/gnatsd-cluster/)
+- [Open nsfw model](https://github.com/yahoo/open_nsfw)
 
 Docker images
 ---
@@ -49,7 +51,7 @@ Docker images
 - [bitnami tomcat](https://github.com/bitnami/bitnami-docker-tomcat)
 - [mysql settings example](https://gist.github.com/feltnerm/bb6e23f531803896ca1e)
 - [Continuous Deployment with Gradle and Docker example project](https://github.com/gesellix/pipeline-with-gradle-and-docker)
-- [Open nsfw model](https://github.com/yahoo/open_nsfw)
+
 
 Docker machine
 ---
