@@ -35,6 +35,7 @@ Docker recipes
 - [tensorflow](https://github.com/somaticio/tensorflow.rb)
 - [NAST cluster](http://nats.io/documentation/server/gnatsd-cluster/)
 - [Open nsfw model](https://github.com/yahoo/open_nsfw)
+- [Generate links that users can use to submit messages encrypted with your public key](https://github.com/whitesmith/hawkpost)
 
 Docker images
 ---
