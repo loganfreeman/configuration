@@ -53,6 +53,7 @@ Docker images
 - [bitnami tomcat](https://github.com/bitnami/bitnami-docker-tomcat)
 - [mysql settings example](https://gist.github.com/feltnerm/bb6e23f531803896ca1e)
 - [Continuous Deployment with Gradle and Docker example project](https://github.com/gesellix/pipeline-with-gradle-and-docker)
+- [neural enhance](https://github.com/alexjc/neural-enhance)
 
 
 Docker machine
