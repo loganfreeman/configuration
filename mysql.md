@@ -224,3 +224,10 @@ Show mysql mode
 ```
 SHOW VARIABLES LIKE 'sql_mode';
 ```
+
+
+You must reset your password using ALTER USER statement before executing this statement.
+---
+```
+SET PASSWORD = PASSWORD('xxxxxxxx');
+```
