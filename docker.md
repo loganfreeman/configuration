@@ -9,6 +9,7 @@ Docker references
 
 Docker recipes
 ---
+- [dockerfiles](https://github.com/jessfraz/dockerfiles)
 - [Create And Deploy Spring-Based Java Application In Containers Using Docker](http://www.nirmata.com/2016/08/create-and-deploy-spring-based-java-application-in-containers-using-docker/)
 - [Setting up a Docker container with Centos6 and Tomcat7](http://www.dev-garden.org/2014/12/27/setting-up-a-docker-container-with-centos6-and-tomcat7/)
 - [9 Docker recipes for Java EE Applications](http://planet.jboss.org/post/9_docker_recipes_for_java_ee_applications_tech_tip_80)
