@@ -1,0 +1,1 @@
+- [gitlab-ci](https://docs.gitlab.com/ce/ci/quick_start/README.html)
