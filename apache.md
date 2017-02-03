@@ -194,7 +194,7 @@ brew unlink php56
 brew install php70
 ```
 
-PHP Switcher Script
+[PHP Switcher Script](https://github.com/sgotre/sphp-osx)
 ---
 ```shell
 mkdir -p ~/bin/
