@@ -1,3 +1,16 @@
+[install Nokogiri](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
+---
+Installation should Just Work™ using Nokogiri’s vendored libxml2 and libxslt.
+
+First, make sure you have the latest version of RubyGems and xcode commandline tools:
+```shell
+gem update --system
+xcode-select --install
+```
+Then install nokogiri with a specific version:
+```shell
+ gem install nokogiri -v '1.6.8'
+```
 eventmachine openssl issue
 ---
 ```shell
