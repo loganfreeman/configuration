@@ -1,1 +1,2 @@
 - [Intel’s instruction set](https://software.intel.com/en-us/articles/intel-sdm)
+- [Bootstrap yourself to write an OS from scratch](https://github.com/tuhdo/os01)
