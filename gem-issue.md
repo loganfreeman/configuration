@@ -38,7 +38,7 @@ sqlite3 1.3.7 implicit declaration of function 'RBIGNUM' is invalid in C99
 ```shell
 gem install sqlite3
 ```
-“gem install therubyracer -v '0.10.2'” on osx not installing
+`gem install therubyracer -v '0.10.2'` on osx not installing
 ---
 ```
 linking shared-object v8.bundle
