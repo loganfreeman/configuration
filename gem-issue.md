@@ -88,7 +88,7 @@ Latest Capybara-webkit throws a deprecation warning:
 ```
 WARNING: The next major version of capybara-webkit will require at least version 5.0 of Qt. You're using version 4.8.7.
 ```
-
+[Installing-Qt-and-compiling-capybara-webkit](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit#macos-sierra-1012-el-capitan-1011-and-yosemite-1010)
 ```shell
 brew uninstall qt
 brew install qt5
