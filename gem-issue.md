@@ -4,6 +4,7 @@ gcc: warning: couldn’t understand kern.osversion ‘14.0.0'
 
 ```
 brew upgrade gcc
+export CC=/Applications/Xcode.app/Contents/Developer/usr/bin/gcc
 ```
 
 [install Nokogiri](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
