@@ -1,3 +1,11 @@
+[gcc warning](http://stackoverflow.com/questions/26486163/gcc-4-9-1-in-os-x-yosemite-gcc-warning-couldn-t-understand-kern-osversion-1)
+---
+gcc: warning: couldn’t understand kern.osversion ‘14.0.0'
+
+```
+brew upgrade gcc
+```
+
 [install Nokogiri](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
 ---
 Installation should Just Work™ using Nokogiri’s vendored libxml2 and libxslt.
