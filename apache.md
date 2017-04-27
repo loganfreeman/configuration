@@ -213,3 +213,10 @@ mcrypt on Mac
 brew install mcrypt
 brew install php55-mcrypt
 ```
+
+[selinux](http://stackoverflow.com/questions/21498904/forbidden-you-dont-have-permission-to-access-on-this-server-centos-6-laravel)
+---
+```shell
+chcon -R -t httpd_sys_content_t *
+ls -Z
+```
