@@ -3,6 +3,16 @@
 On systems running SELinux, all processes and files are labeled in a way that represents security-relevant information. This information is called the SELinux context. For files, this is viewed using the `ls -Z` command
 
 
+
+[SELinux Types](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Confined_Services/sect-Managing_Confined_Services-The_Apache_HTTP_Server-Types.html)
+---
+`httpd_sys_content_t`
+
+Use this type for static web content, such as .html files used by a static website. Files labeled with this type are accessible (read only) to httpd and scripts executed by httpd. By default, files and directories labeled with this type cannot be written to or modified by httpd or other processes. Note that by default, files created in or copied into /var/www/html/ are labeled with the httpd_sys_content_t type.
+
+
+
+
 SELinux Access Control
 ---
 SELinux has 3 forms of access control:
