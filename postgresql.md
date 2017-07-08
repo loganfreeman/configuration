@@ -1,11 +1,3 @@
-Mac
----
-```
-export PATH=/Library/PostgreSQL/9.5/bin:$PATH
-rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8
-pg_ctl -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log start
-```
-
 FATAL: role “postgres” does not exist
 ---
 For MAC:
