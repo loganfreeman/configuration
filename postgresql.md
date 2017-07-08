@@ -24,6 +24,10 @@ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 
+Now, it is set up, login using `psql -U postgres -h localhost` or use PgAdmin for GUI.
+
+By default user `postgres` will not have any login password.
+
 Uninstall postgres completely on Mac
 ---
 ```
