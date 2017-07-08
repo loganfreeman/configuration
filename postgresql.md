@@ -6,6 +6,11 @@ rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log start
 ```
 
+create user
+---
+```
+/usr/local/Cellar/postgresql/<version>/bin/createuser -s postgres
+```
 
 Uninstall postgres completely on Mac
 ---
