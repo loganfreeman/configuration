@@ -6,6 +6,13 @@ rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log start
 ```
 
+
+Uninstall postgres completely on Mac
+---
+```
+sudo /Library/PostgreSQL/9.X/uninstall-postgresql.app/Contents/MacOS/installbuilder.sh
+```
+
 Centos installation
 ---
 ``` shell
