@@ -2,6 +2,7 @@ Mac
 ---
 ```
 export PATH=/Library/PostgreSQL/9.5/bin:$PATH
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ```
 
 Centos installation
