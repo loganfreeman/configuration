@@ -6,11 +6,19 @@ rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log start
 ```
 
-create user
+FATAL: role “postgres” does not exist
 ---
-```
+For MAC:
+
+Install Homebrew
+brew install postgres
+initdb /usr/local/var/postgres
 /usr/local/Cellar/postgresql/<version>/bin/createuser -s postgres
-```
+To start server at startup
+
+mkdir -p ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 Uninstall postgres completely on Mac
 ---
