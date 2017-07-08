@@ -1,3 +1,9 @@
+Mac
+---
+```
+export PATH=/Library/PostgreSQL/9.5/bin:$PATH
+```
+
 Centos installation
 ---
 ``` shell
