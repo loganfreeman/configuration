@@ -1,3 +1,15 @@
+How do I discard unstaged changed in git
+---
+```
+git stash save --keep-index
+```
+
+How do I merge without auto-commit
+---
+```
+git merge branch-name --no-commit --no-ff
+```
+
 get current branch
 ---
 ```shell
