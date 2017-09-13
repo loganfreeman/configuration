@@ -1,3 +1,13 @@
+curb
+---
+```
+# Redhat
+yum install ruby-devel libcurl-devel openssl-devel
+# Ubuntu
+apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev
+```
+
+
 [gcc warning](http://stackoverflow.com/questions/26486163/gcc-4-9-1-in-os-x-yosemite-gcc-warning-couldn-t-understand-kern-osversion-1)
 ---
 gcc: warning: couldn’t understand kern.osversion ‘14.0.0'
