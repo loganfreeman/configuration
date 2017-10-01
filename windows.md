@@ -12,3 +12,10 @@ For simplicity, we will abbreviate this as $HOME below. Using that convention, t
 
 You can change the default machine folder by selecting "Preferences" from the "File" menu in the VirtualBox main window. Then, in the window that pops up, click on the "General" tab. Alternatively, use `VBoxManage setproperty machinefolder`;
 
+
+[Global configuration data](https://www.virtualbox.org/manual/ch10.html#vboxconfigdata)
+
+ Optionally, you can supply an alternate configuration directory by setting the `VBOX_USER_HOME` environment variable.
+ 
+ 
+
