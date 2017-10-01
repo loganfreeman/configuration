@@ -19,3 +19,7 @@ You can change the default machine folder by selecting "Preferences" from the "F
  
  
 
+Vagrant
+---
+[Environment Variables](https://www.vagrantup.com/docs/other/environmental-variables.html)
+
