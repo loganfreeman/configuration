@@ -32,3 +32,7 @@ Android
 Windows
 ---
 [Move your libraries to a second drive](https://www.pcworld.com/article/2079571/move-your-libraries-to-a-second-drive-or-partition.html)
+
+npm config
+---
+[Environment Variables](https://docs.npmjs.com/misc/config)
