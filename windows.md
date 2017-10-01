@@ -23,3 +23,12 @@ Vagrant
 ---
 [Environment Variables](https://www.vagrantup.com/docs/other/environmental-variables.html)
 
+
+Android
+---
+[Environment Variables](https://developer.android.com/studio/command-line/variables.html)
+
+
+Windows
+---
+[Move your libraries to a second drive](https://www.pcworld.com/article/2079571/move-your-libraries-to-a-second-drive-or-partition.html)
