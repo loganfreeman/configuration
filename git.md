@@ -1,3 +1,19 @@
+How to squash commits in git after they have been pushed?
+---
+Squash commits locally with
+```
+git rebase -i origin/master~4 master
+```
+and then force push with
+```
+git push origin +master
+```
+Difference between `--force` and `+`
+
+From the documentation of git push:
+
+Note that `--force` applies to all the refs that are pushed, hence using it with `push.default` set to matching or with multiple push destinations configured with `remote.*.push`. may overwrite refs other than the current branch (including local refs that are strictly behind their remote counterpart). To force a push to only one branch, use a + in front of the refspec to push (e.g git push origin +master to force a push to the master branch).
+
 How do I discard unstaged changed in git
 ---
 ```
