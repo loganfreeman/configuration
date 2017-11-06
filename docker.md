@@ -230,3 +230,9 @@ You can build a tagged docker image and then push it to a remote repository with
 ```
 $ ./gradlew build buildDocker
 ```
+
+
+Docker compose
+---
+- [Turns docker run commands into docker-compose files](https://github.com/magicmark/composerize)
+- [Turn a docker-compose.yml files into Graphviz .dot files](https://github.com/abesto/docker-compose-graphviz)
