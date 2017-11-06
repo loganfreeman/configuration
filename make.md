@@ -11,3 +11,6 @@ install:
 ```
 [The magic behind configure, make, make install](https://robots.thoughtbot.com/the-magic-behind-configure-make-make-install)
 ---
+
+
+- [Functions for Transforming Text](https://www.gnu.org/software/make/manual/html_node/Functions.html#Functions)
