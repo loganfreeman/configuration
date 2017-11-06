@@ -1,2 +1,3 @@
 - [How To Setup And Configure Dnsmasq For Local Development Environment](https://www.computersnyou.com/3786/how-to-setup-dnsmasq-local-dns/)
 - [Dnsmasq For Easy LAN Name Services](https://www.linux.com/learn/dnsmasq-easy-lan-name-services)
+- [Using Dnsmasq for local development on OS X](https://passingcuriosity.com/2013/dnsmasq-dev-osx/)
