@@ -238,3 +238,7 @@ Docker compose
 - [Turn a docker-compose.yml files into Graphviz .dot files](https://github.com/abesto/docker-compose-graphviz)
 - [command line utility to search docker-compose projects](https://github.com/francescou/docker-compose-search)
 - [turn docker compose intall a graph](https://github.com/Alexis-benoist/draw-compose)
+
+Kubernetes
+---
+- [Monitoring, visualisation & management for Docker & Kubernetes](https://github.com/weaveworks/scope)
