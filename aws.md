@@ -1,1 +1,2 @@
 - [Amazon Web Services — a practical guide](https://github.com/open-guides/og-aws)
+- [AWS SDK for Python](https://github.com/boto/boto3)
