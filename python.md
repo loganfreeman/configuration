@@ -1,3 +1,35 @@
+[install python at $HOME](http://thelazylog.com/install-python-as-local-user-on-linux/)
+---
+```
+mkdir ~/python      
+cd ~/python
+wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz
+tar zxfv Python-2.7.11.tgz
+find ~/python -type d | xargs chmod 0755
+cd Python-2.7.11
+
+./configure --prefix=$HOME/python
+make && make install
+```
+
+Notice the prefix option, it is mandatory for this to work. The value of prefix option is to specify where to put the related output of make command, by default it is in the `/usr/local/` and we don't want that so we use our own customized directory.
+
+Here comes another important step. By the default, if we type python command, it will use the default python of the system. We are going to update the environment variables to force the shell to use our new python. Edit `~/.bashrc_profile` and add the following lines:
+
+```
+export PATH=$HOME/python/Python-2.7.11/:$PATH
+export PYTHONPATH=$HOME/python/Python-2.7.11
+```
+
+Install `pip`
+```
+wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py -O - | python - --user
+```
+After finishing the installation, we need to update our PATH variable. Open `~/.bashrc_profile` and add the following line:
+```
+export PATH=$HOME/.local/bin:$PATH
+```
+
 Class attributes
 ---
 Class attributes are attributes which are owned by the class itself. They will be shared by all the instances of the class. Therefore they have the same value for every instance. We define class attributes outside of all the methods, usually they are placed at the top, right below the class header. 
