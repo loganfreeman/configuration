@@ -1,1 +1,2 @@
 - [Amazon DSSTNE: Deep Scalable Sparse Tensor Network Engine](https://github.com/amzn/amazon-dsstne)
+- [Super Resolution for images using deep learning](https://github.com/alexjc/neural-enhance)
