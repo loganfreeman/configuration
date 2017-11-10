@@ -20,3 +20,7 @@ localstack web
 configuration management
 ---
 - [aws chef cookbooks](https://github.com/chef-cookbooks/aws)
+
+Automation scripts
+---
+- [A collection of shell scripts for automating various tasks with Amazon Web Services](https://github.com/swoodford/aws)
