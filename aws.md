@@ -14,4 +14,5 @@ pyenv activate localstack-virtual-env
 pip install localstack
 aws --endpoint-url=http://localhost:4568 kinesis list-streams
 pip install awscli-local
+localstack web
 ```
