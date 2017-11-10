@@ -7,3 +7,9 @@ Tools
 Development
 ---
 - [A fully functional local AWS cloud stack. Develop and test your cloud apps offline! ](https://github.com/localstack/localstack)
+```
+pyenv versions
+pyenv virtualenv 2.7.13 localstack-virtual-env
+pyenv activate localstack-virtual-env
+pip install localstack
+```
