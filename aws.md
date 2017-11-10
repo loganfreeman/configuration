@@ -12,4 +12,6 @@ pyenv versions
 pyenv virtualenv 2.7.13 localstack-virtual-env
 pyenv activate localstack-virtual-env
 pip install localstack
+aws --endpoint-url=http://localhost:4568 kinesis list-streams
+pip install awscli-local
 ```
