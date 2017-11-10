@@ -24,3 +24,7 @@ configuration management
 Automation scripts
 ---
 - [A collection of shell scripts for automating various tasks with Amazon Web Services](https://github.com/swoodford/aws)
+
+Tutorials
+---
+- [Stuff I use for my AWS demos](https://github.com/juliensimon/aws)
