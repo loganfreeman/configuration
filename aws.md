@@ -28,3 +28,7 @@ Automation scripts
 Tutorials
 ---
 - [Stuff I use for my AWS demos](https://github.com/juliensimon/aws)
+
+Cloudformation
+---
+- [AWS CloudFormation](https://aws.amazon.com/cloudformation/?nc1=h_ls)
