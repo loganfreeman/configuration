@@ -16,3 +16,7 @@ aws --endpoint-url=http://localhost:4568 kinesis list-streams
 pip install awscli-local
 localstack web
 ```
+
+configuration management
+---
+- [aws chef cookbooks](https://github.com/chef-cookbooks/aws)
