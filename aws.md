@@ -1,3 +1,7 @@
+Reading
+---
+- [Amazon Web Services — a practical guide](https://github.com/open-guides/og-aws)
+
 Tools
 ---
 - [Amazon Web Services — a practical guide](https://github.com/open-guides/og-aws)
