@@ -1,3 +1,15 @@
+Postgresql
+---
+```
+psql -h localhost -U postgres
+```
+
+```
+\l
+\connect homeland-dev
+\dt
+```
+
 FATAL: role “postgres” does not exist
 ---
 For MAC:
