@@ -24,3 +24,11 @@ When you switched off the middleware auto update, or you have a box up and runni
 ```
 vagrant vbguest [vm-name] [--do start|rebuild|install] [--status] [-f|--force] [-b|--auto-reboot] [-R|--no-remote] [--iso VBoxGuestAdditions.iso] [--no-cleanup]
 ```
+
+mount manually
+---
+```
+vagrant vbguest --do install --no-cleanup
+vagrant ssh
+sudo /mnt/VBoxLinuxAdditions.run
+```
