@@ -1,3 +1,30 @@
+GitHub Api download zip or tarball link
+---
+
+You can wget your way out of the GitHub repo to get a tar file (archive):
+```
+wget --no-check-certificate https://github.com/User/repo/archive/master.tar.gz
+# better, if the certificate authorities are present:
+wget https://github.com/User/repo/archive/master.tar.gz
+```
+will get you a file named 'master' from the user 'User''s repo 'repo'.
+
+The updated V3 API url is:
+
+`https://api.github.com/repos/User/repo/:archive_format/:ref`
+
+```
+#
+# two possibilities for fomat:
+https://api.github.com/repos/User/repo/tarball/master
+https://api.github.com/repos/User/repo/zipball/master
+```
+
+```
+# from github example:
+$curl -L https://api.github.com/repos/octokit/octokit.rb/tarball > octokit.tar.gz
+```
+
 How to squash commits in git after they have been pushed?
 ---
 Squash commits locally with
