@@ -45,6 +45,8 @@ clone() {
   curl -s -u $USERNAME:$PASSWORD https://bitbucket.${server}.com/rest/api/1.0/projects/$PROJECTNAME/repos/ \
     | jq -r '.values[].links.clone[] | select(.name=="ssh") | .href' \
     | xargs -I {} echo "git clone '{}'" > clone_"$PROJECTNAME".sh
+
+  chmod +x clone_"$PROJECTNAME".sh
 }
 
 export -f clone
@@ -54,4 +56,5 @@ curl -s -u $USERNAME:$PASSWORD https://bitbucket.${server}.com/rest/api/1.0/proj
   | xargs -I {} bash -c 'clone "$@"' _ {}
 
 exit 0;
+
 ```
