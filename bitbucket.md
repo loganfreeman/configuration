@@ -58,3 +58,29 @@ curl -s -u $USERNAME:$PASSWORD https://bitbucket.${server}.com/rest/api/1.0/proj
 exit 0;
 
 ```
+
+clone all
+```
+#!/bin/bash
+
+cloned() {
+  subdircount=`find $1 -maxdepth 1 -type d | wc -l`
+
+  echo $subdircount
+}
+
+export -f cloned
+for f in *; do
+    if [[ -d $f ]]; then
+      subdircount=$(cloned $f)
+      # echo "$f $subdircount"
+      if [ $subdircount -eq 1 ]; then
+        pushd `pwd`
+        cd $f
+        sh "clone_`basename $f`.sh"
+        popd
+      fi
+
+    fi
+done
+```
