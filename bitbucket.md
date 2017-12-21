@@ -122,9 +122,11 @@ Net::HTTP.start(uri.host, uri.port,
     puts repo['name'].red
     url = repo['links']['clone'].find { |link| /^http/ =~ link['name'] }['href']
 
-    puts "#{repo['name']} #{Dir.exist? repo['name']}"
     if Dir.exist? repo['name']
-
+      Dir.chdir( repo['name']) do
+        puts "git pull #{Dir.pwd}".green
+        `git pull`
+      end
     else
       `git clone #{url}`
     end
@@ -132,4 +134,5 @@ Net::HTTP.start(uri.host, uri.port,
 
   File.open("#{project}.json", 'w') { |file| file.write(response.body) }
 end
+
 ```
