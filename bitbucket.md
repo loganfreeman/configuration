@@ -94,30 +94,29 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'colorize'
-username = ENV['bitbuckt_username']
-server = ENV['bitbuckt_server']
-password = ENV['bitbucket_password']
-project = ARGV[0]
-FileUtils::mkdir_p project
-Dir.chdir project
-puts `pwd`
+$username = ENV['bitbuckt_username']
+$server = ENV['bitbuckt_server']
+$password = ENV['bitbucket_password']
+$project_name = ARGV[0]
 
-uri = URI("https://bitbucket.#{server}.com/rest/api/1.0/projects/#{project}/repos/")
+def download(uri)
+  Net::HTTP.start(uri.host, uri.port,
+    :use_ssl => uri.scheme == 'https',
+    :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
 
-# puts "curl -s -u #{username}:#{password} https://bitbucket.${server}.com/rest/api/1.0/projects/#{project}/repos"
+    request = Net::HTTP::Get.new uri.request_uri
+    request.basic_auth $username, $password
 
-Net::HTTP.start(uri.host, uri.port,
-  :use_ssl => uri.scheme == 'https',
-  :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
+    response = http.request request # Net::HTTPResponse object
 
-  request = Net::HTTP::Get.new uri.request_uri
-  request.basic_auth username, password
-
-  response = http.request request # Net::HTTPResponse object
-
-  json = JSON.parse(response.body)
+    json = JSON.parse(response.body)
 
 
+    yield json
+  end
+end
+
+def clone_repo(json)
   json['values'].each do | repo |
     puts repo['name'].red
     url = repo['links']['clone'].find { |link| /^http/ =~ link['name'] }['href']
@@ -132,7 +131,38 @@ Net::HTTP.start(uri.host, uri.port,
     end
   end
 
-  File.open("#{project}.json", 'w') { |file| file.write(response.body) }
 end
+def clone_project(project)
+  FileUtils::mkdir_p project
+  Dir.chdir project do
+    puts `pwd`
+
+
+
+    uri = URI("https://bitbucket.#{$server}.com/rest/api/1.0/projects/#{project}/repos/")
+
+    # puts "curl -s -u #{$username}:#{$password} https://bitbucket.${$server}.com/rest/api/1.0/projects/#{project}/repos"
+
+    download(uri) do |json|
+      clone_repo json
+    end
+  end
+
+
+end
+
+if $project_name.nil?
+  uri = URI("https://bitbucket.#{$server}.com/rest/api/1.0/projects/")
+
+  download uri do |json|
+    json['values'].each do |project|
+      puts project['name']
+      clone_project project['name']
+    end
+  end
+else
+  clone_project $project_name
+end
+
 
 ```
