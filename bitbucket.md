@@ -157,12 +157,13 @@ if $project_name.nil?
   download uri do |json|
     json['values'].each do |project|
       puts project['name']
-      clone_project project['name']
+      clone_project project['key']
     end
   end
 else
   clone_project $project_name
 end
+
 
 
 ```
