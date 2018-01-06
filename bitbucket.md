@@ -94,6 +94,9 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'colorize'
+# or
+require 'dotenv'
+Dotenv.load
 $username = ENV['bitbuckt_username']
 $server = ENV['bitbuckt_server']
 $password = ENV['bitbucket_password']
