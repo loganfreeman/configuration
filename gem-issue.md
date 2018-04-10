@@ -1,3 +1,17 @@
+Can't find the PostgreSQL client library (libpq)
+---
+```
+$ sudo su
+
+$ env ARCHFLAGS="-arch x86_64" gem install pg
+
+Building native extensions.  This could take a while...
+Successfully installed pg-0.11.0
+1 gem installed
+Installing ri documentation for pg-0.11.0...
+Installing RDoc documentation for pg-0.11.0...
+```
+
 curb
 ---
 ```
